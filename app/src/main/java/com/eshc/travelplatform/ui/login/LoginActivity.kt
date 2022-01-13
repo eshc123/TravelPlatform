@@ -17,6 +17,7 @@ import com.eshc.travelplatform.MainActivity
 import com.eshc.travelplatform.databinding.ActivityLoginBinding
 
 import com.eshc.travelplatform.R
+import com.eshc.travelplatform.ui.register.RegisterFragment
 
 class LoginActivity : AppCompatActivity() {
 

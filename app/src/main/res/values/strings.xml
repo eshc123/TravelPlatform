@@ -7,6 +7,7 @@
 
     <string name="prompt_email">이메일</string>
     <string name="prompt_password">비밀번호</string>
+    <string name="prompt_phone">휴대폰번호</string>
     <string name="action_sign_in">로그인</string>
     <string name="action_register">회원가입</string>
 
@@ -14,6 +15,7 @@
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
+    <string name="invalid_phonenum">\'-\'를 제외한 휴대폰 번호 11자리를 입력해주세요</string>
     <string name="login_failed">"Login failed"</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

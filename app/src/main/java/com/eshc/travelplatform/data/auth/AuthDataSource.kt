@@ -1,13 +1,13 @@
-package com.eshc.travelplatform.data.login
+package com.eshc.travelplatform.data.auth
 
-import com.eshc.travelplatform.data.login.model.LoggedInUser
+import com.eshc.travelplatform.data.auth.model.LoggedInUser
 import java.io.IOException
 import java.util.*
 
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
  */
-class LoginDataSource {
+class AuthDataSource {
 
     fun login(username: String, password: String): Result<LoggedInUser> {
         try {

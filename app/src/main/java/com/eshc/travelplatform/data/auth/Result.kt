@@ -1,4 +1,4 @@
-package com.eshc.travelplatform.data.login
+package com.eshc.travelplatform.data.auth
 
 /**
  * A generic class that holds a value with its loading status.

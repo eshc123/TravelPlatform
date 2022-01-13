@@ -4,12 +4,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
-import com.eshc.travelplatform.data.login.LoginRepository
-import com.eshc.travelplatform.data.login.Result
+import com.eshc.travelplatform.data.auth.AuthRepository
+import com.eshc.travelplatform.data.auth.Result
 
 import com.eshc.travelplatform.R
 
-class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
+class LoginViewModel(private val authRepository: AuthRepository) : ViewModel() {
 
     private val _loginForm = MutableLiveData<LoginFormState>()
     val loginFormState: LiveData<LoginFormState> = _loginForm
@@ -19,7 +19,7 @@ class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel()
 
     fun login(username: String, password: String) {
         // can be launched in a separate asynchronous job
-        val result = loginRepository.login(username, password)
+        val result = authRepository.login(username, password)
 
         if (result is Result.Success) {
             _loginResult.value =
