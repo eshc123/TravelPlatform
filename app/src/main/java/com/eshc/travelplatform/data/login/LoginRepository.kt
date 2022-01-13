@@ -1,6 +1,6 @@
-package com.eshc.travelplatform.data
+package com.eshc.travelplatform.data.login
 
-import com.eshc.travelplatform.data.model.LoggedInUser
+import com.eshc.travelplatform.data.login.model.LoggedInUser
 
 /**
  * Class that requests authentication and user information from the remote data source and

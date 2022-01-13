@@ -32,6 +32,7 @@ class LoginActivity : AppCompatActivity() {
         val username = binding.username
         val password = binding.password
         val login = binding.login
+        val register = binding.register
         val loading = binding.loading
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
@@ -98,6 +99,10 @@ class LoginActivity : AppCompatActivity() {
                 loading.visibility = View.VISIBLE
                 loginViewModel.login(username.text.toString(), password.text.toString())
             }
+        }
+        register.setOnClickListener {
+            val registerBottomSheetFragment = RegisterFragment()
+            registerBottomSheetFragment.show(supportFragmentManager,registerBottomSheetFragment.tag)
         }
     }
 

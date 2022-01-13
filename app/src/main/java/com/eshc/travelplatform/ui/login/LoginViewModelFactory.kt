@@ -2,8 +2,8 @@ package com.eshc.travelplatform.ui.login
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.eshc.travelplatform.data.LoginDataSource
-import com.eshc.travelplatform.data.LoginRepository
+import com.eshc.travelplatform.data.login.LoginDataSource
+import com.eshc.travelplatform.data.login.LoginRepository
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.
