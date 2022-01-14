@@ -37,6 +37,7 @@ class PlanFragment : BottomSheetDialogFragment() {
         (dialog as BottomSheetDialog).behavior.apply {
             isFitToContents = true
             state = BottomSheetBehavior.STATE_EXPANDED
+            skipCollapsed = true
         }
         val next = binding.temp
         val previous1 = binding.temp1
@@ -49,14 +50,19 @@ class PlanFragment : BottomSheetDialogFragment() {
         next.setOnClickListener {
             val offsetFromTop = 200
             (dialog as BottomSheetDialog).behavior.apply {
-                expandedOffset = offsetFromTop
+                //isFitToContents = false
+                state = BottomSheetBehavior.STATE_COLLAPSED
+                peekHeight = 1600
+                    //expandedOffset = offsetFromTop
             }
             locationLayout.visibility = View.GONE
             calendarLayout.visibility = View.VISIBLE
         }
         previous1.setOnClickListener {
             (dialog as BottomSheetDialog).behavior.apply {
-                expandedOffset = 0
+                state = BottomSheetBehavior.STATE_EXPANDED
+                isFitToContents = true
+
             }
             locationLayout.visibility = View.VISIBLE
             calendarLayout.visibility = View.GONE
