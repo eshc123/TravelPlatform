@@ -38,6 +38,17 @@ class AuthRepository(val dataSource: AuthDataSource) {
         return result
     }
 
+    fun register(username: String, password: String,phoneNum:String): Result<LoggedInUser> {
+        // handle login
+        val result = dataSource.login(username, password)
+
+        if (result is Result.Success) {
+            setLoggedInUser(result.data)
+        }
+
+        return result
+    }
+
     private fun setLoggedInUser(loggedInUser: LoggedInUser) {
         this.user = loggedInUser
         // If user credentials will be cached in local storage, it is recommended it be encrypted

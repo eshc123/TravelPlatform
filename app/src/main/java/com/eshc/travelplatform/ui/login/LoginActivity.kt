@@ -18,6 +18,7 @@ import com.eshc.travelplatform.databinding.ActivityLoginBinding
 
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.ui.register.RegisterFragment
+import com.eshc.travelplatform.util.ext.afterTextChanged
 
 class LoginActivity : AppCompatActivity() {
 
@@ -125,19 +126,4 @@ class LoginActivity : AppCompatActivity() {
     private fun startMainActivity() {
         startActivity(Intent(this@LoginActivity,MainActivity::class.java))
     }
-}
-
-/**
- * Extension function to simplify setting an afterTextChanged action to EditText components.
- */
-fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
-    this.addTextChangedListener(object : TextWatcher {
-        override fun afterTextChanged(editable: Editable?) {
-            afterTextChanged.invoke(editable.toString())
-        }
-
-        override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
-
-        override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
-    })
 }

@@ -17,7 +17,7 @@ class RegisterViewModel(private val authRepository: AuthRepository) : ViewModel(
     private val _registerResult = MutableLiveData<RegisterResult>()
     val registerResult: LiveData<RegisterResult> = _registerResult
 
-    fun register(username: String, password: String) {
+    fun register(username: String, password: String,phoneNum: String) {
         // can be launched in a separate asynchronous job
         val result = authRepository.login(username, password)
 
@@ -35,7 +35,7 @@ class RegisterViewModel(private val authRepository: AuthRepository) : ViewModel(
         } else if (!isPasswordValid(password)) {
             _registerForm.value = RegisterFormState(passwordError = R.string.invalid_password)
         } else if(!isPhoneNumValid(phoneNum)){
-            _registerForm.value = RegisterFormState(passwordError = R.string.invalid_phonenum)
+            _registerForm.value = RegisterFormState(phonenumError = R.string.invalid_phonenum)
         } else {
             _registerForm.value = RegisterFormState(isDataValid = true)
         }
