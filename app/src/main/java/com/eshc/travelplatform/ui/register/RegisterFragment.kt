@@ -25,14 +25,8 @@ class RegisterFragment : BottomSheetDialogFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-
         registerViewModel = ViewModelProvider(this, RegisterViewModelFactory())
             .get(RegisterViewModel::class.java)
-
-
-
 
     }
 

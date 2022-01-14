@@ -10,6 +10,8 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentHomeBinding
+import com.eshc.travelplatform.ui.plan.PlanFragment
+import com.eshc.travelplatform.ui.register.RegisterFragment
 
 class HomeFragment : Fragment() {
 
@@ -38,6 +40,14 @@ class HomeFragment : Fragment() {
         return root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.textHome.setOnClickListener {
+            val planBottomSheetFragment = PlanFragment()
+            planBottomSheetFragment.show(childFragmentManager,planBottomSheetFragment.tag)
+        }
+    }
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
