@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.adapter.DestinationAdapter
+import com.eshc.travelplatform.data.plan.Destination
 import com.eshc.travelplatform.databinding.FragmentPlanBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -45,7 +46,11 @@ class PlanFragment : BottomSheetDialogFragment() {
         val locationLayout = binding.llLocation
         val calendarLayout = binding.llCalendar
         initRecyclerView(recyclerView)
-        adapter.replaceAll(listOf("","","","","","","","","","","","","","","","","",""))
+        adapter.replaceAll(listOf(
+            Destination(
+            "서울"),Destination("부산"),Destination("대구"),Destination("대전"),Destination("강릉"),Destination("속초"),Destination(
+                "제주"),Destination("김해"),Destination("목포"),Destination("전주"),Destination("춘천"),Destination("진주"),Destination(
+                "광주"),Destination("인천"),Destination("가평"),Destination("경주"),Destination("울산"),Destination("천안")))
 
         next.setOnClickListener {
             val offsetFromTop = 200
