@@ -67,7 +67,7 @@ class LoginActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK)
 
             //Complete and destroy login activity once successful
-            startMainActivity()
+            //startMainActivity()
             finish()
         })
 
@@ -124,6 +124,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun startMainActivity() {
-        startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+        //startActivity(Intent(this@LoginActivity,MainActivity::class.java))
     }
 }
