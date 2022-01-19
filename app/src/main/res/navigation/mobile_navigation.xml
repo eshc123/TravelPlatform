@@ -9,7 +9,21 @@
         android:id="@+id/navigation_home"
         android:name="com.eshc.travelplatform.ui.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_fragment_plan"
+            app:destination="@id/fragment_plan" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_plan"
+        android:name="com.eshc.travelplatform.ui.plan.PlanFragment"
+        android:label="plan"
+        tools:layout="@layout/fragment_plan">
+
+
+
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -22,4 +36,6 @@
         android:name="com.eshc.travelplatform.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+
 </navigation>
