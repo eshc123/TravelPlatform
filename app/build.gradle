@@ -7,6 +7,7 @@ plugins {
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
+def google_api_key  = properties.getProperty("google_api_key")
 
 android {
     compileSdkVersion 30
@@ -21,7 +22,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "NAVER_MAP_KEY", properties['naver_map_key']
+
+        manifestPlaceholders = [GOOGLE_API_KEY: google_api_key]
+
     }
 
     buildTypes {
@@ -67,6 +70,6 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 
-    //naver map
-    implementation 'com.naver.maps:map-sdk:3.13.0'
+    //google map
+    implementation 'com.google.android.gms:play-services-maps:18.0.0'
 }
