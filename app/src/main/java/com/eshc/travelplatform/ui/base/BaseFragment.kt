@@ -1,4 +1,4 @@
-package com.eshc.travelplatform.base
+package com.eshc.travelplatform.ui.base
 
 import androidx.fragment.app.Fragment
 

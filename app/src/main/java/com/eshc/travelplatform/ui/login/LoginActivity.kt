@@ -1,24 +1,19 @@
 package com.eshc.travelplatform.ui.login
 
 import android.app.Activity
-import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import android.text.Editable
-import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.EditText
 import android.widget.Toast
-import com.eshc.travelplatform.MainActivity
 import com.eshc.travelplatform.databinding.ActivityLoginBinding
 
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.ui.register.RegisterFragment
-import com.eshc.travelplatform.util.ext.afterTextChanged
+import com.eshc.travelplatform.shared.util.ext.afterTextChanged
 
 class LoginActivity : AppCompatActivity() {
 

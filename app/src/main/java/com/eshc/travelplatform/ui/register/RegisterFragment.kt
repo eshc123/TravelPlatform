@@ -1,6 +1,5 @@
 package com.eshc.travelplatform.ui.register
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentRegisterBinding
-import com.eshc.travelplatform.util.ext.afterTextChanged
+import com.eshc.travelplatform.shared.util.ext.afterTextChanged
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment

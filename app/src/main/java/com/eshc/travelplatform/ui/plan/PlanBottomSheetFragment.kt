@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.eshc.travelplatform.R
-import com.eshc.travelplatform.adapter.DestinationAdapter
+import com.eshc.travelplatform.shared.util.adapter.DestinationAdapter
 import com.eshc.travelplatform.data.plan.Destination
 import com.eshc.travelplatform.databinding.FragmentPlanBottomSheetBinding
 import com.google.android.material.bottomsheet.BottomSheetBehavior

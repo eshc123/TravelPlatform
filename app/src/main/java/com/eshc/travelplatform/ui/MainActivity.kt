@@ -1,13 +1,11 @@
-package com.eshc.travelplatform
+package com.eshc.travelplatform.ui
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

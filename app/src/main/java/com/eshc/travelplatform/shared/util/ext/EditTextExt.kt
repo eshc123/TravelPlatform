@@ -1,4 +1,4 @@
-package com.eshc.travelplatform.util.ext
+package com.eshc.travelplatform.shared.util.ext
 
 import android.text.Editable
 import android.text.TextWatcher

@@ -1,4 +1,4 @@
-package com.eshc.travelplatform.base
+package com.eshc.travelplatform.ui.base
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

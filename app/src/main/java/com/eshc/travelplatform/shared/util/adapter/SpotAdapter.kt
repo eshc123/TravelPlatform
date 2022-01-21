@@ -1,12 +1,9 @@
-package com.eshc.travelplatform.adapter
+package com.eshc.travelplatform.shared.util.adapter
 
-import androidx.lifecycle.ViewModel
 import com.eshc.travelplatform.BR
 import com.eshc.travelplatform.R
-import com.eshc.travelplatform.base.BaseRecyclerViewAdapter
-import com.eshc.travelplatform.data.plan.Destination
+import com.eshc.travelplatform.ui.base.BaseRecyclerViewAdapter
 import com.eshc.travelplatform.data.plan.Spot
-import com.eshc.travelplatform.databinding.ItemDestinationBinding
 import com.eshc.travelplatform.databinding.ItemSpotBinding
 
 class SpotAdapter()  : BaseRecyclerViewAdapter<Spot,ItemSpotBinding>(
