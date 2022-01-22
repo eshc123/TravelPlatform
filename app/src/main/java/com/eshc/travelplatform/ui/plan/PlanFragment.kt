@@ -26,7 +26,9 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
     private lateinit var mapView: MapView
     private lateinit var recyclerView: RecyclerView
     private lateinit var tabLayout : TabLayout
-    private val adapter by lazy { SpotAdapter() }
+    private val adapter by lazy { SpotAdapter().apply {
+        setHasStableIds(true)
+    } }
 
     private val views = mutableListOf<View>()
 

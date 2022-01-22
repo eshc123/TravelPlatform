@@ -12,8 +12,8 @@ class SpotAdapter()  : BaseRecyclerViewAdapter<Spot,ItemSpotBinding>(
 ) {
     override fun onBindViewHolder(holder: ViewHolder<ItemSpotBinding>, position: Int) {
         super.onBindViewHolder(holder, position)
-        holder.itemView.setOnClickListener {
-
+        holder.binding.tvDelete.setOnClickListener {
+            deleteItem(holder.adapterPosition)
         }
     }
 }
