@@ -1,6 +1,7 @@
 package com.eshc.travelplatform.ui.login
 
 import android.app.Activity
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -14,6 +15,7 @@ import com.eshc.travelplatform.databinding.ActivityLoginBinding
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.ui.register.RegisterFragment
 import com.eshc.travelplatform.shared.util.ext.afterTextChanged
+import com.eshc.travelplatform.ui.MainActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -62,7 +64,7 @@ class LoginActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK)
 
             //Complete and destroy login activity once successful
-            //startMainActivity()
+            startMainActivity()
             finish()
         })
 
@@ -119,6 +121,6 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun startMainActivity() {
-        //startActivity(Intent(this@LoginActivity,MainActivity::class.java))
+        startActivity(Intent(this@LoginActivity,MainActivity::class.java))
     }
 }

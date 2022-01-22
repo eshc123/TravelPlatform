@@ -1,11 +1,13 @@
 package com.eshc.travelplatform.ui.register
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.annotation.StringRes
 import androidx.lifecycle.Observer
@@ -40,6 +42,7 @@ class RegisterFragment : BottomSheetDialogFragment() {
         return binding.root
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val offsetFromTop = 200
@@ -94,7 +97,8 @@ class RegisterFragment : BottomSheetDialogFragment() {
             }
 
             register.setOnClickListener {
-                registerViewModel.register(username.text.toString(), password.text.toString(), phoneNum.text.toString())
+                //registerViewModel.register(username.text.toString(), password.text.toString(), phoneNum.text.toString())
+                this.cancelDragAndDrop()
             }
         }
 
