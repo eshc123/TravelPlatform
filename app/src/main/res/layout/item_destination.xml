@@ -7,7 +7,7 @@
 
         <variable
             name="destination"
-            type="com.eshc.travelplatform.data.plan.Destination" />
+            type="com.eshc.travelplatform.data.plan.model.Destination" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

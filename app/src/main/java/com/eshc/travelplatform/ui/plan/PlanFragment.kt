@@ -6,12 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.shared.util.adapter.SpotAdapter
-import com.eshc.travelplatform.data.plan.Spot
+import com.eshc.travelplatform.data.plan.model.Spot
 import com.eshc.travelplatform.databinding.FragmentPlanBinding
+import com.eshc.travelplatform.ui.login.LoginViewModel
+import com.eshc.travelplatform.ui.login.LoginViewModelFactory
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.MapView
@@ -23,6 +27,8 @@ import com.google.android.material.tabs.TabLayout
 
 class PlanFragment : Fragment(), OnMapReadyCallback {
     private lateinit var binding: FragmentPlanBinding
+    private lateinit var planViewModel : PlanViewModel
+
     private lateinit var mapView: MapView
     private lateinit var recyclerView: RecyclerView
     private lateinit var tabLayout : TabLayout
@@ -32,30 +38,23 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
 
     private val views = mutableListOf<View>()
 
-    val spots = listOf(
-        Spot("서면",35.157529, 129.059315),
-        Spot("광안대교",35.132803, 129.108314),
-        Spot("해운대역",35.164039, 129.158778))
-
+    val spots = mutableListOf<Spot>()
     override fun onMapReady(googleMap: GoogleMap) {
-        var x = 0.0
-        var y = 0.0
-        spots.forEach {
-            x += it.x
-            y += it.y
-            val marker = MarkerOptions()
-                .position(LatLng(it.x,it.y))
-                .title(it.name)
-                .snippet("${it.name}입니다.")
-            googleMap.addMarker(marker)
-        }
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(x /3,y/3)))
-        googleMap.moveCamera(CameraUpdateFactory.zoomTo(12f))
+        drawMarkers(googleMap = googleMap,spots = spots)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        planViewModel= ViewModelProvider(this, PlanViewModelFactory())
+            .get(PlanViewModel::class.java)
 
+        planViewModel.spots.observe(this, Observer { spots ->
+             this.spots.clear()
+            this.spots.addAll(spots)
+
+
+            adapter.replaceAll(spots)
+        })
     }
 
     override fun onCreateView(
@@ -83,7 +82,7 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
 
     private fun test(){
 
-        adapter.replaceAll(spots)
+
     }
 
     private fun initRecyclerView() {
@@ -124,5 +123,20 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
     private fun initViewsContainer() {
         views.add(mapView)
         views.add(recyclerView)
+    }
+    private fun drawMarkers(spots : MutableList<Spot>,googleMap: GoogleMap) {
+        var x = 0.0
+        var y = 0.0
+        spots.forEach {
+            x += it.x
+            y += it.y
+            val marker = MarkerOptions()
+                .position(LatLng(it.x,it.y))
+                .title(it.name)
+                .snippet("${it.name}입니다.")
+            googleMap.addMarker(marker)
+        }
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(x /spots.size,y/spots.size)))
+        googleMap.moveCamera(CameraUpdateFactory.zoomTo(12f))
     }
 }
