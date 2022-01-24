@@ -23,7 +23,7 @@ class RecommendFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_plan, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_recommend, container, false)
 
         return binding.root
     }

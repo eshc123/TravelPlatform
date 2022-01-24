@@ -3,12 +3,12 @@ package com.eshc.travelplatform.ui.plan
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
-class PlanViewModelFactory : ViewModelProvider.Factory {
+class RecommendViewModelFactory : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(PlanViewModel::class.java)) {
-            return PlanViewModel(
+        if (modelClass.isAssignableFrom(RecommendViewModel::class.java)) {
+            return RecommendViewModel(
 
             ) as T
         }
