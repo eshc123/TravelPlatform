@@ -55,6 +55,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun navigateToPlan(){
-        findNavController().navigate(R.id.fragment_plan)
+        findNavController().navigate(R.id.action_navigation_home_to_fragment_plan)
     }
 }

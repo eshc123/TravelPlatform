@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.eshc.travelplatform.R
@@ -27,29 +28,31 @@ import com.google.android.material.tabs.TabLayout
 
 class PlanFragment : Fragment(), OnMapReadyCallback {
     private lateinit var binding: FragmentPlanBinding
-    private lateinit var planViewModel : PlanViewModel
+    private lateinit var planViewModel: PlanViewModel
 
     private lateinit var mapView: MapView
     private lateinit var recyclerView: RecyclerView
-    private lateinit var tabLayout : TabLayout
-    private val adapter by lazy { SpotAdapter().apply {
-        setHasStableIds(true)
-    } }
+    private lateinit var tabLayout: TabLayout
+    private val adapter by lazy {
+        SpotAdapter().apply {
+            setHasStableIds(true)
+        }
+    }
 
     private val views = mutableListOf<View>()
 
     val spots = mutableListOf<Spot>()
     override fun onMapReady(googleMap: GoogleMap) {
-        drawMarkers(googleMap = googleMap,spots = spots)
+        drawMarkers(googleMap = googleMap, spots = spots)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        planViewModel= ViewModelProvider(this, PlanViewModelFactory())
+        planViewModel = ViewModelProvider(this, PlanViewModelFactory())
             .get(PlanViewModel::class.java)
 
         planViewModel.spots.observe(this, Observer { spots ->
-             this.spots.clear()
+            this.spots.clear()
             this.spots.addAll(spots)
 
 
@@ -69,6 +72,10 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
 
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
+
+        binding.tvAdd.setOnClickListener {
+            navigateToRecommend()
+        }
         return binding.root
     }
 
@@ -80,7 +87,7 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
         test()
     }
 
-    private fun test(){
+    private fun test() {
 
 
     }
@@ -101,7 +108,8 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
         }
         setTabSelectedListener()
     }
-    private fun setTabSelectedListener(){
+
+    private fun setTabSelectedListener() {
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabReselected(tab: TabLayout.Tab) {
 
@@ -116,27 +124,33 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
             }
         })
     }
+
     override fun onResume() {
         super.onResume()
         mapView.onResume()
     }
+
     private fun initViewsContainer() {
         views.add(mapView)
         views.add(recyclerView)
     }
-    private fun drawMarkers(spots : MutableList<Spot>,googleMap: GoogleMap) {
+
+    private fun drawMarkers(spots: MutableList<Spot>, googleMap: GoogleMap) {
         var x = 0.0
         var y = 0.0
         spots.forEach {
             x += it.x
             y += it.y
             val marker = MarkerOptions()
-                .position(LatLng(it.x,it.y))
+                .position(LatLng(it.x, it.y))
                 .title(it.name)
                 .snippet("${it.name}입니다.")
             googleMap.addMarker(marker)
         }
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(x /spots.size,y/spots.size)))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(x / spots.size, y / spots.size)))
         googleMap.moveCamera(CameraUpdateFactory.zoomTo(12f))
+    }
+    private fun navigateToRecommend(){
+        findNavController().navigate(R.id.action_fragment_plan_to_fragment_recommend)
     }
 }
