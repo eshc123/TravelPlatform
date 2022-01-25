@@ -13,4 +13,8 @@ class PlanViewModel : ViewModel() {
             Spot("광안대교",35.132803, 129.108314),
             Spot("해운대역",35.164039, 129.158778))
     }
+    fun deleteSpot(idx:Int){
+        _spots.value?.removeAt(idx)
+        _spots.value = _spots.value
+    }
 }

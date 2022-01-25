@@ -17,6 +17,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
+            android:textSize="28sp"
             android:text="여행 추천 장소"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -28,8 +29,9 @@
             android:background="@drawable/background_corner_round"
             android:padding="4dp"
             android:text="주소로 검색"
+            app:layout_constraintBottom_toBottomOf="@id/tv_title"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/tv_title" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_recommendation"

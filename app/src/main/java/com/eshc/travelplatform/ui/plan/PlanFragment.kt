@@ -17,10 +17,7 @@ import com.eshc.travelplatform.data.plan.model.Spot
 import com.eshc.travelplatform.databinding.FragmentPlanBinding
 import com.eshc.travelplatform.ui.login.LoginViewModel
 import com.eshc.travelplatform.ui.login.LoginViewModelFactory
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.MapView
-import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.tabs.TabLayout
@@ -31,10 +28,11 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
     private lateinit var planViewModel: PlanViewModel
 
     private lateinit var mapView: MapView
+    private lateinit var mGoogleMap : GoogleMap
     private lateinit var recyclerView: RecyclerView
     private lateinit var tabLayout: TabLayout
     private val adapter by lazy {
-        SpotAdapter().apply {
+        SpotAdapter(planViewModel).apply {
             setHasStableIds(true)
         }
     }
@@ -43,6 +41,7 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
 
     val spots = mutableListOf<Spot>()
     override fun onMapReady(googleMap: GoogleMap) {
+        mGoogleMap = googleMap
         drawMarkers(googleMap = googleMap, spots = spots)
     }
 
@@ -72,6 +71,7 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
 
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
+
 
         binding.tvAdd.setOnClickListener {
             navigateToRecommend()
@@ -121,6 +121,10 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
 
             override fun onTabSelected(tab: TabLayout.Tab) {
                 views[tab.position].visibility = View.VISIBLE
+                if(tab.position == 0){
+                    mGoogleMap.clear()
+                    drawMarkers(spots,mGoogleMap)
+                }
             }
         })
     }
