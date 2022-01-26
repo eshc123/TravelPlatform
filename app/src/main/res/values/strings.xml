@@ -12,6 +12,7 @@
     <string name="prompt_phone">핸드폰번호, (-) 은 제외하고 입력해주세요.</string>
     <string name="action_sign_in">로그인</string>
     <string name="action_register">회원가입</string>
+    <string name="action_to_plan">일정 만들기!</string>
     <string name="desription_register">아직 회원이 아니신가요? </string>
     <string name="action_sign_in_short">로그인</string>
     <string name="action_register_short">회원가입</string>
@@ -26,6 +27,8 @@
 
     <string name="intro_register">반가워요! \n(어플이름)은 간단한 정보만 입력하면 돼요.</string>
     <string name="back_register">로그인 화면으로 돌아가기</string>
+    <string name="welcome_register">회원 가입이 완료되었어요!\n지금 부산 여행 일정을 만들어볼까요?</string>
+    <string name="just_register">괜찮아요. 천천히 둘러볼게요.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

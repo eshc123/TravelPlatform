@@ -1,5 +1,6 @@
 package com.eshc.travelplatform.ui.register
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,15 +8,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
+import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
 import androidx.annotation.StringRes
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentRegisterBinding
 import com.eshc.travelplatform.shared.util.ext.afterTextChanged
+import com.eshc.travelplatform.ui.MainActivity
+import com.eshc.travelplatform.ui.login.LoginActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
@@ -105,7 +111,9 @@ class RegisterFragment : BottomSheetDialogFragment() {
 
             register.setOnClickListener {
                 //registerViewModel.register(username.text.toString(), password.text.toString(), phoneNum.text.toString())
+                createDialog()
                 this@RegisterFragment.dismiss()
+
             }
         }
 
@@ -146,6 +154,29 @@ class RegisterFragment : BottomSheetDialogFragment() {
     }
     private fun showRegisterFailed(@StringRes errorString: Int) {
         Toast.makeText(requireContext(), errorString, Toast.LENGTH_SHORT).show()
+    }
+    private fun createDialog(){
+        AlertDialog.Builder(requireContext(),R.style.AlertDialogTheme)
+            .setView(R.layout.dialog_welcome)
+            .show()
+            .also { alertDialog ->
+                val mActivity = activity
+                if(alertDialog == null) {
+                    return@also
+                }
+                val planButton = alertDialog.findViewById<AppCompatTextView>(R.id.btn_plan)
+                planButton?.setOnClickListener {
+                    alertDialog.dismiss()
+                    mActivity?.startActivity(Intent(mActivity, MainActivity::class.java))
+                    mActivity?.finish()
+                }
+                val justButton = alertDialog.findViewById<AppCompatTextView>(R.id.tv_just)
+                justButton?.setOnClickListener {
+                    alertDialog.dismiss()
+                    mActivity?.startActivity(Intent(mActivity, MainActivity::class.java))
+                    mActivity?.finish()
+                }
+            }
     }
 }
 
