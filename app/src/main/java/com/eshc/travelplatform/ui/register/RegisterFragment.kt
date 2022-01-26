@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -23,6 +24,9 @@ class RegisterFragment : BottomSheetDialogFragment() {
 
     private lateinit var registerViewModel: RegisterViewModel
     private lateinit var binding: FragmentRegisterBinding
+    override fun getTheme(): Int {
+        return R.style.AppBottomSheetDialogTheme
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,8 +41,10 @@ class RegisterFragment : BottomSheetDialogFragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_register,container,false)
-
-
+        binding.clContainer.maxHeight = WindowManager.LayoutParams.MATCH_PARENT
+        (dialog as BottomSheetDialog).behavior.apply {
+            peekHeight = (resources.displayMetrics.heightPixels * 0.9).toInt()
+        }
         return binding.root
     }
 
@@ -47,9 +53,9 @@ class RegisterFragment : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         val offsetFromTop = 200
         (dialog as BottomSheetDialog).behavior.apply {
-           isFitToContents = false
-           expandedOffset = offsetFromTop
-            state = BottomSheetBehavior.STATE_EXPANDED
+           isFitToContents = true
+           //expandedOffset = offsetFromTop
+            //state = BottomSheetBehavior.STATE_EXPANDED
         }
 
 
@@ -58,6 +64,7 @@ class RegisterFragment : BottomSheetDialogFragment() {
         val password = binding.password
         val phoneNum = binding.phonenum
         val register = binding.register
+        val back = binding.back
 
         username.afterTextChanged {
             registerViewModel.registerDataChanged(
@@ -98,8 +105,12 @@ class RegisterFragment : BottomSheetDialogFragment() {
 
             register.setOnClickListener {
                 //registerViewModel.register(username.text.toString(), password.text.toString(), phoneNum.text.toString())
-                this.cancelDragAndDrop()
+                this@RegisterFragment.dismiss()
             }
+        }
+
+        back.setOnClickListener {
+            this.dismiss()
         }
 
         registerViewModel.registerFormState.observe(viewLifecycleOwner, Observer {

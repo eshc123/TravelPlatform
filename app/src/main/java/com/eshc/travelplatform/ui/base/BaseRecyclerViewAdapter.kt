@@ -62,7 +62,7 @@ abstract class BaseRecyclerViewAdapter<ITEM : Any, B : ViewDataBinding>(
     fun deleteItem(index: Int) {
         if (index < items.size) {
             items.removeAt(index)
-            notifyItemRemoved(index)
+            //notifyItemRemoved(index)
         }
     }
 

@@ -8,6 +8,7 @@ import android.os.Bundle
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import android.view.View
+import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
 import com.eshc.travelplatform.databinding.ActivityLoginBinding

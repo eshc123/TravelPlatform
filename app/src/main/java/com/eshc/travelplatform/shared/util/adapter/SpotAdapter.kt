@@ -16,7 +16,7 @@ class SpotAdapter(val vm : ViewModel)  : BaseRecyclerViewAdapter<Spot,ItemSpotBi
         super.onBindViewHolder(holder, position)
         holder.binding.tvDelete.setOnClickListener {
             deleteItem(holder.adapterPosition)
-            (vm as PlanViewModel).deleteSpot(1)
+            (vm as PlanViewModel).deleteSpot(holder.adapterPosition)
         }
     }
 }

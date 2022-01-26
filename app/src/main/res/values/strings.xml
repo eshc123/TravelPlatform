@@ -7,14 +7,14 @@
     <string name="title_plan">여행 경로</string>
 
 
-    <string name="prompt_email">이메일</string>
+    <string name="prompt_id">아이디</string>
     <string name="prompt_password">비밀번호</string>
-    <string name="prompt_phone">휴대폰번호</string>
+    <string name="prompt_phone">핸드폰번호, (-) 은 제외하고 입력해주세요.</string>
     <string name="action_sign_in">로그인</string>
     <string name="action_register">회원가입</string>
     <string name="desription_register">아직 회원이 아니신가요? </string>
     <string name="action_sign_in_short">로그인</string>
-
+    <string name="action_register_short">회원가입</string>
 
     <string name="prompt_add_location">장소 추가</string>
 
@@ -24,6 +24,8 @@
     <string name="invalid_phonenum">\'-\'를 제외한 휴대폰 번호 11자리를 입력해주세요</string>
     <string name="login_failed">"Login failed"</string>
 
+    <string name="intro_register">반가워요! \n(어플이름)은 간단한 정보만 입력하면 돼요.</string>
+    <string name="back_register">로그인 화면으로 돌아가기</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
