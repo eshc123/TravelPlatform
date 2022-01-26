@@ -57,6 +57,8 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
 
             adapter.replaceAll(spots)
         })
+
+
     }
 
     override fun onCreateView(
@@ -76,6 +78,9 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
         binding.tvAdd.setOnClickListener {
             navigateToRecommend()
         }
+
+        val kakaoMapView = net.daum.mf.map.api.MapView(activity)
+        (binding.mapview as ViewGroup).addView(kakaoMapView)
         return binding.root
     }
 

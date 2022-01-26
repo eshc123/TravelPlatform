@@ -30,6 +30,8 @@
     <string name="welcome_register">회원 가입이 완료되었어요!\n지금 부산 여행 일정을 만들어볼까요?</string>
     <string name="just_register">괜찮아요. 천천히 둘러볼게요.</string>
 
+    <string name="intro_home">안녕하세요, ㅇㅇㅇ님!\n걷기 좋은 청사포 다릿돌전망대 어때요?</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

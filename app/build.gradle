@@ -7,7 +7,10 @@ plugins {
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
+
 def google_api_key  = properties.getProperty("google_api_key")
+def kakao_native_app_key = properties.getProperty("kakao_native_app_key")
+def kakao_rest_api_key = properties.getProperty("kakao_rest_api_key")
 
 android {
     compileSdkVersion 30
@@ -23,7 +26,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
 
-        manifestPlaceholders = [GOOGLE_API_KEY: google_api_key]
+        manifestPlaceholders = [GOOGLE_API_KEY: google_api_key,KAKAO_NATIVE_APP_KEY: kakao_native_app_key,KAKAO_REST_API_KEY: kakao_rest_api_key]
 
     }
 
@@ -46,9 +49,27 @@ android {
     buildFeatures {
         viewBinding true
     }
+    splits {
+
+        abi {
+
+            enable true
+
+            reset()
+
+            include 'x86', 'x86_64', 'armeabi-v7a', 'armeabi'
+
+            universalApk false
+
+        }
+
+    }
 }
 
 dependencies {
+
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation files('libs/libDaumMapAndroid.jar')
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.6.0'
@@ -72,6 +93,8 @@ dependencies {
 
     //google map
     implementation 'com.google.android.gms:play-services-maps:18.0.0'
+
+
 
     //Glide
     kapt 'com.github.bumptech.glide:compiler:4.11.0'
