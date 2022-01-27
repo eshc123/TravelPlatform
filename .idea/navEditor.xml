@@ -13,8 +13,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-30" />
-                            <option name="y" value="-159" />
+                            <option name="x" value="-24" />
+                            <option name="y" value="-470" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -34,8 +34,20 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="247" />
-                            <option name="y" value="-159" />
+                            <option name="x" value="239" />
+                            <option name="y" value="-464" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="fragment_search">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-20" />
+                            <option name="y" value="-843" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -58,13 +70,18 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-312" />
-                            <option name="y" value="-158" />
+                            <option name="x" value="-373" />
+                            <option name="y" value="-458" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_navigation_home_to_fragment_plan">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_navigation_home_to_fragment_search">
                               <value>
                                 <LayoutPositions />
                               </value>

@@ -13,8 +13,19 @@
         <action
             android:id="@+id/action_navigation_home_to_fragment_plan"
             app:destination="@id/fragment_plan" />
+        <action
+            android:id="@+id/action_navigation_home_to_fragment_search"
+            app:destination="@id/fragment_search" />
     </fragment>
+    <fragment
+        android:id="@+id/fragment_search"
+        android:name="com.eshc.travelplatform.ui.plan.SearchFragment"
+        android:label="search"
+        tools:layout="@layout/fragment_search">
 
+
+
+    </fragment>
     <fragment
         android:id="@+id/fragment_plan"
         android:name="com.eshc.travelplatform.ui.plan.PlanFragment"

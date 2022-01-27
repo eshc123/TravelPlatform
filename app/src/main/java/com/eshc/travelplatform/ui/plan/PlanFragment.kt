@@ -79,8 +79,6 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
             navigateToRecommend()
         }
 
-        val kakaoMapView = net.daum.mf.map.api.MapView(activity)
-        (binding.mapview as ViewGroup).addView(kakaoMapView)
         return binding.root
     }
 
