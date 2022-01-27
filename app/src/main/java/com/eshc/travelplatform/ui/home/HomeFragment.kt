@@ -14,29 +14,45 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentHomeBinding
+import com.eshc.travelplatform.shared.util.adapter.CourseAdapter
+import com.eshc.travelplatform.shared.util.adapter.RecommendationAdapter
 import com.eshc.travelplatform.ui.plan.PlanBottomSheetFragment
+import com.eshc.travelplatform.ui.plan.RecommendViewModel
+import com.eshc.travelplatform.ui.plan.RecommendViewModelFactory
 
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private lateinit var binding : FragmentHomeBinding
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        homeViewModel= ViewModelProvider(this, HomeViewModelFactory())
+            .get(HomeViewModel::class.java)
+           }
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         binding.fragment = this
 
         val textView: AppCompatTextView = binding.textHome
+        val recommendationAdapter = RecommendationAdapter()
+        val courseAdapter = CourseAdapter()
+        binding.rvRecommendation.adapter = recommendationAdapter
+        binding.rvCourse.adapter = courseAdapter
+
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
+        })
+        homeViewModel.recommendations.observe(viewLifecycleOwner, Observer {
+            recommendationAdapter.replaceAll(it)
+        })
+        homeViewModel.courses.observe(viewLifecycleOwner, Observer {
+            courseAdapter.replaceAll(it)
         })
         return binding.root
     }
@@ -58,4 +74,5 @@ class HomeFragment : Fragment() {
     private fun navigateToPlan(){
         findNavController().navigate(R.id.action_navigation_home_to_fragment_plan)
     }
+
 }

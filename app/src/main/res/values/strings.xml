@@ -31,6 +31,8 @@
     <string name="just_register">괜찮아요. 천천히 둘러볼게요.</string>
 
     <string name="intro_home">안녕하세요, ㅇㅇㅇ님!\n걷기 좋은 청사포 다릿돌전망대 어때요?</string>
+    <string name="subtitle_first_home">ㅇㅇㅇ님을 위한 추천 경로</string>
+
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
