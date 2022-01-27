@@ -16,6 +16,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.ActivityLoginBinding
+import com.eshc.travelplatform.shared.util.KeyboardVisibilityUtils
 import com.eshc.travelplatform.shared.util.ext.afterTextChanged
 import com.eshc.travelplatform.ui.MainActivity
 import com.eshc.travelplatform.ui.register.RegisterFragment
@@ -27,10 +28,11 @@ class LoginActivity : AppCompatActivity() {
 
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: ActivityLoginBinding
+    private lateinit var keyboardVisibilityUtils: KeyboardVisibilityUtils
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getHashKey()
+
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -39,6 +41,7 @@ class LoginActivity : AppCompatActivity() {
         val login = binding.login
         val register = binding.register
         val loading = binding.loading
+        val nestScrollView = binding.nvRoot
 
         loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
             .get(LoginViewModel::class.java)
@@ -109,6 +112,13 @@ class LoginActivity : AppCompatActivity() {
             val registerBottomSheetFragment = RegisterFragment()
             registerBottomSheetFragment.show(supportFragmentManager,registerBottomSheetFragment.tag)
         }
+
+        keyboardVisibilityUtils = KeyboardVisibilityUtils(window,
+            onShowKeyboard = { keyboardHeight ->
+                nestScrollView.run {
+                    smoothScrollTo(scrollX, scrollY + keyboardHeight)
+                }
+            })
     }
 
     private fun updateUiWithUser(model: LoggedInUserView) {
@@ -129,22 +139,9 @@ class LoginActivity : AppCompatActivity() {
     private fun startMainActivity() {
         startActivity(Intent(this@LoginActivity,MainActivity::class.java))
     }
-    private fun getHashKey() {
-        var packageInfo: PackageInfo? = null
-        try {
-            packageInfo = packageManager.getPackageInfo(packageName, PackageManager.GET_SIGNATURES)
-        } catch (e: PackageManager.NameNotFoundException) {
-            e.printStackTrace()
-        }
-        if (packageInfo == null) Log.e("KeyHash", "KeyHash:null")
-        for (signature in packageInfo!!.signatures) {
-            try {
-                val md: MessageDigest = MessageDigest.getInstance("SHA")
-                md.update(signature.toByteArray())
-                Log.d("KeyHash", Base64.encodeToString(md.digest(), Base64.DEFAULT))
-            } catch (e: NoSuchAlgorithmException) {
-                Log.e("KeyHash", "Unable to get MessageDigest. signature=$signature", e)
-            }
-        }
+
+    override fun onDestroy() {
+        keyboardVisibilityUtils.detachKeyboardListeners()
+        super.onDestroy()
     }
 }
