@@ -11,6 +11,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentSearchBinding
+import com.eshc.travelplatform.ui.MainActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
 class SearchFragment : Fragment() {
@@ -37,15 +39,16 @@ class SearchFragment : Fragment() {
         binding.etSearch.setOnFocusChangeListener { v, hasFocus ->
             if(hasFocus){
                 binding.vBackground.visibility = View.VISIBLE
+                (activity as MainActivity).findViewById<BottomNavigationView>(R.id.nav_view).visibility = View.GONE
             }
             else {
                 binding.vBackground.visibility = View.GONE
+                (activity as MainActivity).findViewById<BottomNavigationView>(R.id.nav_view).visibility = View.VISIBLE
             }
         }
-        binding.vBackground.setOnTouchListener { v, event ->
+        binding.ivBack.setOnClickListener {
             binding.etSearch.clearFocus()
             hideKeyboard()
-            return@setOnTouchListener false
         }
 
         return binding.root

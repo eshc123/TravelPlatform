@@ -2,11 +2,7 @@ package com.eshc.travelplatform.ui.login
 
 import android.app.Activity
 import android.content.Intent
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Base64
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
@@ -14,14 +10,17 @@ import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.eshc.travelplatform.MainApplication
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.ActivityLoginBinding
 import com.eshc.travelplatform.shared.util.KeyboardVisibilityUtils
 import com.eshc.travelplatform.shared.util.ext.afterTextChanged
 import com.eshc.travelplatform.ui.MainActivity
 import com.eshc.travelplatform.ui.register.RegisterFragment
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
 
 class LoginActivity : AppCompatActivity() {
@@ -31,10 +30,12 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var keyboardVisibilityUtils: KeyboardVisibilityUtils
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_TravelPlatform)
         super.onCreate(savedInstanceState)
-
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
 
         val username = binding.username
         val password = binding.password
@@ -73,6 +74,11 @@ class LoginActivity : AppCompatActivity() {
             setResult(Activity.RESULT_OK)
 
             //Complete and destroy login activity once successful
+            CoroutineScope(Dispatchers.Main).launch {
+                MainApplication.getInstance().getDataStore().setUserId(username.text.toString())
+                MainApplication.getInstance().getDataStore().setPassword(password.text.toString())
+            }
+
             startMainActivity()
             finish()
         })
@@ -139,6 +145,8 @@ class LoginActivity : AppCompatActivity() {
     private fun startMainActivity() {
         startActivity(Intent(this@LoginActivity,MainActivity::class.java))
     }
+
+
 
     override fun onDestroy() {
         keyboardVisibilityUtils.detachKeyboardListeners()

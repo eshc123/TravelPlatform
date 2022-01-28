@@ -21,7 +21,7 @@
 
     <string name="welcome">"Welcome !"</string>
     <string name="invalid_username">Not a valid username</string>
-    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="invalid_password">비밀번호는 6자 이상이어야 합니다.</string>
     <string name="invalid_phonenum">\'-\'를 제외한 휴대폰 번호 11자리를 입력해주세요</string>
     <string name="login_failed">"Login failed"</string>
 
@@ -33,7 +33,7 @@
     <string name="intro_home">안녕하세요, ㅇㅇㅇ님!\n걷기 좋은 청사포 다릿돌전망대 어때요?</string>
     <string name="subtitle_first_home">ㅇㅇㅇ님을 위한 추천 경로</string>
 
-    <string name="search_hint">검색어를 입력해주세요...</string>
+    <string name="search_hint">검색어를 입력해주세요…</string>
 
 
     <!-- TODO: Remove or change this placeholder text -->
