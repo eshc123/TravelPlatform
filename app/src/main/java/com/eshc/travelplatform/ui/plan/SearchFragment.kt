@@ -16,6 +16,7 @@ import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentSearchBinding
 import com.eshc.travelplatform.shared.util.adapter.LocationCategoryAdapter
 import com.eshc.travelplatform.shared.util.adapter.RecommendationAdapter
+import com.eshc.travelplatform.shared.util.adapter.SuggestionAdapter
 import com.eshc.travelplatform.ui.MainActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -63,12 +64,19 @@ class SearchFragment : Fragment() {
             hideKeyboard()
         }
 
-        val adapter = LocationCategoryAdapter()
-        binding.rvCategory.adapter = adapter
+        val locationCategoryAdapter = LocationCategoryAdapter()
+        binding.rvCategory.adapter = locationCategoryAdapter
 
         searchViewModel.categories.observe(viewLifecycleOwner, Observer {
-            adapter.replaceAll(it)
+            locationCategoryAdapter.replaceAll(it)
         })
+
+        val suggestionAdapter = SuggestionAdapter()
+        binding.rvSuggestion.adapter = suggestionAdapter
+        searchViewModel.suggestions.observe(viewLifecycleOwner, Observer {
+            suggestionAdapter.replaceAll(it)
+        })
+
         return binding.root
     }
     private fun hideKeyboard(){

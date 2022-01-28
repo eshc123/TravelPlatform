@@ -16,18 +16,13 @@ class SplashActivity : AppCompatActivity() {
         CoroutineScope(Dispatchers.Main).launch {
             if(isLogin()){
                 startMainActivity()
-
             }
             else
                 startLoginActivity()
         }
-
-
     }
     private suspend fun isLogin() : Boolean {
-        val id = MainApplication.getInstance().getDataStore().userId.first()
-        val pw = MainApplication.getInstance().getDataStore().password.first()
-        return !(id.isBlank() || pw.isBlank())
+       return MainApplication.getInstance().isLogin()
     }
     private fun startLoginActivity() {
         startActivity(Intent(this@SplashActivity,LoginActivity::class.java))

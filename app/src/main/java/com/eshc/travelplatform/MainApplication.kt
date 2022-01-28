@@ -2,6 +2,7 @@ package com.eshc.travelplatform
 
 import android.app.Application
 import com.eshc.travelplatform.shared.util.DataStoreUtil
+import kotlinx.coroutines.flow.first
 
 class MainApplication : Application() {
     private lateinit var dataStore : DataStoreUtil
@@ -19,4 +20,10 @@ class MainApplication : Application() {
     }
 
     fun getDataStore() : DataStoreUtil = dataStore
+
+    suspend fun isLogin() : Boolean {
+        val id = getInstance().getDataStore().userId.first()
+        val pw = getInstance().getDataStore().password.first()
+        return !(id.isBlank() || pw.isBlank())
+    }
 }

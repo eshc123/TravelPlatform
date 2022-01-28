@@ -25,29 +25,50 @@
             android:id="@+id/v_background"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:visibility="gone"
+            android:background="@color/white"
+            android:visibility="gone" />
 
-            android:background="@color/white" />
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:visibility="gone"
+            android:background="@color/hint_color"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cl_search"
-            app:layout_constraintBottom_toBottomOf="parent">
+            tools:visibility="visible">
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_category"
-                app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="match_parent"
                 android:layout_height="47dp"
                 android:clipToPadding="false"
+                android:orientation="horizontal"
                 android:paddingHorizontal="28dp"
+                android:background="@color/white"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:itemCount="6"
-                tools:listitem="@layout/item_location_category"
-                android:orientation="horizontal"/>
-            
+                tools:listitem="@layout/item_location_category" />
+            <View
+                android:id="@+id/v_border"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/etc_color"
+                app:layout_constraintTop_toBottomOf="@id/rv_category"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_suggestion"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintTop_toBottomOf="@id/v_border"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:orientation="vertical"
+                tools:listitem="@layout/item_suggestion"
+                tools:itemCount="5"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_search"
             android:layout_width="match_parent"
