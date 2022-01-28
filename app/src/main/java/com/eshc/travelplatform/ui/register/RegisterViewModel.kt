@@ -19,7 +19,7 @@ class RegisterViewModel(private val authRepository: AuthRepository) : ViewModel(
 
     fun register(username: String, password: String,phoneNum: String) {
         // can be launched in a separate asynchronous job
-        val result = authRepository.login(username, password)
+        val result = authRepository.register(username, password,phoneNum)
 
         if (result is Result.Success) {
             _registerResult.value =

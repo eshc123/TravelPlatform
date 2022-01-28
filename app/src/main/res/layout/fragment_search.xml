@@ -29,11 +29,23 @@
 
             android:background="@color/white" />
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_list"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@id/cl_search"
             app:layout_constraintBottom_toBottomOf="parent">
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_category"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:clipToPadding="false"
+                android:paddingHorizontal="28dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:itemCount="6"
+                tools:listitem="@layout/item_location_category"
+                android:orientation="horizontal"/>
             
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -50,7 +62,7 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="10dp"
-                android:src="@drawable/back"
+                android:src="@drawable/ic_back"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -74,7 +86,7 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_marginEnd="10dp"
-                android:src="@drawable/close"
+                android:src="@drawable/ic_close"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/iv_search"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -84,7 +96,7 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_marginEnd="10dp"
-                android:src="@drawable/search"
+                android:src="@drawable/ic_search"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

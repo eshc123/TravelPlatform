@@ -11,15 +11,14 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="150dp"
+        android:layout_width="142dp"
         android:layout_height="wrap_content"
-        android:paddingEnd="8dp">
+        android:layout_marginHorizontal="4dp">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_image"
             android:layout_width="142dp"
             android:layout_height="142dp"
-
             app:cardCornerRadius="10dp"
             app:cardElevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +47,8 @@
             android:layout_marginVertical="2dp"
             android:maxLines="1"
             android:ellipsize="end"
-            android:layout_marginStart="1dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginEnd="4dp"
             android:text="@{recommendation.name}"
             app:layout_constraintTop_toBottomOf="@id/cv_image"
             app:layout_constraintStart_toStartOf="parent"

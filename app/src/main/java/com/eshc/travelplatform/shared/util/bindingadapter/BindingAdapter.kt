@@ -32,7 +32,7 @@ object BindingAdapter {
         return gradientDrawable
     }
     @BindingAdapter("coverSrc")
-    @JvmStatic fun setCoverSrc(view: AppCompatImageView, resource: String?) {
+    @JvmStatic fun setCoverSrc(view: AppCompatImageView, resource: Any?) {
         when (resource) {
             null ->  Glide.with(view.context).load(R.drawable.background_corner_round).into(view)
             "" -> Glide.with(view.context).load(R.drawable.background_corner_round).into(view)

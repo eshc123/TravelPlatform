@@ -39,8 +39,7 @@ class AuthRepository(val dataSource: AuthDataSource) {
     }
 
     fun register(username: String, password: String,phoneNum:String): Result<LoggedInUser> {
-        // handle login
-        val result = dataSource.login(username, password)
+        val result = dataSource.register(username, password,phoneNum)
 
         if (result is Result.Success) {
             setLoggedInUser(result.data)

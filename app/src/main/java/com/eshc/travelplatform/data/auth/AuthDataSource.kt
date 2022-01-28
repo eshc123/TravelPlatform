@@ -22,4 +22,13 @@ class AuthDataSource {
     fun logout() {
         // TODO: revoke authentication
     }
+
+    fun register(username: String, password: String,phoneNum:String): Result<LoggedInUser> {
+        try {
+            val fakeUser = LoggedInUser(UUID.randomUUID().toString(), "Jane Doe")
+            return Result.Success(fakeUser)
+        } catch (e: Throwable) {
+            return Result.Error(IOException("Error logging in", e))
+        }
+    }
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    app:startDestination="@id/navigation_home">
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.eshc.travelplatform.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_fragment_plan"
+            app:destination="@id/fragment_plan" />
+        <action
+            android:id="@+id/action_navigation_home_to_fragment_search"
+            app:destination="@id/fragment_search" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_search"
+        android:name="com.eshc.travelplatform.ui.plan.SearchFragment"
+        android:label="search"
+        tools:layout="@layout/fragment_search">
+
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_plan"
+        android:name="com.eshc.travelplatform.ui.plan.PlanFragment"
+        android:label="plan"
+        tools:layout="@layout/fragment_plan">
+
+        <action
+            android:id="@+id/action_fragment_plan_to_fragment_recommend"
+            app:destination="@id/fragment_recommend" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_recommend"
+        android:name="com.eshc.travelplatform.ui.plan.RecommendFragment"
+        android:label="recommend"
+        tools:layout="@layout/fragment_recommend">
+
+
+
+    </fragment>
+</navigation>
