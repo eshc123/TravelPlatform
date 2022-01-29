@@ -13,6 +13,7 @@
     <string name="action_sign_in">로그인</string>
     <string name="action_register">회원가입</string>
     <string name="action_to_plan">일정 만들기!</string>
+    <string name="action_to_next">다음</string>
     <string name="desription_register">아직 회원이 아니신가요? </string>
     <string name="action_sign_in_short">로그인</string>
     <string name="action_register_short">회원가입</string>
@@ -35,6 +36,10 @@
 
     <string name="search_hint">검색어를 입력해주세요…</string>
 
+    <string name="who_type">여행을 떠나기 전\n간단한 취향 조사를 시작할게요.\n누구와 여행을 떠나시나요?</string>
+    <string name="style_type">좋은 답변이에요!\n어떤 스타일의 여행을 계획하고 계신가요?</string>
+    <string name="how_long_type">마지막 질문이에요.\n몇 박 며칠로 계획하고 계신가요?</string>
+    <string name="cancel_type">나중에 할게요.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

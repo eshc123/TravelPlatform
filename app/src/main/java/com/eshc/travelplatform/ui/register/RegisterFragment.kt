@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
-import android.widget.Button
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.databinding.DataBindingUtil
@@ -21,8 +20,7 @@ import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentRegisterBinding
 import com.eshc.travelplatform.shared.util.ext.afterTextChanged
 import com.eshc.travelplatform.ui.MainActivity
-import com.eshc.travelplatform.ui.login.LoginActivity
-import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.eshc.travelplatform.ui.recommend.RecommendActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -167,7 +165,7 @@ class RegisterFragment : BottomSheetDialogFragment() {
                 val planButton = alertDialog.findViewById<AppCompatTextView>(R.id.btn_plan)
                 planButton?.setOnClickListener {
                     alertDialog.dismiss()
-                    mActivity?.startActivity(Intent(mActivity, MainActivity::class.java))
+                    mActivity?.startActivity(Intent(mActivity, RecommendActivity::class.java))
                     mActivity?.finish()
                 }
                 val justButton = alertDialog.findViewById<AppCompatTextView>(R.id.tv_just)

@@ -107,7 +107,7 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_marginEnd="10dp"
-                android:src="@drawable/ic_close"
+                android:src="@drawable/ic_close_circle"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/iv_search"
                 app:layout_constraintTop_toTopOf="parent" />
