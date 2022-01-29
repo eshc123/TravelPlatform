@@ -1,5 +1,6 @@
 package com.eshc.travelplatform.ui.register
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -175,6 +176,27 @@ class RegisterFragment : BottomSheetDialogFragment() {
                     mActivity?.finish()
                 }
             }
+    }
+
+    override fun dismiss() {
+        super.dismiss()
+        viewClear()
+    }
+
+
+    private fun viewClear(){
+
+        binding.phonenum.text?.clear()
+        binding.phonenum.clearFocus()
+        binding.phonenum.error = null
+
+        binding.password.text?.clear()
+        binding.password.clearFocus()
+        binding.password.error = null
+
+        binding.username.text?.clear()
+        binding.username.clearFocus()
+        binding.username.error = null
     }
 }
 

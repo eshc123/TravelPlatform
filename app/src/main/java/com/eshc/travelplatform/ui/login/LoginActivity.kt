@@ -28,14 +28,14 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: ActivityLoginBinding
     private lateinit var keyboardVisibilityUtils: KeyboardVisibilityUtils
-
+    private lateinit var registerBottomSheetFragment : RegisterFragment
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_TravelPlatform)
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        registerBottomSheetFragment = RegisterFragment()
 
         val username = binding.username
         val password = binding.password
@@ -115,12 +115,13 @@ class LoginActivity : AppCompatActivity() {
             }
         }
         register.setOnClickListener {
-            val registerBottomSheetFragment = RegisterFragment()
+            registerBottomSheetFragment = RegisterFragment()
             registerBottomSheetFragment.show(supportFragmentManager,registerBottomSheetFragment.tag)
         }
 
         keyboardVisibilityUtils = KeyboardVisibilityUtils(window,
             onShowKeyboard = { keyboardHeight ->
+                if(!registerBottomSheetFragment.isVisible)
                 nestScrollView.run {
                     smoothScrollTo(scrollX, scrollY + keyboardHeight)
                 }
