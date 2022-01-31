@@ -1,6 +1,7 @@
 package com.eshc.travelplatform.ui.recommend
 
 import android.content.Intent
+import android.graphics.drawable.AnimationDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -39,6 +40,7 @@ class RecommendActivity : AppCompatActivity() {
         recommendViewModel.conditionStyle.observe(this, Observer {
             styleAdapter.replaceAll(it)
         })
+
         binding.ivBack.setOnClickListener {
             backToPrevious()
         }
@@ -71,7 +73,11 @@ class RecommendActivity : AppCompatActivity() {
                 currentViewIndex += 1
             }
             2 -> {
-
+                binding.ivBack.visibility = View.GONE
+                binding.clHowlong.visibility = View.GONE
+                binding.clWaiting.visibility = View.VISIBLE
+                currentViewIndex += 1
+                startAnimation()
             }
         }
     }
@@ -102,5 +108,11 @@ class RecommendActivity : AppCompatActivity() {
         }
         binding.rvWho.layoutManager = whoFlexboxLayoutManager
         binding.rvStyle.layoutManager = styleFlexboxLayoutManager
+    }
+    private fun startAnimation(){
+        val animationDrawable = binding.ivWaiting.background as AnimationDrawable
+        animationDrawable.setExitFadeDuration(400)
+        animationDrawable.setEnterFadeDuration(400)
+        animationDrawable.start()
     }
 }

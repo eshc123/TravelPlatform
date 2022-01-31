@@ -7,7 +7,7 @@
 
         <variable
             name="suggestion"
-            type="com.eshc.travelplatform.data.plan.model.Suggestion" />
+            type="com.eshc.travelplatform.domain.model.Suggestion" />
 
     </data>
 

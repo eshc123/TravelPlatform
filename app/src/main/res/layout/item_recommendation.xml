@@ -7,7 +7,7 @@
 
         <variable
             name="recommendation"
-            type="com.eshc.travelplatform.data.plan.model.Recommendation" />
+            type="com.eshc.travelplatform.domain.model.Recommendation" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

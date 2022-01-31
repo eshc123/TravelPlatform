@@ -6,7 +6,7 @@
     <data>
         <variable
             name="course"
-            type="com.eshc.travelplatform.data.plan.model.Course" />
+            type="com.eshc.travelplatform.domain.model.Course" />
 
     </data>
 

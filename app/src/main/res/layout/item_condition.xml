@@ -7,7 +7,7 @@
 
         <variable
             name="condition"
-            type="com.eshc.travelplatform.data.plan.model.Condition" />
+            type="com.eshc.travelplatform.domain.model.Condition" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

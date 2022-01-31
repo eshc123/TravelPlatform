@@ -7,7 +7,7 @@
 
         <variable
             name="locationCategory"
-            type="com.eshc.travelplatform.data.plan.model.LocationCategory" />
+            type="com.eshc.travelplatform.domain.model.LocationCategory" />
 
     </data>
 

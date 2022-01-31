@@ -7,7 +7,7 @@
 
         <variable
             name="spot"
-            type="com.eshc.travelplatform.data.plan.model.Spot" />
+            type="com.eshc.travelplatform.domain.model.Spot" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
