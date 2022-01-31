@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
-import com.eshc.travelplatform.data.auth.AuthRepository
-import com.eshc.travelplatform.data.auth.Result
+import com.eshc.travelplatform.data.repository.AuthRepository
+import com.eshc.travelplatform.data.model.Result
 
 import com.eshc.travelplatform.R
 

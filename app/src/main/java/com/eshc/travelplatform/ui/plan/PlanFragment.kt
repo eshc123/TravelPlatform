@@ -8,15 +8,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.shared.util.adapter.SpotAdapter
-import com.eshc.travelplatform.data.plan.model.Spot
+import com.eshc.travelplatform.domain.model.Spot
 import com.eshc.travelplatform.databinding.FragmentPlanBinding
-import com.eshc.travelplatform.ui.login.LoginViewModel
-import com.eshc.travelplatform.ui.login.LoginViewModelFactory
 import com.google.android.gms.maps.*
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
@@ -73,11 +70,6 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
 
         mapView.onCreate(savedInstanceState)
         mapView.getMapAsync(this)
-
-
-        binding.tvAdd.setOnClickListener {
-            navigateToRecommend()
-        }
 
         return binding.root
     }
@@ -157,7 +149,5 @@ class PlanFragment : Fragment(), OnMapReadyCallback {
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(x / spots.size, y / spots.size)))
         googleMap.moveCamera(CameraUpdateFactory.zoomTo(12f))
     }
-    private fun navigateToRecommend(){
-        findNavController().navigate(R.id.action_fragment_plan_to_fragment_recommend)
-    }
+
 }

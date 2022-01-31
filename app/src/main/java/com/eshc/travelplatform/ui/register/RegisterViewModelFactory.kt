@@ -2,8 +2,8 @@ package com.eshc.travelplatform.ui.register
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.eshc.travelplatform.data.auth.AuthDataSource
-import com.eshc.travelplatform.data.auth.AuthRepository
+import com.eshc.travelplatform.data.remote.AuthRemoteDataSource
+import com.eshc.travelplatform.data.repository.AuthRepository
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.
@@ -16,7 +16,7 @@ class RegisterViewModelFactory : ViewModelProvider.Factory {
         if (modelClass.isAssignableFrom(RegisterViewModel::class.java)) {
             return RegisterViewModel(
                 authRepository = AuthRepository(
-                    dataSource = AuthDataSource()
+                    remoteDataSource = AuthRemoteDataSource()
                 )
             ) as T
         }

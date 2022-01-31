@@ -1,4 +1,4 @@
-package com.eshc.travelplatform.ui.plan
+package com.eshc.travelplatform.ui.recommend
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

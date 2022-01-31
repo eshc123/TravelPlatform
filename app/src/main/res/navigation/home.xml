@@ -32,17 +32,5 @@
         android:label="plan"
         tools:layout="@layout/fragment_plan">
 
-        <action
-            android:id="@+id/action_fragment_plan_to_fragment_recommend"
-            app:destination="@id/fragment_recommend" />
-    </fragment>
-    <fragment
-        android:id="@+id/fragment_recommend"
-        android:name="com.eshc.travelplatform.ui.plan.RecommendFragment"
-        android:label="recommend"
-        tools:layout="@layout/fragment_recommend">
-
-
-
     </fragment>
 </navigation>

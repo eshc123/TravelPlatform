@@ -3,8 +3,8 @@ package com.eshc.travelplatform.ui.home
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.eshc.travelplatform.data.plan.model.Course
-import com.eshc.travelplatform.data.plan.model.Recommendation
+import com.eshc.travelplatform.domain.model.Course
+import com.eshc.travelplatform.domain.model.Recommendation
 
 class HomeViewModel : ViewModel() {
 

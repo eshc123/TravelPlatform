@@ -4,10 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.eshc.travelplatform.R
-import com.eshc.travelplatform.data.plan.model.LocationCategory
-import com.eshc.travelplatform.data.plan.model.Recommendation
-import com.eshc.travelplatform.data.plan.model.Spot
-import com.eshc.travelplatform.data.plan.model.Suggestion
+import com.eshc.travelplatform.domain.model.LocationCategory
+import com.eshc.travelplatform.domain.model.Suggestion
 
 class SearchViewModel : ViewModel() {
     private val _categories = MutableLiveData<MutableList<LocationCategory>>()

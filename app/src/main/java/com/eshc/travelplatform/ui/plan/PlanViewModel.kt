@@ -3,7 +3,7 @@ package com.eshc.travelplatform.ui.plan
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.eshc.travelplatform.data.plan.model.Spot
+import com.eshc.travelplatform.domain.model.Spot
 
 class PlanViewModel : ViewModel() {
     private val _spots = MutableLiveData<MutableList<Spot>>()

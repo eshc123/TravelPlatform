@@ -1,13 +1,15 @@
-package com.eshc.travelplatform.data.auth
+package com.eshc.travelplatform.data.repository
 
-import com.eshc.travelplatform.data.auth.model.LoggedInUser
+import com.eshc.travelplatform.data.remote.AuthRemoteDataSource
+import com.eshc.travelplatform.data.model.Result
+import com.eshc.travelplatform.data.model.LoggedInUser
 
 /**
  * Class that requests authentication and user information from the remote data source and
  * maintains an in-memory cache of login status and user credentials information.
  */
 
-class AuthRepository(val dataSource: AuthDataSource) {
+class AuthRepository(val remoteDataSource: AuthRemoteDataSource) {
 
     // in-memory cache of the loggedInUser object
     var user: LoggedInUser? = null
@@ -24,12 +26,12 @@ class AuthRepository(val dataSource: AuthDataSource) {
 
     fun logout() {
         user = null
-        dataSource.logout()
+        remoteDataSource.logout()
     }
 
     fun login(username: String, password: String): Result<LoggedInUser> {
         // handle login
-        val result = dataSource.login(username, password)
+        val result = remoteDataSource.login(username, password)
 
         if (result is Result.Success) {
             setLoggedInUser(result.data)
@@ -39,7 +41,7 @@ class AuthRepository(val dataSource: AuthDataSource) {
     }
 
     fun register(username: String, password: String,phoneNum:String): Result<LoggedInUser> {
-        val result = dataSource.register(username, password,phoneNum)
+        val result = remoteDataSource.register(username, password,phoneNum)
 
         if (result is Result.Success) {
             setLoggedInUser(result.data)

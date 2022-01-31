@@ -1,26 +1,17 @@
 package com.eshc.travelplatform.ui.home
 
-import android.os.Build
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentHomeBinding
 import com.eshc.travelplatform.shared.util.adapter.CourseAdapter
 import com.eshc.travelplatform.shared.util.adapter.RecommendationAdapter
-import com.eshc.travelplatform.ui.MainActivity
-import com.eshc.travelplatform.ui.plan.PlanBottomSheetFragment
-import com.eshc.travelplatform.ui.plan.RecommendViewModel
-import com.eshc.travelplatform.ui.plan.RecommendViewModelFactory
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.tabs.TabLayout
 
 class HomeFragment : Fragment() {
 
