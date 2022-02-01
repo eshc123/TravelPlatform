@@ -17,6 +17,8 @@ class HomeViewModel : ViewModel() {
     val recommendations: LiveData<MutableList<Recommendation>> = _recommendations
     private val _courses = MutableLiveData<MutableList<Course>>()
     val courses: LiveData<MutableList<Course>> = _courses
+    private val _hasPlans = MutableLiveData<Boolean>()
+    val hasPlans : LiveData<Boolean> = _hasPlans
     init {
         _recommendations.value = mutableListOf(
             Recommendation("울산의 초록빛과 부산의 푸른빛에 둘려쌓여 자유를 만끽하다!","https://tong.visitkorea.or.kr/cms/resource/56/2716256_image2_1.jpg"),

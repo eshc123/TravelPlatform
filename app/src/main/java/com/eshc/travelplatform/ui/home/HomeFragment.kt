@@ -12,6 +12,8 @@ import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentHomeBinding
 import com.eshc.travelplatform.shared.util.adapter.CourseAdapter
 import com.eshc.travelplatform.shared.util.adapter.RecommendationAdapter
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class HomeFragment : Fragment() {
 
@@ -62,6 +64,7 @@ class HomeFragment : Fragment() {
         binding.ivSearch.setOnClickListener {
             navigateToSearch()
         }
+
     }
     override fun onDestroyView() {
         super.onDestroyView()
