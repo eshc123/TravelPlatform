@@ -19,4 +19,6 @@
     <color name="etc_color">#F5F5F5</color>
 
     <color name="input_border_color">#DBDBDB</color>
+
+    <color name="transparent">#00ffffff</color>
 </resources>

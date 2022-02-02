@@ -2,6 +2,8 @@ package com.eshc.travelplatform.ui.plan
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -20,6 +22,7 @@ import com.eshc.travelplatform.shared.util.adapter.RecommendationAdapter
 import com.eshc.travelplatform.shared.util.adapter.SuggestionAdapter
 import com.eshc.travelplatform.ui.MainActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import net.daum.mf.map.api.CameraUpdateFactory
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
@@ -45,6 +48,7 @@ class SearchFragment : Fragment() {
 
 
         kakaoMapView = MapView(activity)
+        initMapView()
         (binding.mapview as ViewGroup).addView(kakaoMapView)
 
         binding.etSearch.setOnFocusChangeListener { v, hasFocus ->
@@ -106,5 +110,15 @@ class SearchFragment : Fragment() {
         binding.etSearch.setText(suggestion.title)
         binding.etSearch.clearFocus()
         hideKeyboard()
+        openSearchDetailBottomSheet(suggestion)
+    }
+    private fun initMapView(){
+        val mapPoint = MapPoint.mapPointWithGeoCoord(35.179938,129.074901)
+        kakaoMapView.moveCamera(CameraUpdateFactory.newMapPoint(mapPoint))
+    }
+    private fun openSearchDetailBottomSheet(suggestion: Suggestion){
+        val searchDetailFragment = SearchDetailFragment(suggestion)
+        searchDetailFragment.dialog?.window?.setDimAmount(1f)
+        searchDetailFragment.show(parentFragmentManager,this.tag)
     }
 }
