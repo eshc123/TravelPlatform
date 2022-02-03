@@ -48,6 +48,7 @@ class SearchFragment : Fragment() {
 
 
         kakaoMapView = MapView(activity)
+
         initMapView()
         (binding.mapview as ViewGroup).addView(kakaoMapView)
 
@@ -106,7 +107,8 @@ class SearchFragment : Fragment() {
         marker.markerType = MapPOIItem.MarkerType.BluePin
         marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
         kakaoMapView.addPOIItem(marker)
-        kakaoMapView.moveCamera(CameraUpdateFactory.newMapPoint(mapPoint))
+        //kakaoMapView.moveCamera(CameraUpdateFactory.newMapPoint(mapPoint))
+        kakaoMapView.setMapCenterPoint(mapPoint,false)
         binding.etSearch.setText(suggestion.title)
         binding.etSearch.clearFocus()
         hideKeyboard()
@@ -114,7 +116,8 @@ class SearchFragment : Fragment() {
     }
     private fun initMapView(){
         val mapPoint = MapPoint.mapPointWithGeoCoord(35.179938,129.074901)
-        kakaoMapView.moveCamera(CameraUpdateFactory.newMapPoint(mapPoint))
+        kakaoMapView.setMapCenterPoint(mapPoint,false)
+
     }
     private fun openSearchDetailBottomSheet(suggestion: Suggestion){
         val searchDetailFragment = SearchDetailFragment(suggestion)

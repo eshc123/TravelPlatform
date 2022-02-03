@@ -21,9 +21,11 @@ class RecommendActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRecommnedBinding
     private lateinit var recommendViewModel : RecommendViewModel
     private var currentViewIndex = 0
+    private var fromRegister = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        fromRegister = intent.getBooleanExtra("fromRegister",false)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_recommned)
         recommendViewModel= ViewModelProvider(this, RecommendViewModelFactory())
             .get(RecommendViewModel::class.java)
@@ -55,7 +57,8 @@ class RecommendActivity : AppCompatActivity() {
         }
     }
     private fun startMainActivity() {
-        startActivity(Intent(this@RecommendActivity, MainActivity::class.java))
+        if(fromRegister)
+            startActivity(Intent(this@RecommendActivity, MainActivity::class.java))
         finish()
     }
     private fun goToNext(){

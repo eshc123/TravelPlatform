@@ -1,153 +1,80 @@
 package com.eshc.travelplatform.ui.plan
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
-import com.eshc.travelplatform.shared.util.adapter.SpotAdapter
-import com.eshc.travelplatform.domain.model.Spot
 import com.eshc.travelplatform.databinding.FragmentPlanBinding
-import com.google.android.gms.maps.*
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.material.tabs.TabLayout
+import com.eshc.travelplatform.shared.util.adapter.CourseAdapter
+import com.eshc.travelplatform.shared.util.adapter.RecommendationAdapter
+import com.eshc.travelplatform.ui.recommend.RecommendActivity
 
+class PlanFragment : Fragment() {
 
-class PlanFragment : Fragment(), OnMapReadyCallback {
-    private lateinit var binding: FragmentPlanBinding
     private lateinit var planViewModel: PlanViewModel
-
-    private lateinit var mapView: MapView
-    private lateinit var mGoogleMap : GoogleMap
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var tabLayout: TabLayout
-    private val adapter by lazy {
-        SpotAdapter(planViewModel).apply {
-            setHasStableIds(true)
-        }
-    }
-
-    private val views = mutableListOf<View>()
-
-    val spots = mutableListOf<Spot>()
-    override fun onMapReady(googleMap: GoogleMap) {
-        mGoogleMap = googleMap
-        drawMarkers(googleMap = googleMap, spots = spots)
-    }
+    private lateinit var binding : FragmentPlanBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        planViewModel = ViewModelProvider(this, PlanViewModelFactory())
+        planViewModel= ViewModelProvider(this, PlanViewModelFactory())
             .get(PlanViewModel::class.java)
-
-        planViewModel.spots.observe(this, Observer { spots ->
-            this.spots.clear()
-            this.spots.addAll(spots)
-
-
-            adapter.replaceAll(spots)
-        })
-
-
-    }
-
+           }
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_plan, container, false)
+        binding.fragment = this
 
-        mapView = binding.map
-        recyclerView = binding.rvSpots
-        tabLayout = binding.tablayout
+        val textView: AppCompatTextView = binding.textHome
+        val recommendationAdapter = RecommendationAdapter()
+        val courseAdapter = CourseAdapter()
+        binding.rvRecommendation.adapter = recommendationAdapter
+        binding.rvCourse.adapter = courseAdapter
 
-        mapView.onCreate(savedInstanceState)
-        mapView.getMapAsync(this)
-
+        planViewModel.text.observe(viewLifecycleOwner, Observer {
+            textView.text = it
+        })
+        planViewModel.recommendations.observe(viewLifecycleOwner, Observer {
+            recommendationAdapter.replaceAll(it)
+        })
+        planViewModel.courses.observe(viewLifecycleOwner, Observer {
+            courseAdapter.replaceAll(it)
+        })
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViewsContainer()
-        initTabLayout()
-        initRecyclerView()
-        test()
-    }
 
-    private fun test() {
+        binding.clAdd.setOnClickListener {
+            startRecommend()
 
-
-    }
-
-    private fun initRecyclerView() {
-        val lm = LinearLayoutManager(activity, RecyclerView.VERTICAL, false)
-        lm.scrollToPositionWithOffset(0, 0)
-
-        recyclerView.layoutManager = lm
-        recyclerView.adapter = adapter
-    }
-
-    private fun initTabLayout() {
-        val tabNames = listOf("지도로 보기", "목록으로 보기")
-        for (tabName in tabNames) {
-            val newTab = tabLayout.newTab().setText(tabName)
-            tabLayout.addTab(newTab)
+//            val planBottomSheetFragment = PlanBottomSheetFragment()
+//            planBottomSheetFragment.show(childFragmentManager,planBottomSheetFragment.tag)
         }
-        setTabSelectedListener()
-    }
-
-    private fun setTabSelectedListener() {
-        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabReselected(tab: TabLayout.Tab) {
-
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab) {
-                views[tab.position].visibility = View.GONE
-            }
-
-            override fun onTabSelected(tab: TabLayout.Tab) {
-                views[tab.position].visibility = View.VISIBLE
-                if(tab.position == 0){
-                    mGoogleMap.clear()
-                    drawMarkers(spots,mGoogleMap)
-                }
-            }
-        })
-    }
-
-    override fun onResume() {
-        super.onResume()
-        mapView.onResume()
-    }
-
-    private fun initViewsContainer() {
-        views.add(mapView)
-        views.add(recyclerView)
-    }
-
-    private fun drawMarkers(spots: MutableList<Spot>, googleMap: GoogleMap) {
-        var x = 0.0
-        var y = 0.0
-        spots.forEach {
-            x += it.x
-            y += it.y
-            val marker = MarkerOptions()
-                .position(LatLng(it.x, it.y))
-                .title(it.name)
-                .snippet("${it.name}입니다.")
-            googleMap.addMarker(marker)
+        binding.ivSearch.setOnClickListener {
+            navigateToSearch()
         }
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(LatLng(x / spots.size, y / spots.size)))
-        googleMap.moveCamera(CameraUpdateFactory.zoomTo(12f))
+
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
     }
 
+
+    private fun navigateToSearch(){
+        findNavController().navigate(R.id.action_navigation_plan_to_fragment_search)
+    }
+    private fun startRecommend(){
+        activity?.startActivity(Intent(activity, RecommendActivity::class.java))
+    }
 }

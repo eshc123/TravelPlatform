@@ -6,7 +6,6 @@ import com.eshc.travelplatform.R
 import com.eshc.travelplatform.ui.base.BaseRecyclerViewAdapter
 import com.eshc.travelplatform.domain.model.Spot
 import com.eshc.travelplatform.databinding.ItemSpotBinding
-import com.eshc.travelplatform.ui.plan.PlanViewModel
 
 class SpotAdapter(val vm : ViewModel)  : BaseRecyclerViewAdapter<Spot,ItemSpotBinding>(
     layoutResId = R.layout.item_spot,
@@ -14,9 +13,6 @@ class SpotAdapter(val vm : ViewModel)  : BaseRecyclerViewAdapter<Spot,ItemSpotBi
 ) {
     override fun onBindViewHolder(holder: ViewHolder<ItemSpotBinding>, position: Int) {
         super.onBindViewHolder(holder, position)
-        holder.binding.tvDelete.setOnClickListener {
-            deleteItem(holder.adapterPosition)
-            (vm as PlanViewModel).deleteSpot(holder.adapterPosition)
-        }
+
     }
 }

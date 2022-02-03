@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">TravelPlatform</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">일정</string>
+    <string name="title_dashboard">추억</string>
+    <string name="title_notifications">마이페이지</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_plan">여행 경로</string>
 

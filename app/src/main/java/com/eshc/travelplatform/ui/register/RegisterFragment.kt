@@ -166,7 +166,9 @@ class RegisterFragment : BottomSheetDialogFragment() {
                 val planButton = alertDialog.findViewById<AppCompatTextView>(R.id.btn_plan)
                 planButton?.setOnClickListener {
                     alertDialog.dismiss()
-                    mActivity?.startActivity(Intent(mActivity, RecommendActivity::class.java))
+                    val recommendIntent = Intent(mActivity,RecommendActivity::class.java)
+                    recommendIntent.putExtra("fromRegister",true)
+                    mActivity?.startActivity(recommendIntent)
                     mActivity?.finish()
                 }
                 val justButton = alertDialog.findViewById<AppCompatTextView>(R.id.tv_just)
@@ -176,27 +178,6 @@ class RegisterFragment : BottomSheetDialogFragment() {
                     mActivity?.finish()
                 }
             }
-    }
-
-    override fun dismiss() {
-        super.dismiss()
-        viewClear()
-    }
-
-
-    private fun viewClear(){
-
-        binding.phonenum.text?.clear()
-        binding.phonenum.clearFocus()
-        binding.phonenum.error = null
-
-        binding.password.text?.clear()
-        binding.password.clearFocus()
-        binding.password.error = null
-
-        binding.username.text?.clear()
-        binding.username.clearFocus()
-        binding.username.error = null
     }
 }
 
