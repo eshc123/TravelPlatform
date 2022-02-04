@@ -29,6 +29,6 @@
             android:text="@{condition.title}"
             tools:text="혼자"
             android:layout_marginVertical="10dp"
-            android:layout_marginHorizontal="25dp"/>
+            android:layout_marginHorizontal="@dimen/content_padding"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

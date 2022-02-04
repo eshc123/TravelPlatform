@@ -121,7 +121,6 @@ class SearchFragment : Fragment() {
     }
     private fun openSearchDetailBottomSheet(suggestion: Suggestion){
         val searchDetailFragment = SearchDetailFragment(suggestion)
-        searchDetailFragment.dialog?.window?.setDimAmount(1f)
         searchDetailFragment.show(parentFragmentManager,this.tag)
     }
 }

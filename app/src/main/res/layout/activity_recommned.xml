@@ -57,7 +57,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pretendard_semi_bold"
-                    android:paddingHorizontal="25dp"
+                    android:paddingHorizontal="@dimen/content_padding"
                     android:text="@string/who_type"
                     android:textColor="@color/title_color"
                     android:textSize="18sp"
@@ -87,7 +87,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pretendard_semi_bold"
-                    android:paddingHorizontal="25dp"
+                    android:paddingHorizontal="@dimen/content_padding"
                     android:text="@string/style_type"
                     android:textColor="@color/title_color"
                     android:textSize="18sp"
@@ -115,7 +115,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/pretendard_semi_bold"
-                    android:paddingHorizontal="25dp"
+                    android:paddingHorizontal="@dimen/content_padding"
                     android:text="@string/how_long_type"
                     android:textColor="@color/title_color"
                     android:textSize="18sp"
@@ -145,7 +145,7 @@
             android:id="@+id/cl_bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="25dp"
+            android:paddingHorizontal="@dimen/content_padding"
             app:layout_constraintBottom_toBottomOf="parent">
 
             <Button

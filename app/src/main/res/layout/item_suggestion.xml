@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:paddingHorizontal="25dp">
+        android:paddingHorizontal="@dimen/content_padding">
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/ll_location"

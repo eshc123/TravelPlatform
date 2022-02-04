@@ -2,10 +2,7 @@ package com.eshc.travelplatform.shared.util
 
 import android.content.Context
 import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.core.edit
-import androidx.datastore.preferences.core.emptyPreferences
-import androidx.datastore.preferences.core.stringPreferencesKey
+import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
@@ -19,16 +16,22 @@ class DataStoreUtil(private val context : Context) {
 
     private val userIdKey = stringPreferencesKey("userId")
     private val passwordKey = stringPreferencesKey("password")
-
+    private val hasPlansKey = booleanPreferencesKey("hasPlans")
     suspend fun setUserId(userId: String){
-        context.dataStore.edit { preferencss ->
-            preferencss[userIdKey] = userId
+        context.dataStore.edit { preferences ->
+            preferences[userIdKey] = userId
         }
     }
 
-    suspend fun setPassword(Password: String){
-        context.dataStore.edit { preferencss ->
-            preferencss[passwordKey] = Password
+    suspend fun setPassword(password: String){
+        context.dataStore.edit { preferences ->
+            preferences[passwordKey] = password
+        }
+    }
+
+    suspend fun setHasPlans(bool : Boolean){
+        context.dataStore.edit { preferences ->
+            preferences[hasPlansKey] = bool
         }
     }
 
@@ -55,7 +58,17 @@ class DataStoreUtil(private val context : Context) {
         .map { preferences ->
             preferences[passwordKey] ?: ""
         }
-
+    val hasPlans : Flow<Boolean> = context.dataStore.data
+        .catch { exception ->
+            if (exception is IOException) {
+                emit(emptyPreferences())
+            } else {
+                throw exception
+            }
+        }
+        .map { preferences ->
+            preferences[hasPlansKey] ?: false
+        }
     suspend fun clearAccount(){
 
     }

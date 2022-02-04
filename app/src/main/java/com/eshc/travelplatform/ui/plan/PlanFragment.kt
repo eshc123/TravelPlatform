@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentPlanBinding
+import com.eshc.travelplatform.domain.model.Suggestion
 import com.eshc.travelplatform.shared.util.adapter.CourseAdapter
 import com.eshc.travelplatform.shared.util.adapter.RecommendationAdapter
 import com.eshc.travelplatform.ui.recommend.RecommendActivity
@@ -19,6 +20,7 @@ class PlanFragment : Fragment() {
 
     private lateinit var planViewModel: PlanViewModel
     private lateinit var binding : FragmentPlanBinding
+    private lateinit var scheduleFragment: ScheduleFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,6 +51,9 @@ class PlanFragment : Fragment() {
         planViewModel.courses.observe(viewLifecycleOwner, Observer {
             courseAdapter.replaceAll(it)
         })
+
+        openSearchDetailBottomSheet()
+
         return binding.root
     }
 
@@ -76,5 +81,10 @@ class PlanFragment : Fragment() {
     }
     private fun startRecommend(){
         activity?.startActivity(Intent(activity, RecommendActivity::class.java))
+    }
+
+    private fun openSearchDetailBottomSheet(){
+        scheduleFragment = ScheduleFragment()
+        scheduleFragment.show(parentFragmentManager,this.tag)
     }
 }

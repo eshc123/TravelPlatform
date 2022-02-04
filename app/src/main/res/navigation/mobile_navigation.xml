@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@+id/plan">
+
     <include app:graph="@navigation/plan"/>
     <include app:graph="@navigation/dashboard"/>
     <include app:graph="@navigation/notification"/>

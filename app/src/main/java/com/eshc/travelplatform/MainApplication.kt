@@ -26,4 +26,11 @@ class MainApplication : Application() {
         val pw = getInstance().getDataStore().password.first()
         return !(id.isBlank() || pw.isBlank())
     }
+
+    suspend fun setHasPlans(bool:Boolean) {
+        getInstance().getDataStore().setHasPlans(bool)
+    }
+    suspend fun getHasPlans() : Boolean {
+        return getInstance().getDataStore().hasPlans.first()
+    }
 }

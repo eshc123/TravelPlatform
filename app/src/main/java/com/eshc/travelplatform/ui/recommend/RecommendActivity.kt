@@ -8,6 +8,7 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.eshc.travelplatform.MainApplication
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.ActivityRecommnedBinding
 import com.eshc.travelplatform.shared.util.adapter.ConditionAdapter
@@ -15,6 +16,9 @@ import com.eshc.travelplatform.ui.MainActivity
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class RecommendActivity : AppCompatActivity() {
 
@@ -81,6 +85,11 @@ class RecommendActivity : AppCompatActivity() {
                 binding.clWaiting.visibility = View.VISIBLE
                 currentViewIndex += 1
                 startAnimation()
+            }
+            3 -> {
+                CoroutineScope(Dispatchers.Main).launch {
+                    MainApplication.getInstance().setHasPlans(false)
+                }
             }
         }
     }
