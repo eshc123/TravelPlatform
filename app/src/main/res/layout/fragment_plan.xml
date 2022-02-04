@@ -10,139 +10,178 @@
             type="com.eshc.travelplatform.ui.plan.PlanFragment" />
     </data>
 
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.plan.PlanFragment">
 
-        <androidx.core.widget.NestedScrollView
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_top"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="8dp">
+                android:layout_height="match_parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/cl_container"
                     android:layout_width="match_parent"
-                    android:layout_height="282dp"
-                    android:background="@color/etc_color"
-                    android:paddingHorizontal="@dimen/content_padding"
-                    app:layout_constraintTop_toTopOf="parent">
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/iv_search"
-                        android:layout_width="28dp"
-                        android:layout_height="28dp"
-                        android:src="@drawable/ic_search"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        android:layout_marginTop="60dp"/>
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="132dp"
-                        android:layout_marginBottom="26dp"
-                        android:fontFamily="@font/pretendard_semi_bold"
-                        android:gravity="start"
-                        android:text="@string/intro_home"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        app:layout_constraintBottom_toTopOf="@id/cl_add"
-                        app:layout_constraintTop_toTopOf="parent" />
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="8dp">
 
                     <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/cl_add"
+                        android:id="@+id/cl_container"
                         android:layout_width="match_parent"
-                        android:layout_height="62dp"
-                        android:layout_marginBottom="28dp"
-                        android:background="@drawable/background_corner_round_gry"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent">
+                        android:layout_height="282dp"
+                        android:background="@color/etc_color"
+                        android:paddingHorizontal="@dimen/content_padding"
+                        app:layout_constraintTop_toTopOf="parent">
 
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/iv_search"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_marginTop="60dp"
+                            android:src="@drawable/ic_search"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <androidx.appcompat.widget.AppCompatTextView
-                            android:id="@+id/text_home"
-                            android:layout_width="wrap_content"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:fontFamily="@font/pretendard_regular"
-                            android:gravity="center"
-                            android:textColor="@color/white"
-                            android:textSize="14sp"
+                            android:layout_marginTop="132dp"
+                            android:layout_marginBottom="26dp"
+                            android:fontFamily="@font/pretendard_semi_bold"
+                            android:gravity="start"
+                            android:text="@string/intro_home"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toTopOf="@id/cl_add"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cl_add"
+                            android:layout_width="match_parent"
+                            android:layout_height="62dp"
+                            android:layout_marginBottom="28dp"
+                            android:background="@drawable/background_corner_round_gry"
                             app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent">
+
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/text_home"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/pretendard_regular"
+                                android:gravity="center"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cl_container">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_course"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/content_padding"
+                            android:layout_marginTop="28dp"
+                            android:fontFamily="@font/pretendard_semi_bold"
+                            android:text="@string/subtitle_first_home"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_course"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="28dp"
+                            android:clipToPadding="false"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="21dp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintTop_toBottomOf="@id/tv_course"
+                            tools:itemCount="3"
+                            tools:listitem="@layout/item_course" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_recommendation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/content_padding"
+                            android:layout_marginTop="28dp"
+                            android:fontFamily="@font/pretendard_semi_bold"
+                            android:text="2월! 부산의 인기 지역을 모아봤어요"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/rv_course" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_recommendation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="28dp"
+                            android:clipToPadding="false"
+                            android:orientation="horizontal"
+                            android:paddingHorizontal="21dp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintTop_toBottomOf="@id/tv_recommendation"
+                            tools:itemCount="3"
+                            tools:listitem="@layout/item_recommendation" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
 
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_bottom_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            style="?attr/bottomSheetStyle"
+            app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/cl_container">
+            <View
+                android:id="@+id/v_"
+                android:layout_width="146dp"
+                android:layout_height="3dp"
+                android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:background="@color/sub_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_course"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="28dp"
-                        android:layout_marginHorizontal="@dimen/content_padding"
-                        android:fontFamily="@font/pretendard_semi_bold"
-                        android:text="@string/subtitle_first_home"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ll_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/v_"
+                android:orientation="vertical">
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_course"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="28dp"
-                        android:paddingHorizontal="21dp"
-                        android:clipToPadding="false"
-                        android:orientation="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintTop_toBottomOf="@id/tv_course"
-                        tools:itemCount="3"
-                        tools:listitem="@layout/item_course" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
-                    <androidx.appcompat.widget.AppCompatTextView
-                        android:id="@+id/tv_recommendation"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="28dp"
-                        android:layout_marginHorizontal="@dimen/content_padding"
-                        android:fontFamily="@font/pretendard_semi_bold"
-                        android:text="2월! 부산의 인기 지역을 모아봤어요"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/rv_course" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/rv_recommendation"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="28dp"
-                        android:paddingHorizontal="21dp"
-                        android:clipToPadding="false"
-                        android:orientation="horizontal"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintTop_toBottomOf="@id/tv_recommendation"
-                        tools:itemCount="3"
-                        tools:listitem="@layout/item_recommendation" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

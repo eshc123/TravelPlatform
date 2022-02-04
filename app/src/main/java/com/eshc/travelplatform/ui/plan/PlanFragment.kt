@@ -4,6 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.marginBottom
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -14,7 +16,10 @@ import com.eshc.travelplatform.databinding.FragmentPlanBinding
 import com.eshc.travelplatform.domain.model.Suggestion
 import com.eshc.travelplatform.shared.util.adapter.CourseAdapter
 import com.eshc.travelplatform.shared.util.adapter.RecommendationAdapter
+import com.eshc.travelplatform.shared.util.dpToPx
 import com.eshc.travelplatform.ui.recommend.RecommendActivity
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class PlanFragment : Fragment() {
 
@@ -52,7 +57,7 @@ class PlanFragment : Fragment() {
             courseAdapter.replaceAll(it)
         })
 
-        openSearchDetailBottomSheet()
+        //openSearchDetailBottomSheet()
 
         return binding.root
     }
@@ -69,10 +74,7 @@ class PlanFragment : Fragment() {
         binding.ivSearch.setOnClickListener {
             navigateToSearch()
         }
-
-    }
-    override fun onDestroyView() {
-        super.onDestroyView()
+        initScheduleBottomSheet()
     }
 
 
@@ -83,8 +85,14 @@ class PlanFragment : Fragment() {
         activity?.startActivity(Intent(activity, RecommendActivity::class.java))
     }
 
-    private fun openSearchDetailBottomSheet(){
-        scheduleFragment = ScheduleFragment()
-        scheduleFragment.show(parentFragmentManager,this.tag)
+    private fun initScheduleBottomSheet(){
+        val bottomSheet = binding.clBottomContainer
+        val bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
+
+        bottomSheetBehavior.peekHeight = 200.dpToPx()
+        val view = layoutInflater.inflate(R.layout.layout_schedule,binding.llContainer,false)
+        binding.llContainer.addView(view)
+        binding.clTop.setPadding(0,0,0,200.dpToPx())
     }
+
 }

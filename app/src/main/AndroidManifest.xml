@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TravelPlatform"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.recommend.RecommendActivity"></activity>
+        <activity android:name=".ui.recommend.RecommendActivity" />
 
         <meta-data
             android:name="com.kakao.sdk.AppKey"
@@ -37,12 +37,12 @@
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:windowSoftInputMode="adjustResize"></activity>
+            android:windowSoftInputMode="adjustResize" />
 
         <meta-data
             android:name="com.google.android.gms.version"
