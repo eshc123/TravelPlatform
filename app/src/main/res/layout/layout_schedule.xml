@@ -2,9 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_top"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/content_padding"
@@ -125,5 +127,103 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <View
+        android:id="@+id/v_border"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/etc_color"
+        android:layout_marginHorizontal="@dimen/content_padding"
+        app:layout_constraintTop_toBottomOf="@id/cl_top"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_spot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="vertical"
+        tools:listitem="@layout/item_spot"
+        tools:itemCount="2"
+        app:layout_constraintTop_toBottomOf="@id/v_border"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/rv_spot"
+        android:paddingVertical="13dp"
+        android:background="@color/etc_color">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_calendar"
+            android:layout_width="134dp"
+            android:layout_height="44dp"
+            android:background="@drawable/background_corner_round"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cl_memo">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_add_calendar"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_round_calendar"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_add_calendar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_add_calendar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_regular"
+                android:text="일정 추가"
+                android:textColor="@color/content_color"
+                android:textSize="14sp"
+                android:layout_marginStart="4dp"
+                app:layout_constraintStart_toEndOf="@id/iv_add_calendar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_memo"
+            android:layout_width="134dp"
+            android:layout_height="44dp"
+            android:background="@drawable/background_corner_round"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cl_calendar">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_add_memo"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_memo"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_add_memo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_add_memo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pretendard_regular"
+                android:text="메모 추가"
+                android:textColor="@color/content_color"
+                android:textSize="14sp"
+                android:layout_marginStart="4dp"
+                app:layout_constraintStart_toEndOf="@id/iv_add_memo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,7 @@ import com.eshc.travelplatform.ui.base.BaseRecyclerViewAdapter
 import com.eshc.travelplatform.domain.model.Spot
 import com.eshc.travelplatform.databinding.ItemSpotBinding
 
-class SpotAdapter(val vm : ViewModel)  : BaseRecyclerViewAdapter<Spot,ItemSpotBinding>(
+class SpotAdapter  : BaseRecyclerViewAdapter<Spot,ItemSpotBinding>(
     layoutResId = R.layout.item_spot,
     bindingVariableId = BR.spot
 ) {
