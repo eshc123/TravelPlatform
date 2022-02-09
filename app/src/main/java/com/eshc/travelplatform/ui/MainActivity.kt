@@ -29,15 +29,6 @@ class MainActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment
         val navController = navHostFragment.navController
 
-        //보류
-//        val inflater = navHostFragment.navController.navInflater
-//        val navGraph : NavGraph = inflater.inflate(R.navigation.plan)
-//        val destination = if(bool) R.id.navigation_plan else R.id.navigation_plan
-//        navGraph.setStartDestination(destination)
-
-        //navController.setGraph(navGraph,null)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be consider  ed as top level destinations.
         navView.setupWithNavController(navController)
     }
 }

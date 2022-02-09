@@ -3,13 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/notification"
-    app:startDestination="@id/navigation_notifications">
+    android:id="@+id/mypage"
+    app:startDestination="@id/navigation_mypage">
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.eshc.travelplatform.ui.notifications.NotificationsFragment"
+        android:id="@+id/navigation_mypage"
+        android:name="com.eshc.travelplatform.ui.mypage.MypageFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_mypage" />
 
 
 </navigation>

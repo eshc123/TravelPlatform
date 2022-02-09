@@ -6,7 +6,7 @@
     app:startDestination="@+id/plan">
 
     <include app:graph="@navigation/plan"/>
-    <include app:graph="@navigation/dashboard"/>
-    <include app:graph="@navigation/notification"/>
+    <include app:graph="@navigation/keep"/>
+    <include app:graph="@navigation/mypage"/>
 
 </navigation>
