@@ -26,7 +26,7 @@
             <View
                 android:layout_width="146dp"
                 android:layout_height="3dp"
-                android:background="@color/sub_color"
+                android:background="@color/hint_color"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -94,13 +94,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/password" />
 
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/register"
                 android:layout_width="match_parent"
-                android:layout_height="62dp"
+                android:layout_height="52dp"
                 android:layout_gravity="start"
                 android:layout_marginTop="33dp"
                 android:enabled="false"
+                android:background="@drawable/btn_color"
+                android:textColor="@color/white"
                 android:fontFamily="@font/pretendard_regular"
                 android:text="@string/action_register"
                 app:layout_constraintEnd_toEndOf="parent"

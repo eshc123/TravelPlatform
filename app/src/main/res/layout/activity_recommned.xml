@@ -148,11 +148,13 @@
             android:paddingHorizontal="@dimen/content_padding"
             app:layout_constraintBottom_toBottomOf="parent">
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/next"
                 android:layout_width="match_parent"
-                android:layout_height="62dp"
+                android:layout_height="52dp"
                 android:enabled="true"
+                android:textColor="@color/white"
+                android:background="@drawable/btn_color"
                 android:fontFamily="@font/pretendard_regular"
                 android:text="@string/action_to_next"
                 app:layout_constraintTop_toTopOf="parent" />

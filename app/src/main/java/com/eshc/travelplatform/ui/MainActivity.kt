@@ -20,10 +20,10 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initNavigation(true)
+        initNavigation()
 
     }
-    fun initNavigation(bool : Boolean){
+    fun initNavigation(){
         val navView: BottomNavigationView = binding.navView
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment_activity_main) as NavHostFragment

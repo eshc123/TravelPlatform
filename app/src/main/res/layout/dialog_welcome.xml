@@ -38,7 +38,7 @@
             android:layout_height="52dp"
             android:layout_marginTop="21dp"
             android:fontFamily="@font/pretendard_regular"
-            android:background="@drawable/background_corner_round_gry"
+            android:background="@drawable/background_corner_round_main"
             android:gravity="center"
             android:textColor="@color/white"
             android:text="@string/action_to_plan"
