@@ -30,10 +30,7 @@ class KeepFragment : Fragment() {
         _binding = FragmentKeepBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        keepViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+
         return root
     }
 
