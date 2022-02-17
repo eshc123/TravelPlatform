@@ -8,6 +8,7 @@ import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.SimpleItemAnimator
 import com.eshc.travelplatform.MainApplication
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.ActivityRecommnedBinding
@@ -35,9 +36,11 @@ class RecommendActivity : AppCompatActivity() {
             .get(RecommendViewModel::class.java)
 
         setLayoutManager()
-        val whoAdapter = ConditionAdapter()
+        val whoAdapter = ConditionAdapter(context = this)
+        whoAdapter.setHasStableIds(true)
         binding.rvWho.adapter = whoAdapter
-        val styleAdapter = ConditionAdapter()
+        val styleAdapter = ConditionAdapter(this)
+        styleAdapter.setHasStableIds(true)
         binding.rvStyle.adapter = styleAdapter
 
         recommendViewModel.conditionWho.observe(this, Observer {
