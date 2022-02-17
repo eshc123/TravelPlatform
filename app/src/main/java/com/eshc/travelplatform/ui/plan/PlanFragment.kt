@@ -29,7 +29,8 @@ class PlanFragment : Fragment() {
     private lateinit var planViewModel: PlanViewModel
     private lateinit var binding : FragmentPlanBinding
     private lateinit var scheduleFragment: ScheduleFragment
-
+    private lateinit var bottomSheet : ConstraintLayout
+    private lateinit var bottomSheetBehavior : BottomSheetBehavior<ConstraintLayout>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         planViewModel= ViewModelProvider(this, PlanViewModelFactory())
@@ -46,7 +47,10 @@ class PlanFragment : Fragment() {
 
         val textView: AppCompatTextView = binding.textHome
         val recommendationAdapter = RecommendationAdapter()
-        val courseAdapter = CourseAdapter()
+        val courseAdapter = CourseAdapter(this)
+        bottomSheet = binding.clBottomContainer
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
         binding.rvRecommendation.adapter = recommendationAdapter
         binding.rvCourse.adapter = courseAdapter
 
@@ -77,7 +81,7 @@ class PlanFragment : Fragment() {
         binding.ivSearch.setOnClickListener {
             navigateToSearch()
         }
-        initScheduleBottomSheet()
+        //initScheduleBottomSheet()
     }
 
 
@@ -88,10 +92,9 @@ class PlanFragment : Fragment() {
         activity?.startActivity(Intent(activity, RecommendActivity::class.java))
     }
 
-    private fun initScheduleBottomSheet(){
-        val bottomSheet = binding.clBottomContainer
-        val bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
+    fun initScheduleBottomSheet(){
 
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
         bottomSheetBehavior.peekHeight = 200.dpToPx()
         val view = layoutInflater.inflate(R.layout.layout_schedule,binding.llContainer,false)
         binding.llContainer.addView(view)
