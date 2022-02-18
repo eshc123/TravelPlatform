@@ -28,7 +28,6 @@ class PlanFragment : Fragment() {
 
     private lateinit var planViewModel: PlanViewModel
     private lateinit var binding : FragmentPlanBinding
-    private lateinit var scheduleFragment: ScheduleFragment
     private lateinit var bottomSheet : ConstraintLayout
     private lateinit var bottomSheetBehavior : BottomSheetBehavior<ConstraintLayout>
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -98,17 +97,17 @@ class PlanFragment : Fragment() {
         bottomSheetBehavior.peekHeight = 200.dpToPx()
         val view = layoutInflater.inflate(R.layout.layout_schedule,binding.llContainer,false)
         binding.llContainer.addView(view)
-        view.findViewById<RecyclerView>(R.id.rv_spot).adapter = SpotAdapter()
-        (view.findViewById<RecyclerView>(R.id.rv_spot).adapter as SpotAdapter).replaceAll(listOf(
-            Spot("해동 용궁사",0.0,0.0),Spot("두번째",0.0,0.0)
-        ))
-        val view1 = layoutInflater.inflate(R.layout.layout_schedule,binding.llContainer,false)
-
-        binding.llContainer.addView(view1)
-        view1.findViewById<RecyclerView>(R.id.rv_spot).adapter = SpotAdapter()
-        (view1.findViewById<RecyclerView>(R.id.rv_spot).adapter as SpotAdapter).replaceAll(listOf(
-            Spot("영화의 전당",0.0,0.0)
-        ))
+//        view.findViewById<RecyclerView>(R.id.rv_spot).adapter = SpotAdapter()
+//        (view.findViewById<RecyclerView>(R.id.rv_spot).adapter as SpotAdapter).replaceAll(listOf(
+//            Spot("해동 용궁사",0.0,0.0),Spot("두번째",0.0,0.0)
+//        ))
+//        val view1 = layoutInflater.inflate(R.layout.layout_schedule,binding.llContainer,false)
+//
+//        binding.llContainer.addView(view1)
+//        view1.findViewById<RecyclerView>(R.id.rv_spot).adapter = SpotAdapter()
+//        (view1.findViewById<RecyclerView>(R.id.rv_spot).adapter as SpotAdapter).replaceAll(listOf(
+//            Spot("영화의 전당",0.0,0.0)
+//        ))
         binding.clTop.setPadding(0,0,0,200.dpToPx())
     }
 
