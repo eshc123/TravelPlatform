@@ -50,7 +50,6 @@ class LoginActivity : AppCompatActivity() {
         loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
             val loginState = it ?: return@Observer
 
-            // disable login button unless both username / password is valid
             login.isEnabled = loginState.isDataValid
 
             if (loginState.usernameError != null) {
@@ -73,7 +72,6 @@ class LoginActivity : AppCompatActivity() {
             }
             setResult(Activity.RESULT_OK)
 
-            //Complete and destroy login activity once successful
             CoroutineScope(Dispatchers.Main).launch {
                 MainApplication.getInstance().getDataStore().setUserId(username.text.toString())
                 MainApplication.getInstance().getDataStore().setPassword(password.text.toString())

@@ -18,7 +18,6 @@ class RegisterViewModel(private val authRepository: AuthRepository) : ViewModel(
     val registerResult: LiveData<RegisterResult> = _registerResult
 
     fun register(username: String, password: String,phoneNum: String) {
-        // can be launched in a separate asynchronous job
         val result = authRepository.register(username, password,phoneNum)
 
         if (result is Result.Success) {
@@ -41,7 +40,6 @@ class RegisterViewModel(private val authRepository: AuthRepository) : ViewModel(
         }
     }
 
-    // A placeholder username validation check
     private fun isUserNameValid(username: String): Boolean {
         return if (username.contains('@')) {
             Patterns.EMAIL_ADDRESS.matcher(username).matches()
@@ -50,12 +48,10 @@ class RegisterViewModel(private val authRepository: AuthRepository) : ViewModel(
         }
     }
 
-    // A placeholder password validation check
     private fun isPasswordValid(password: String): Boolean {
         return password.length > 5
     }
 
-    // A placeholder password validation check
     private fun isPhoneNumValid(phoneNum: String): Boolean {
         return phoneNum.length > 10
     }

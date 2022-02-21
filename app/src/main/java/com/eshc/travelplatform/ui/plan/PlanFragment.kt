@@ -93,8 +93,11 @@ class PlanFragment : Fragment() {
 
     fun initScheduleBottomSheet(){
 
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_COLLAPSED
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
         bottomSheetBehavior.peekHeight = 200.dpToPx()
+        bottomSheetBehavior.isHideable = false
+        binding.clTop.visibility = View.GONE
+        binding.clPlan.visibility = View.VISIBLE
         val view = layoutInflater.inflate(R.layout.layout_schedule,binding.llContainer,false)
         binding.llContainer.addView(view)
 //        view.findViewById<RecyclerView>(R.id.rv_spot).adapter = SpotAdapter()

@@ -44,7 +44,6 @@ class RegisterFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater,R.layout.fragment_register,container,false)
         binding.clContainer.maxHeight = WindowManager.LayoutParams.MATCH_PARENT
         (dialog as BottomSheetDialog).behavior.apply {
@@ -123,7 +122,6 @@ class RegisterFragment : BottomSheetDialogFragment() {
         registerViewModel.registerFormState.observe(viewLifecycleOwner, Observer {
             val registerState = it ?: return@Observer
 
-            // disable login button unless both username / password is valid
             register.isEnabled = registerState.isDataValid
 
             if (registerState.usernameError != null) {
