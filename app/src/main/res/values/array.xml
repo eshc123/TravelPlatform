@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="month">
+        <item>1월</item>
+        <item>2월</item>
+        <item>3월</item>
+        <item>4월</item>
+        <item>5월</item>
+        <item>6월</item>
+        <item>7월</item>
+        <item>8월</item>
+        <item>9월</item>
+        <item>10월</item>
+        <item>11월</item>
+        <item>12월</item>
+    </string-array>
+    <string-array name="night">
+        <item>당일치기</item>
+        <item>1박2일</item>
+        <item>2박3일</item>
+        <item>3박4일</item>
+        <item>4박5일</item>
+        <item>5박6일</item>
+    </string-array>
+</resources>
