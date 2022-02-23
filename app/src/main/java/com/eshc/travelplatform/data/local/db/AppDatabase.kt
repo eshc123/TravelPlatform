@@ -1,4 +1,4 @@
-package com.eshc.travelplatform.data.local
+package com.eshc.travelplatform.data.local.db
 
 import android.content.Context
 import androidx.room.Database
@@ -25,7 +25,7 @@ abstract class AppDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE : AppDatabase? = null
 
-        fun getDatabase(context: Context, applicationScope: CoroutineScope) : AppDatabase{
+        fun getDatabase(context: Context, applicationScope: CoroutineScope) : AppDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
                     context.applicationContext,
