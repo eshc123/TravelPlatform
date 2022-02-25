@@ -5,11 +5,19 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.eshc.travelplatform.data.local.db.dao.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Database(entities = [],version = 1,exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
+
+    abstract fun planDao() : PlanDao
+    abstract fun courseDao() : CourseDao
+    abstract fun dailyPlanDao() : DailyPlanDao
+    abstract fun keepDao() : KeepDao
+    abstract fun spotDao() : SpotDao
+
     private class AppDatabaseCallBack(
         private val scope : CoroutineScope
     ) : RoomDatabase.Callback() {

@@ -4,10 +4,9 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "course_table")
-data class Course (
+@Entity(tableName = "daily_plan_table")
+data class DailyPlan(
     @PrimaryKey(autoGenerate = true) val id : Int = 0,
-    @ColumnInfo(name = "daily_plan_id") var dailyPlanId : Int,
-    var order : Int,
-    @ColumnInfo(name = "spot_id") var spotId : Int
+    val day : Int,
+    val description : String
 )
