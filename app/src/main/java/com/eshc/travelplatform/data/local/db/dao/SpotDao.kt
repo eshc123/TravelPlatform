@@ -15,6 +15,6 @@ interface SpotDao {
     fun getSpots() : Flow<List<Spot>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertSpot(spot : Spot)
+    suspend fun insertSpots(spots : List<Spot>)
 
 }

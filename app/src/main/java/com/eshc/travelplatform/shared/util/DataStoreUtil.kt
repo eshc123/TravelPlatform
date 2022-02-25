@@ -16,7 +16,6 @@ class DataStoreUtil(private val context : Context) {
 
     private val userIdKey = stringPreferencesKey("userId")
     private val passwordKey = stringPreferencesKey("password")
-    private val hasPlansKey = booleanPreferencesKey("hasPlans")
     suspend fun setUserId(userId: String){
         context.dataStore.edit { preferences ->
             preferences[userIdKey] = userId
@@ -29,11 +28,6 @@ class DataStoreUtil(private val context : Context) {
         }
     }
 
-    suspend fun setHasPlans(bool : Boolean){
-        context.dataStore.edit { preferences ->
-            preferences[hasPlansKey] = bool
-        }
-    }
 
     val userId : Flow<String> = context.dataStore.data
         .catch { exception ->
@@ -58,18 +52,6 @@ class DataStoreUtil(private val context : Context) {
         .map { preferences ->
             preferences[passwordKey] ?: ""
         }
-    val hasPlans : Flow<Boolean> = context.dataStore.data
-        .catch { exception ->
-            if (exception is IOException) {
-                emit(emptyPreferences())
-            } else {
-                throw exception
-            }
-        }
-        .map { preferences ->
-            preferences[hasPlansKey] ?: false
-        }
-    suspend fun clearAccount(){
 
-    }
+
 }

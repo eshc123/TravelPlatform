@@ -94,9 +94,7 @@ class RecommendActivity : AppCompatActivity() {
                 startAnimation()
             }
             3 -> {
-                CoroutineScope(Dispatchers.Main).launch {
-                    MainApplication.getInstance().setHasPlans(false)
-                }
+
             }
         }
     }

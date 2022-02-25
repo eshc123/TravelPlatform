@@ -8,6 +8,6 @@ import androidx.room.PrimaryKey
 data class Course (
     @PrimaryKey(autoGenerate = true) val id : Int = 0,
     @ColumnInfo(name = "daily_plan_id") var dailyPlanId : Int,
-    var order : Int,
-    @ColumnInfo(name = "spot_id") var spotId : Int
+    @ColumnInfo(name = "spot_id") var spotId : Int,
+    var order : Int
 )

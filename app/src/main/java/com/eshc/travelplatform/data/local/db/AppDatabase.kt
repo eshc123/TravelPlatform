@@ -6,10 +6,11 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.eshc.travelplatform.data.local.db.dao.*
+import com.eshc.travelplatform.data.local.db.entity.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [],version = 1,exportSchema = false)
+@Database(entities = [Course::class, DailyPlan::class,Keep::class,Plan::class,Spot::class],version = 1,exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun planDao() : PlanDao
@@ -25,6 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
             super.onCreate(db)
             INSTANCE?.let { database ->
                 scope.launch {
+                    database.spotDao().insertSpots(DataGenerator.getSpots())
                 }
             }
         }

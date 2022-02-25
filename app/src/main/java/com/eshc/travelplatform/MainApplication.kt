@@ -1,11 +1,17 @@
 package com.eshc.travelplatform
 
 import android.app.Application
+import com.eshc.travelplatform.data.local.db.AppDatabase
 import com.eshc.travelplatform.shared.util.DataStoreUtil
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.first
 
 class MainApplication : Application() {
     private lateinit var dataStore : DataStoreUtil
+    private val applicationScope = CoroutineScope(SupervisorJob())
+
+    val database by lazy { AppDatabase.getDatabase(this,applicationScope) }
 
     companion object {
         private lateinit var mainApplication: MainApplication
@@ -27,10 +33,6 @@ class MainApplication : Application() {
         return !(id.isBlank() || pw.isBlank())
     }
 
-    suspend fun setHasPlans(bool:Boolean) {
-        getInstance().getDataStore().setHasPlans(bool)
-    }
-    suspend fun getHasPlans() : Boolean {
-        return getInstance().getDataStore().hasPlans.first()
-    }
+
+
 }
