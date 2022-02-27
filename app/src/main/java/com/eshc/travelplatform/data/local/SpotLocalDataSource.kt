@@ -1,4 +1,7 @@
 package com.eshc.travelplatform.data.local
 
-class PlanLocalDataSource {
+
+class SpotLocalDataSource (
+){
+
 }

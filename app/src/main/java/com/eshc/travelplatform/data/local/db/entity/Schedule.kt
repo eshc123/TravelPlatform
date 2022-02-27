@@ -4,9 +4,10 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "daily_plan_table")
-data class DailyPlan(
+@Entity(tableName = "schedule_table")
+data class Schedule(
     @PrimaryKey(autoGenerate = true) val id : Int = 0,
-    val day : Int,
+    @ColumnInfo(name = "start_date") val startDate : String,
+    @ColumnInfo(name = "end_date") val endDate : String,
     val description : String
 )

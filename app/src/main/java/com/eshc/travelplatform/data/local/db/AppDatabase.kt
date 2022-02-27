@@ -10,12 +10,12 @@ import com.eshc.travelplatform.data.local.db.entity.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [Course::class, DailyPlan::class,Keep::class,Plan::class,Spot::class],version = 1,exportSchema = false)
+@Database(entities = [Course::class, DailySchedule::class,Keep::class,Schedule::class,Spot::class],version = 1,exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun planDao() : PlanDao
+    abstract fun scheduleDao() : ScheduleDao
     abstract fun courseDao() : CourseDao
-    abstract fun dailyPlanDao() : DailyPlanDao
+    abstract fun dailyScheduleDao() : DailyScheduleDao
     abstract fun keepDao() : KeepDao
     abstract fun spotDao() : SpotDao
 
