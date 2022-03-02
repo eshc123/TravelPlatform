@@ -8,7 +8,7 @@ import java.util.*
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
  */
-class AuthRemoteDataSource {
+class UserRemoteDataSource {
 
     fun login(username: String, password: String): Result<LoggedInUser> {
         try {

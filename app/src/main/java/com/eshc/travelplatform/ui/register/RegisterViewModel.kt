@@ -4,12 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
-import com.eshc.travelplatform.data.repository.AuthRepository
+import androidx.lifecycle.viewModelScope
+import com.eshc.travelplatform.data.repository.UserRepository
 import com.eshc.travelplatform.data.model.Result
 
 import com.eshc.travelplatform.R
+import kotlinx.coroutines.launch
 
-class RegisterViewModel(private val authRepository: AuthRepository) : ViewModel() {
+class RegisterViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     private val _registerForm = MutableLiveData<RegisterFormState>()
     val registerFormState: LiveData<RegisterFormState> = _registerForm
@@ -17,8 +19,8 @@ class RegisterViewModel(private val authRepository: AuthRepository) : ViewModel(
     private val _registerResult = MutableLiveData<RegisterResult>()
     val registerResult: LiveData<RegisterResult> = _registerResult
 
-    fun register(username: String, password: String,phoneNum: String) {
-        val result = authRepository.register(username, password,phoneNum)
+    fun register(username: String, password: String,phoneNum: String) = viewModelScope.launch {
+        val result = userRepository.register(username, password,phoneNum)
 
         if (result is Result.Success) {
             _registerResult.value =

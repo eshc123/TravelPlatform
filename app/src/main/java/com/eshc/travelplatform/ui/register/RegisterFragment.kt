@@ -108,7 +108,7 @@ class RegisterFragment : BottomSheetDialogFragment() {
             }
 
             register.setOnClickListener {
-                //registerViewModel.register(username.text.toString(), password.text.toString(), phoneNum.text.toString())
+                registerViewModel.register(username.text.toString(), password.text.toString(), phoneNum.text.toString())
                 createDialog()
                 this@RegisterFragment.dismiss()
 

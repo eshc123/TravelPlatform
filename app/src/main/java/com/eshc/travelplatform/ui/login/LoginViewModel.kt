@@ -4,12 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
-import com.eshc.travelplatform.data.repository.AuthRepository
+import androidx.lifecycle.asLiveData
+import com.eshc.travelplatform.data.repository.UserRepository
 import com.eshc.travelplatform.data.model.Result
 
 import com.eshc.travelplatform.R
+import com.eshc.travelplatform.data.local.db.entity.User
 
-class LoginViewModel(private val authRepository: AuthRepository) : ViewModel() {
+class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     private val _loginForm = MutableLiveData<LoginFormState>()
     val loginFormState: LiveData<LoginFormState> = _loginForm
@@ -17,8 +19,10 @@ class LoginViewModel(private val authRepository: AuthRepository) : ViewModel() {
     private val _loginResult = MutableLiveData<LoginResult>()
     val loginResult: LiveData<LoginResult> = _loginResult
 
+    val allUsers : LiveData<List<User>> = userRepository.allUsers.asLiveData()
+
     fun login(username: String, password: String) {
-        val result = authRepository.login(username, password)
+        val result = userRepository.login(username, password)
 
         if (result is Result.Success) {
             _loginResult.value =
