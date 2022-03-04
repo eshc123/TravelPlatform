@@ -17,4 +17,6 @@ interface UserDao {
     @Query("SELECT * FROM user_table")
     fun getUsers() : Flow<List<User>>
 
+    @Query("SELECT password FROM user_table WHERE userId LIKE :id")
+    fun getPassword(id : String) : Flow<String>
 }

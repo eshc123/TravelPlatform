@@ -70,18 +70,19 @@ class LoginActivity : AppCompatActivity() {
             if (loginResult.error != null) {
                 showLoginFailed(loginResult.error)
             }
-            if (loginResult.success != null) {
-                updateUiWithUser(loginResult.success)
-            }
+
             setResult(Activity.RESULT_OK)
 
             CoroutineScope(Dispatchers.Main).launch {
                 MainApplication.getInstance().getDataStore().setUserId(username.text.toString())
                 MainApplication.getInstance().getDataStore().setPassword(password.text.toString())
             }
+            if (loginResult.success != null) {
+                updateUiWithUser(loginResult.success)
+                startMainActivity()
+                finish()
+            }
 
-            startMainActivity()
-            finish()
         })
 
         username.afterTextChanged {

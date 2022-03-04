@@ -32,7 +32,7 @@ class UserRepository(val dataSource: UserLocalDataSource) {
 
    val allUsers = dataSource.allUsers
 
-    fun login(username: String, password: String): Result<LoggedInUser> {
+    suspend fun login(username: String, password: String): Result<LoggedInUser> {
         // handle login
         val result = dataSource.login(username, password)
 

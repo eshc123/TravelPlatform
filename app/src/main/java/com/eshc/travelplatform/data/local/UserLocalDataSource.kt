@@ -6,6 +6,7 @@ import com.eshc.travelplatform.data.local.db.entity.User
 import com.eshc.travelplatform.data.model.Result
 import com.eshc.travelplatform.data.model.LoggedInUser
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import java.io.IOException
 import java.util.*
 
@@ -16,14 +17,20 @@ class UserLocalDataSource(private val userDao : UserDao) {
 
     val allUsers : Flow<List<User>> = userDao.getUsers()
 
-    fun login(username: String, password: String): Result<LoggedInUser> {
-        try {
-            // TODO: handle loggedInUser authentication
-            val fakeUser = LoggedInUser(UUID.randomUUID().toString(), "Jane Doe")
-            return Result.Success(fakeUser)
-        } catch (e: Throwable) {
-            return Result.Error(IOException("Error logging in", e))
+
+    suspend fun login(username: String, password: String): Result<LoggedInUser> {
+        if(userDao.getPassword(username).first() == password) {
+            try {
+
+                // TODO: handle loggedInUser authentication
+                val fakeUser = LoggedInUser(UUID.randomUUID().toString(), "Jane Doe")
+                return Result.Success(fakeUser)
+            } catch (e: Throwable) {
+                return Result.Error(IOException("Error logging in", e))
+            }
         }
+        else
+            return Result.Error(IOException(""))
     }
 
     fun logout() {

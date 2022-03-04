@@ -1,15 +1,13 @@
 package com.eshc.travelplatform.ui.login
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import android.util.Patterns
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
 import com.eshc.travelplatform.data.repository.UserRepository
 import com.eshc.travelplatform.data.model.Result
 
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.data.local.db.entity.User
+import kotlinx.coroutines.launch
 
 class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 
@@ -21,7 +19,7 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
 
     val allUsers : LiveData<List<User>> = userRepository.allUsers.asLiveData()
 
-    fun login(username: String, password: String) {
+    fun login(username: String, password: String) = viewModelScope.launch {
         val result = userRepository.login(username, password)
 
         if (result is Result.Success) {
