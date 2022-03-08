@@ -3,7 +3,7 @@
     <item
         android:drawable="@color/white"/>
     <item
-        android:drawable="@drawable/travel"
+        android:drawable="@drawable/logo_letter"
         android:gravity="center"/>
 
 </layer-list>

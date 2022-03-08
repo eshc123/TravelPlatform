@@ -18,7 +18,6 @@ import com.eshc.travelplatform.domain.model.Spot
 import com.eshc.travelplatform.domain.model.Suggestion
 import com.eshc.travelplatform.shared.util.adapter.CourseAdapter
 import com.eshc.travelplatform.shared.util.adapter.RecommendationAdapter
-import com.eshc.travelplatform.shared.util.adapter.SpotAdapter
 import com.eshc.travelplatform.shared.util.dpToPx
 import com.eshc.travelplatform.ui.recommend.RecommendActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior

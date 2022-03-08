@@ -3,7 +3,6 @@ package com.eshc.travelplatform
 import android.app.Application
 import com.eshc.travelplatform.data.local.UserLocalDataSource
 import com.eshc.travelplatform.data.local.db.AppDatabase
-import com.eshc.travelplatform.data.repository.UserRepository
 import com.eshc.travelplatform.shared.util.DataStoreUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob

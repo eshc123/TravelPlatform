@@ -2,14 +2,14 @@ package com.eshc.travelplatform.ui.login
 
 import android.util.Patterns
 import androidx.lifecycle.*
-import com.eshc.travelplatform.data.repository.UserRepository
+import com.eshc.travelplatform.data.repository.UserRepositoryImpl
 import com.eshc.travelplatform.data.model.Result
 
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.data.local.db.entity.User
 import kotlinx.coroutines.launch
 
-class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
+class LoginViewModel(private val userRepositoryImpl: UserRepositoryImpl) : ViewModel() {
 
     private val _loginForm = MutableLiveData<LoginFormState>()
     val loginFormState: LiveData<LoginFormState> = _loginForm
@@ -17,10 +17,10 @@ class LoginViewModel(private val userRepository: UserRepository) : ViewModel() {
     private val _loginResult = MutableLiveData<LoginResult>()
     val loginResult: LiveData<LoginResult> = _loginResult
 
-    val allUsers : LiveData<List<User>> = userRepository.allUsers.asLiveData()
+    val allUsers : LiveData<List<User>> = userRepositoryImpl.allUsers.asLiveData()
 
     fun login(username: String, password: String) = viewModelScope.launch {
-        val result = userRepository.login(username, password)
+        val result = userRepositoryImpl.login(username, password)
 
         if (result is Result.Success) {
             _loginResult.value =
