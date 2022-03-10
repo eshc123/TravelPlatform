@@ -34,6 +34,8 @@ class SearchFragment : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private lateinit var searchViewModel : SearchViewModel
     private lateinit var kakaoMapView : MapView
+
+    private var isUsingEmulator = true
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         searchViewModel= ViewModelProvider(this, SearchViewModelFactory())
@@ -46,12 +48,13 @@ class SearchFragment : Fragment() {
     ): View? {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_search, container, false)
 
+        if(!isUsingEmulator) {
+            kakaoMapView = MapView(activity)
 
-        kakaoMapView = MapView(activity)
+            initMapView()
+            (binding.mapview as ViewGroup).addView(kakaoMapView)
 
-        initMapView()
-        (binding.mapview as ViewGroup).addView(kakaoMapView)
-
+        }
         binding.etSearch.setOnFocusChangeListener { v, hasFocus ->
             if(hasFocus){
                 binding.vBackground.visibility = View.VISIBLE
@@ -98,17 +101,22 @@ class SearchFragment : Fragment() {
         findNavController().popBackStack()
     }
     fun addMarker(suggestion: Suggestion){
-        kakaoMapView.removeAllPOIItems()
-        val mapPoint = MapPoint.mapPointWithGeoCoord(suggestion.point?.first ?: 35.161545,suggestion.point?.second ?: 129.052049)
-        val marker = MapPOIItem()
-        marker.itemName = suggestion.title
-        marker.tag = 0
-        marker.mapPoint = mapPoint
-        marker.markerType = MapPOIItem.MarkerType.BluePin
-        marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
-        kakaoMapView.addPOIItem(marker)
-        //kakaoMapView.moveCamera(CameraUpdateFactory.newMapPoint(mapPoint))
-        kakaoMapView.setMapCenterPoint(mapPoint,false)
+        if(!isUsingEmulator) {
+            kakaoMapView.removeAllPOIItems()
+            val mapPoint = MapPoint.mapPointWithGeoCoord(
+                suggestion.point?.first ?: 35.161545,
+                suggestion.point?.second ?: 129.052049
+            )
+            val marker = MapPOIItem()
+            marker.itemName = suggestion.title
+            marker.tag = 0
+            marker.mapPoint = mapPoint
+            marker.markerType = MapPOIItem.MarkerType.BluePin
+            marker.selectedMarkerType = MapPOIItem.MarkerType.RedPin
+            kakaoMapView.addPOIItem(marker)
+            //kakaoMapView.moveCamera(CameraUpdateFactory.newMapPoint(mapPoint))
+            kakaoMapView.setMapCenterPoint(mapPoint, false)
+        }
         binding.etSearch.setText(suggestion.title)
         binding.etSearch.clearFocus()
         hideKeyboard()

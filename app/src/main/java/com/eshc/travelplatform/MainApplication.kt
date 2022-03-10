@@ -1,6 +1,7 @@
 package com.eshc.travelplatform
 
 import android.app.Application
+import com.eshc.travelplatform.data.local.SpotLocalDataSource
 import com.eshc.travelplatform.data.local.UserLocalDataSource
 import com.eshc.travelplatform.data.local.db.AppDatabase
 import com.eshc.travelplatform.shared.util.DataStoreUtil
@@ -14,7 +15,7 @@ class MainApplication : Application() {
 
     val database by lazy { AppDatabase.getDatabase(this,applicationScope) }
     val userLocalDataSource by lazy { UserLocalDataSource(database.userDao())}
-
+    val spotLocalDataSource by lazy { SpotLocalDataSource(database.spotDao())}
     companion object {
         private lateinit var mainApplication: MainApplication
         fun getInstance() : MainApplication = mainApplication

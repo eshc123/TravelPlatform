@@ -40,7 +40,7 @@
                 android:fontFamily="@font/pretendard_regular"
                 android:textColor="@color/hint_color"
                 android:textSize="13sp"
-                android:text="334.3m"
+                android:text="@{suggestion.distance}"
                 tools:text="334.3m" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
