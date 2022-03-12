@@ -13,7 +13,8 @@ class SearchViewModelFactory : ViewModelProvider.Factory {
         if (modelClass.isAssignableFrom(SearchViewModel::class.java)) {
             return SearchViewModel(
                 spotRepositoryImpl = SpotRepositoryImpl(
-                    dataSource = MainApplication.getInstance().spotLocalDataSource
+                    spotDataSource = MainApplication.getInstance().spotLocalDataSource,
+                    keepDataSource = MainApplication.getInstance().keepLocalDataSource
                 )
             ) as T
         }

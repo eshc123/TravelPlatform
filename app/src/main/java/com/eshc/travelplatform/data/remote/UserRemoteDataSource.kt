@@ -1,7 +1,7 @@
 package com.eshc.travelplatform.data.remote
 
 import com.eshc.travelplatform.data.model.Result
-import com.eshc.travelplatform.data.model.LoggedInUser
+import com.eshc.travelplatform.domain.model.User
 import java.io.IOException
 import java.util.*
 
@@ -10,10 +10,10 @@ import java.util.*
  */
 class UserRemoteDataSource {
 
-    fun login(username: String, password: String): Result<LoggedInUser> {
+    fun login(username: String, password: String): Result<User> {
         try {
             // TODO: handle loggedInUser authentication
-            val fakeUser = LoggedInUser(UUID.randomUUID().toString(), "Jane Doe")
+            val fakeUser = User(UUID.randomUUID().toString(), "Jane Doe")
             return Result.Success(fakeUser)
         } catch (e: Throwable) {
             return Result.Error(IOException("Error logging in", e))
@@ -24,9 +24,9 @@ class UserRemoteDataSource {
         // TODO: revoke authentication
     }
 
-    fun register(username: String, password: String,phoneNum:String): Result<LoggedInUser> {
+    fun register(username: String, password: String,phoneNum:String): Result<User> {
         try {
-            val fakeUser = LoggedInUser(UUID.randomUUID().toString(), "Jane Doe")
+            val fakeUser = User(UUID.randomUUID().toString(), "Jane Doe")
             return Result.Success(fakeUser)
         } catch (e: Throwable) {
             return Result.Error(IOException("Error logging in", e))

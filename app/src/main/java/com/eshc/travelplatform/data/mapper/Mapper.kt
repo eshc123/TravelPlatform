@@ -7,6 +7,7 @@ class Mapper {
     fun mapperToSuggestion(spots : List<Spot>) : List<Suggestion>{
         return spots.toList().map {
             Suggestion(
+                id = it.id,
                 title = it.name,
                 category = it.category,
                 address = it.address,
