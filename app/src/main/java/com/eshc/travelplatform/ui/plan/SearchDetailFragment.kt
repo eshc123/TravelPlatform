@@ -10,16 +10,15 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.DataBindingUtil
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentSearchDetailBinding
-import com.eshc.travelplatform.domain.model.Suggestion
+import com.eshc.travelplatform.domain.model.SpotSuggestion
 import com.eshc.travelplatform.shared.util.dpToPx
-import com.eshc.travelplatform.ui.base.BaseFragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
-class SearchDetailFragment(suggestion: Suggestion) : BottomSheetDialogFragment() {
+class SearchDetailFragment(spotSuggestion: SpotSuggestion) : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentSearchDetailBinding
-    var place = suggestion
+    var place = spotSuggestion
     override fun getTheme(): Int {
         return R.style.AppBottomSheetDialogTransparentTheme
     }

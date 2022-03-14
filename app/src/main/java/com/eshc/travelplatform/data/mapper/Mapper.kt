@@ -1,12 +1,12 @@
 package com.eshc.travelplatform.data.mapper
 
 import com.eshc.travelplatform.data.local.db.entity.Spot
-import com.eshc.travelplatform.domain.model.Suggestion
+import com.eshc.travelplatform.domain.model.SpotSuggestion
 
 class Mapper {
-    fun mapperToSuggestion(spots : List<Spot>) : List<Suggestion>{
+    fun mapperToSuggestion(spots : List<Spot>) : List<SpotSuggestion>{
         return spots.toList().map {
-            Suggestion(
+            SpotSuggestion(
                 id = it.id,
                 title = it.name,
                 category = it.category,

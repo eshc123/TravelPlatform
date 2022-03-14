@@ -1,9 +1,6 @@
 package com.eshc.travelplatform.ui.plan
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,14 +13,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentSearchBinding
-import com.eshc.travelplatform.domain.model.Suggestion
+import com.eshc.travelplatform.domain.model.SpotSuggestion
 import com.eshc.travelplatform.shared.util.adapter.LocationCategoryAdapter
-import com.eshc.travelplatform.shared.util.adapter.RecommendationAdapter
 import com.eshc.travelplatform.shared.util.adapter.SuggestionAdapter
 import com.eshc.travelplatform.ui.MainActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import net.daum.mf.map.api.CameraUpdateFactory
 import net.daum.mf.map.api.MapPOIItem
 import net.daum.mf.map.api.MapPoint
 import net.daum.mf.map.api.MapView
@@ -100,15 +94,15 @@ class SearchFragment : Fragment() {
     private fun back(){
         findNavController().popBackStack()
     }
-    fun addMarker(suggestion: Suggestion){
+    fun addMarker(spotSuggestion: SpotSuggestion){
         if(!isUsingEmulator) {
             kakaoMapView.removeAllPOIItems()
             val mapPoint = MapPoint.mapPointWithGeoCoord(
-                suggestion.point?.first ?: 35.161545,
-                suggestion.point?.second ?: 129.052049
+                spotSuggestion.point?.first ?: 35.161545,
+                spotSuggestion.point?.second ?: 129.052049
             )
             val marker = MapPOIItem()
-            marker.itemName = suggestion.title
+            marker.itemName = spotSuggestion.title
             marker.tag = 0
             marker.mapPoint = mapPoint
             marker.markerType = MapPOIItem.MarkerType.BluePin
@@ -117,18 +111,18 @@ class SearchFragment : Fragment() {
             //kakaoMapView.moveCamera(CameraUpdateFactory.newMapPoint(mapPoint))
             kakaoMapView.setMapCenterPoint(mapPoint, false)
         }
-        binding.etSearch.setText(suggestion.title)
+        binding.etSearch.setText(spotSuggestion.title)
         binding.etSearch.clearFocus()
         hideKeyboard()
-        openSearchDetailBottomSheet(suggestion)
+        openSearchDetailBottomSheet(spotSuggestion)
     }
     private fun initMapView(){
         val mapPoint = MapPoint.mapPointWithGeoCoord(35.179938,129.074901)
         kakaoMapView.setMapCenterPoint(mapPoint,false)
 
     }
-    private fun openSearchDetailBottomSheet(suggestion: Suggestion){
-        val searchDetailFragment = SearchDetailFragment(suggestion)
+    private fun openSearchDetailBottomSheet(spotSuggestion: SpotSuggestion){
+        val searchDetailFragment = SearchDetailFragment(spotSuggestion)
         searchDetailFragment.show(parentFragmentManager,this.tag)
     }
 }

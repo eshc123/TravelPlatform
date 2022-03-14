@@ -5,23 +5,18 @@ import android.os.Bundle
 import android.view.*
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.marginBottom
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentPlanBinding
-import com.eshc.travelplatform.domain.model.Spot
-import com.eshc.travelplatform.domain.model.Suggestion
 import com.eshc.travelplatform.shared.util.adapter.CourseAdapter
 import com.eshc.travelplatform.shared.util.adapter.RecommendationAdapter
 import com.eshc.travelplatform.shared.util.dpToPx
 import com.eshc.travelplatform.ui.recommend.RecommendActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class PlanFragment : Fragment() {
 
