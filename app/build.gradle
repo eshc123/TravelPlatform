@@ -9,7 +9,6 @@ plugins {
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
 
-def google_api_key  = properties.getProperty("google_api_key")
 def kakao_native_app_key = properties.getProperty("kakao_native_app_key")
 def kakao_rest_api_key = properties.getProperty("kakao_rest_api_key")
 
@@ -27,7 +26,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
 
-        manifestPlaceholders = [GOOGLE_API_KEY: google_api_key,KAKAO_NATIVE_APP_KEY: kakao_native_app_key,KAKAO_REST_API_KEY: kakao_rest_api_key]
+        manifestPlaceholders = [KAKAO_NATIVE_APP_KEY: kakao_native_app_key,KAKAO_REST_API_KEY: kakao_rest_api_key]
 
     }
 
@@ -92,10 +91,6 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
-
-
-    //google map
-    implementation 'com.google.android.gms:play-services-maps:18.0.0'
 
     //Glide
     kapt 'com.github.bumptech.glide:glide:4.11.0'

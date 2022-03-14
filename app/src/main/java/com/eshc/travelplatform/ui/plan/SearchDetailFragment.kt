@@ -1,24 +1,18 @@
 package com.eshc.travelplatform.ui.plan
 
-import android.app.Dialog
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.DataBindingUtil
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.eshc.travelplatform.R
-import com.eshc.travelplatform.shared.util.adapter.DestinationAdapter
-import com.eshc.travelplatform.domain.model.Destination
-import com.eshc.travelplatform.databinding.FragmentPlanBottomSheetBinding
 import com.eshc.travelplatform.databinding.FragmentSearchDetailBinding
 import com.eshc.travelplatform.domain.model.Suggestion
 import com.eshc.travelplatform.shared.util.dpToPx
-import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.eshc.travelplatform.ui.base.BaseFragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -57,5 +51,20 @@ class SearchDetailFragment(suggestion: Suggestion) : BottomSheetDialogFragment()
         }
 
     }
+    fun createWaitingDialog(){
+        AlertDialog.Builder(requireContext(), R.style.AlertDialogTheme)
+            .setView(R.layout.dialog_waiting)
+            .show()
+            .also { alertDialog ->
+                val mActivity = activity
+                if(alertDialog == null) {
+                    return@also
+                }
+                val planButton = alertDialog.findViewById<AppCompatTextView>(R.id.btn_plan)
+                planButton?.setOnClickListener {
+                    alertDialog.dismiss()
+                }
 
+            }
+    }
 }
