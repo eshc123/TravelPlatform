@@ -7,14 +7,14 @@ import androidx.lifecycle.viewModelScope
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.data.repository.SpotRepositoryImpl
 import com.eshc.travelplatform.domain.model.LocationCategory
-import com.eshc.travelplatform.domain.model.SpotSuggestion
+import com.eshc.travelplatform.domain.model.Spot
 import kotlinx.coroutines.launch
 
 class SearchViewModel(private val spotRepositoryImpl: SpotRepositoryImpl) : ViewModel() {
     private val _categories = MutableLiveData<MutableList<LocationCategory>>()
     val categories: LiveData<MutableList<LocationCategory>> = _categories
-    private val _suggestions = MutableLiveData<MutableList<SpotSuggestion>>()
-    val suggestions: LiveData<MutableList<SpotSuggestion>> = _suggestions
+    private val _suggestions = MutableLiveData<MutableList<Spot>>()
+    val suggestions: LiveData<MutableList<Spot>> = _suggestions
     init {
         _categories.value = mutableListOf(
             LocationCategory("겨울필수코스",R.drawable.ic_snowflake),

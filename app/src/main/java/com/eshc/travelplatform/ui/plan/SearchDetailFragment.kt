@@ -10,13 +10,13 @@ import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.DataBindingUtil
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentSearchDetailBinding
-import com.eshc.travelplatform.domain.model.SpotSuggestion
+import com.eshc.travelplatform.domain.model.Spot
 import com.eshc.travelplatform.shared.util.dpToPx
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 
-class SearchDetailFragment(spotSuggestion: SpotSuggestion) : BottomSheetDialogFragment() {
+class SearchDetailFragment(spotSuggestion: Spot) : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentSearchDetailBinding
     var place = spotSuggestion
     override fun getTheme(): Int {

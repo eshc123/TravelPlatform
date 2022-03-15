@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="suggestion"
-            type="com.eshc.travelplatform.domain.model.SpotSuggestion" />
+            name="spot_suggestion"
+            type="com.eshc.travelplatform.domain.model.Spot" />
 
     </data>
 
@@ -40,7 +40,7 @@
                 android:fontFamily="@font/pretendard_regular"
                 android:textColor="@color/hint_color"
                 android:textSize="13sp"
-                android:text="@{suggestion.distance}"
+                android:text="@{spot_suggestion.distance}"
                 tools:text="334.3m" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -69,7 +69,7 @@
                     app:layout_constrainedWidth="true"
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintHorizontal_chainStyle="packed"
-                    android:text="@{suggestion.title}"
+                    android:text="@{spot_suggestion.title}"
                     android:textColor="@color/title_color"
                     android:maxLines="1"
                     android:ellipsize="end"
@@ -79,7 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:text="@{suggestion.category}"
+                    android:text="@{spot_suggestion.category}"
                     app:layout_constraintStart_toEndOf="@id/tv_title"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -96,7 +96,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:maxLines="1"
-                android:text="@{suggestion.address}"
+                android:text="@{spot_suggestion.address}"
                 android:ellipsize="end"
                 android:fontFamily="@font/pretendard_regular"
                 android:textColor="@color/content_color"

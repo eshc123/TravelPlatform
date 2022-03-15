@@ -13,9 +13,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentSearchBinding
-import com.eshc.travelplatform.domain.model.SpotSuggestion
+import com.eshc.travelplatform.domain.model.Spot
 import com.eshc.travelplatform.shared.util.adapter.LocationCategoryAdapter
-import com.eshc.travelplatform.shared.util.adapter.SuggestionAdapter
+import com.eshc.travelplatform.shared.util.adapter.SpotSuggestionAdapter
 import com.eshc.travelplatform.ui.MainActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import net.daum.mf.map.api.MapPOIItem
@@ -79,7 +79,7 @@ class SearchFragment : Fragment() {
             locationCategoryAdapter.replaceAll(it)
         })
 
-        val suggestionAdapter = SuggestionAdapter(this)
+        val suggestionAdapter = SpotSuggestionAdapter(this)
         binding.rvSuggestion.adapter = suggestionAdapter
         searchViewModel.suggestions.observe(viewLifecycleOwner, Observer {
             suggestionAdapter.replaceAll(it)
@@ -94,7 +94,7 @@ class SearchFragment : Fragment() {
     private fun back(){
         findNavController().popBackStack()
     }
-    fun addMarker(spotSuggestion: SpotSuggestion){
+    fun addMarker(spotSuggestion: Spot){
         if(!isUsingEmulator) {
             kakaoMapView.removeAllPOIItems()
             val mapPoint = MapPoint.mapPointWithGeoCoord(
@@ -121,7 +121,7 @@ class SearchFragment : Fragment() {
         kakaoMapView.setMapCenterPoint(mapPoint,false)
 
     }
-    private fun openSearchDetailBottomSheet(spotSuggestion: SpotSuggestion){
+    private fun openSearchDetailBottomSheet(spotSuggestion: Spot){
         val searchDetailFragment = SearchDetailFragment(spotSuggestion)
         searchDetailFragment.show(parentFragmentManager,this.tag)
     }

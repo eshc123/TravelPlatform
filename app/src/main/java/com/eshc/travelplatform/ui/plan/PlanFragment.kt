@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentPlanBinding
 import com.eshc.travelplatform.shared.util.adapter.CourseAdapter
-import com.eshc.travelplatform.shared.util.adapter.RecommendationAdapter
+import com.eshc.travelplatform.shared.util.adapter.SpotAdapter
 import com.eshc.travelplatform.shared.util.dpToPx
 import com.eshc.travelplatform.ui.recommend.RecommendActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -39,7 +39,7 @@ class PlanFragment : Fragment() {
         binding.fragment = this
 
         val textView: AppCompatTextView = binding.textHome
-        val recommendationAdapter = RecommendationAdapter()
+        val recommendationAdapter = SpotAdapter()
         val courseAdapter = CourseAdapter(this)
         bottomSheet = binding.clBottomContainer
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
@@ -50,7 +50,7 @@ class PlanFragment : Fragment() {
         planViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
-        planViewModel.recommendations.observe(viewLifecycleOwner, Observer {
+        planViewModel.recommendSpots.observe(viewLifecycleOwner, Observer {
             recommendationAdapter.replaceAll(it)
         })
         planViewModel.courses.observe(viewLifecycleOwner, Observer {

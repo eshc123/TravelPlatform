@@ -6,7 +6,7 @@ import com.eshc.travelplatform.data.repository.UserRepositoryImpl
 import com.eshc.travelplatform.data.model.Result
 
 import com.eshc.travelplatform.R
-import com.eshc.travelplatform.data.local.db.entity.User
+import com.eshc.travelplatform.data.local.db.entity.UserEntity
 import kotlinx.coroutines.launch
 
 class LoginViewModel(private val userRepositoryImpl: UserRepositoryImpl) : ViewModel() {
@@ -17,7 +17,7 @@ class LoginViewModel(private val userRepositoryImpl: UserRepositoryImpl) : ViewM
     private val _loginResult = MutableLiveData<LoginResult>()
     val loginResult: LiveData<LoginResult> = _loginResult
 
-    val allUsers : LiveData<List<User>> = userRepositoryImpl.allUsers.asLiveData()
+    val allUsers : LiveData<List<UserEntity>> = userRepositoryImpl.allUsers.asLiveData()
 
     fun login(username: String, password: String) = viewModelScope.launch {
         val result = userRepositoryImpl.login(username, password)

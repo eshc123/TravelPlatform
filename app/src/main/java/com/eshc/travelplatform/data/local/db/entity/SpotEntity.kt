@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "spot_table")
-data class Spot (
+data class SpotEntity (
     @PrimaryKey(autoGenerate = true) val id : Int = 0,
     val name : String,
     val address : String,

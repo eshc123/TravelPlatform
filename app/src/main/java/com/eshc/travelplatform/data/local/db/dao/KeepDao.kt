@@ -4,9 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.eshc.travelplatform.data.local.db.entity.Course
 import com.eshc.travelplatform.data.local.db.entity.Keep
-import com.eshc.travelplatform.data.local.db.entity.User
 import kotlinx.coroutines.flow.Flow
 
 @Dao
