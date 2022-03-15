@@ -10,7 +10,8 @@ import com.eshc.travelplatform.data.local.db.entity.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [Course::class, DailySchedule::class,Keep::class,Schedule::class,SpotEntity::class,UserEntity::class],version = 1,exportSchema = false)
+@Database(entities = [CourseEntity::class, DailyScheduleEntity::class,KeepEntity::class,ScheduleEntity::class,
+    SpotEntity::class,UserEntity::class,LocationCategoryEntity::class],version = 1,exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun scheduleDao() : ScheduleDao
@@ -19,6 +20,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun keepDao() : KeepDao
     abstract fun spotDao() : SpotDao
     abstract fun userDao() : UserDao
+    abstract fun locationCategoryDao() : LocationCategoryDao
 
     private class AppDatabaseCallBack(
         private val scope : CoroutineScope

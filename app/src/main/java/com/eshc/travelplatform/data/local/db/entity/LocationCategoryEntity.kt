@@ -4,8 +4,9 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "keep_table")
-data class Keep (
+@Entity(tableName = "location_category_table")
+data class LocationCategoryEntity (
     @PrimaryKey(autoGenerate = true) val id : Int = 0,
-    @ColumnInfo(name = "spot_id") var spotId : Int
+    val title : String,
+    val image : Int
 )
