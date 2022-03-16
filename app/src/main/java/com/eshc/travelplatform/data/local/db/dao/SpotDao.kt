@@ -10,7 +10,16 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface SpotDao {
     @Query("SELECT * FROM spot_table")
-    fun getSpots() : Flow<List<SpotEntity>>
+    suspend fun getSpots() : List<SpotEntity>
+
+    @Query("SELECT * FROM spot_table WHERE id BETWEEN 1 AND 4")
+    suspend fun getPopularSpots() : List<SpotEntity>
+
+    @Query("SELECT spot_table.* FROM spot_table JOIN keep_table WHERE spot_id == spot_table.id")
+    suspend fun getKeepSpots() : List<SpotEntity>
+
+    @Query("SELECT * FROM keep_table WHERE spot_id == :id")
+    suspend fun getKeepSpotById(id:Int) : List<SpotEntity>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertSpots(spotEntities : List<SpotEntity>)

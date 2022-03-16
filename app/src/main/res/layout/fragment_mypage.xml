@@ -24,7 +24,7 @@
             android:textColor="@color/title_color"
             android:fontFamily="@font/pretendard_semi_bold"
             android:textSize="18sp"
-            android:layout_marginTop="64dp"/>
+            android:layout_marginTop="32dp"/>
         <View
             android:id="@+id/v_border"
             android:layout_width="match_parent"

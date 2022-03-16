@@ -5,5 +5,11 @@ import com.eshc.travelplatform.domain.model.Spot
 interface SpotRepository {
     suspend fun getSuggestions() : List<Spot>
 
+    suspend fun getPopularSpots() : List<Spot>
+
     suspend fun postKeep(spot : Spot)
+
+    suspend fun getKeepSpots() : List<Spot>
+
+    suspend fun getKeepSpotById(id:Int) : List<Spot>
 }

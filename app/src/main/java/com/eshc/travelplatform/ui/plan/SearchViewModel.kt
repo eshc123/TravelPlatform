@@ -8,13 +8,18 @@ import com.eshc.travelplatform.R
 import com.eshc.travelplatform.data.repository.SpotRepositoryImpl
 import com.eshc.travelplatform.domain.model.LocationCategory
 import com.eshc.travelplatform.domain.model.Spot
+import com.eshc.travelplatform.domain.usecase.spot.GetSpotSuggestionsUseCase
+import com.eshc.travelplatform.domain.usecase.spot.PostKeepSpotUseCase
 import kotlinx.coroutines.launch
 
-class SearchViewModel(private val spotRepositoryImpl: SpotRepositoryImpl) : ViewModel() {
+class SearchViewModel(spotRepositoryImpl: SpotRepositoryImpl) : ViewModel() {
     private val _categories = MutableLiveData<MutableList<LocationCategory>>()
     val categories: LiveData<MutableList<LocationCategory>> = _categories
     private val _suggestions = MutableLiveData<MutableList<Spot>>()
     val suggestions: LiveData<MutableList<Spot>> = _suggestions
+
+    val getSpotSuggestions = GetSpotSuggestionsUseCase(spotRepositoryImpl)
+    val postKeepSpot = PostKeepSpotUseCase(spotRepositoryImpl)
     init {
         _categories.value = mutableListOf(
             LocationCategory("겨울필수코스",R.drawable.ic_snowflake),
@@ -24,9 +29,9 @@ class SearchViewModel(private val spotRepositoryImpl: SpotRepositoryImpl) : View
             LocationCategory("마트",R.drawable.ic_grocery_store)
         )
         viewModelScope.launch {
-            _suggestions.value = spotRepositoryImpl.getSuggestions().toMutableList()
+            _suggestions.value = getSpotSuggestions().toMutableList()
         }
     }
 
-
+    suspend fun postKeep(spot: Spot) = postKeepSpot(spot)
 }

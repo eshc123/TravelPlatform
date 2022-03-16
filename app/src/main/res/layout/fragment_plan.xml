@@ -53,6 +53,7 @@
                             android:layout_width="28dp"
                             android:layout_height="28dp"
                             android:layout_marginEnd="14dp"
+                            android:tint="@color/white"
                             android:src="@drawable/ic_heart_fill"
                             app:layout_constraintEnd_toStartOf="@id/iv_search"
                             app:layout_constraintTop_toTopOf="@id/iv_search"
@@ -62,6 +63,7 @@
                             android:layout_width="28dp"
                             android:layout_height="28dp"
                             android:layout_marginTop="60dp"
+                            android:tint="@color/white"
                             android:src="@drawable/ic_search"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
