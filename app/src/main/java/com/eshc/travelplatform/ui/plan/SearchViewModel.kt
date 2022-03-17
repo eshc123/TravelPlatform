@@ -34,4 +34,5 @@ class SearchViewModel(spotRepositoryImpl: SpotRepositoryImpl) : ViewModel() {
     }
 
     suspend fun postKeep(spot: Spot) = postKeepSpot(spot)
+    suspend fun deleteKeep(spot: Spot) = postKeepSpot(spot)
 }

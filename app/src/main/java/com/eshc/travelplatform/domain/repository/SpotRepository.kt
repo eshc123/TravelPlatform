@@ -11,5 +11,4 @@ interface SpotRepository {
 
     suspend fun getKeepSpots() : List<Spot>
 
-    suspend fun getKeepSpotById(id:Int) : List<Spot>
 }

@@ -45,6 +45,9 @@
     <string name="how_long_type">마지막 질문이에요.\n몇 박 며칠로 계획하고 계신가요?</string>
     <string name="cancel_type">나중에 할게요.</string>
 
+    <string name="save">저장하기</string>
+    <string name="unsave">저장해제</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

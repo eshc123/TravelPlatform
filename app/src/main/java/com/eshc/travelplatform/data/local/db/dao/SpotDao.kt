@@ -18,8 +18,6 @@ interface SpotDao {
     @Query("SELECT spot_table.* FROM spot_table JOIN keep_table WHERE spot_id == spot_table.id")
     suspend fun getKeepSpots() : List<SpotEntity>
 
-    @Query("SELECT * FROM keep_table WHERE spot_id == :id")
-    suspend fun getKeepSpotById(id:Int) : List<SpotEntity>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertSpots(spotEntities : List<SpotEntity>)

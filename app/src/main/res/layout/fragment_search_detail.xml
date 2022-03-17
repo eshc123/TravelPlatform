@@ -149,14 +149,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="@{()->fragment.postKeep(fragment.place)}"
+                android:onClick="@{()->fragment.keepSpot(fragment.place)}"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_heart" />
+
+                    android:src="@{fragment.place.mine ? @drawable/ic_heart_fill : @drawable/ic_heart}" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -164,7 +165,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="7dp"
                     android:fontFamily="@font/pretendard_regular"
-                    android:text="저장하기"
+                    android:text="@{fragment.place.mine ? @string/unsave : @string/save}"
                     android:textColor="@color/content_color"
                     android:textSize="14sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>

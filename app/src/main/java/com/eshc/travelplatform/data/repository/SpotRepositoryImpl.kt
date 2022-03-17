@@ -2,6 +2,7 @@ package com.eshc.travelplatform.data.repository
 
 import com.eshc.travelplatform.data.local.KeepLocalDataSource
 import com.eshc.travelplatform.data.local.SpotLocalDataSource
+import com.eshc.travelplatform.data.local.toMySpot
 import com.eshc.travelplatform.data.local.toSpot
 import com.eshc.travelplatform.data.mapper.Mapper
 import com.eshc.travelplatform.domain.model.Spot
@@ -12,7 +13,12 @@ import kotlinx.coroutines.flow.map
 class SpotRepositoryImpl(val spotDataSource: SpotLocalDataSource,val keepDataSource : KeepLocalDataSource) : SpotRepository {
 
    override suspend fun getSuggestions(): List<Spot>{
-      return spotDataSource.getSpots().toSpot()
+      val allSpots = spotDataSource.getSpots().toSpot()
+      val keepMap = spotDataSource.getKeepSpotsMap()
+      allSpots.map {
+         it.mine = keepMap.get(it.id)
+      }
+      return allSpots
    }
 
    override suspend fun getPopularSpots(): List<Spot> {
@@ -25,10 +31,6 @@ class SpotRepositoryImpl(val spotDataSource: SpotLocalDataSource,val keepDataSou
 
    override suspend fun getKeepSpots(): List<Spot> {
       return spotDataSource.getKeepSpots().toSpot()
-   }
-
-   override suspend fun getKeepSpotById(id: Int): List<Spot> {
-      return spotDataSource.getKeepSpotById(id).toSpot()
    }
 
 }

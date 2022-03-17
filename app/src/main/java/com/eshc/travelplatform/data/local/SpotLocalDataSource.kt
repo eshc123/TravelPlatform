@@ -14,7 +14,7 @@ class SpotLocalDataSource (private val spotDao : SpotDao){
 
     suspend fun getKeepSpots() : List<SpotEntity> = spotDao.getKeepSpots()
 
-    suspend fun getKeepSpotById(id:Int) : List<SpotEntity> = spotDao.getKeepSpotById(id)
+    suspend fun getKeepSpotsMap() : Map<Int,Boolean> = spotDao.getKeepSpots().map { it.id to true }.toMap()
 }
 fun List<SpotEntity>.toSpot() : List<Spot>{
     return this.map {
@@ -24,6 +24,20 @@ fun List<SpotEntity>.toSpot() : List<Spot>{
             category = it.category,
             address = it.address,
             distance = "42.195Km",
+            url = it.image,
+            point = Pair(it.x,it.y)
+        )
+    }
+}
+fun List<SpotEntity>.toMySpot() : List<Spot>{
+    return this.map {
+        Spot(
+            id = it.id,
+            title = it.name,
+            category = it.category,
+            address = it.address,
+            distance = "42.195Km",
+            mine = true,
             url = it.image,
             point = Pair(it.x,it.y)
         )

@@ -72,9 +72,15 @@ class SearchDetailFragment(spotSuggestion: Spot) : BottomSheetDialogFragment() {
 
             }
     }
-    fun postKeep(spot: Spot) {
-        lifecycleScope.launch {
-            searchViewModel.postKeep(spot)
+    fun keepSpot(spot: Spot) {
+        if(spot.mine == true)
+//            lifecycleScope.launch {
+//                searchViewModel.postKeep(spot)
+//            }
+        else {
+            lifecycleScope.launch {
+                searchViewModel.postKeep(spot)
+            }
         }
     }
 }
