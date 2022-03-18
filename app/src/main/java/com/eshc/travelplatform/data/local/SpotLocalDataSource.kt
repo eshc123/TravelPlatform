@@ -17,6 +17,7 @@ class SpotLocalDataSource (private val spotDao : SpotDao){
     suspend fun getKeepSpotsMap() : Map<Int,Boolean> = spotDao.getKeepSpots().map { it.id to true }.toMap()
 
     suspend fun getSpot(id : Int) : SpotEntity = spotDao.getSpot(id)
+
 }
 fun List<SpotEntity>.toSpotList() : List<Spot>{
     return this.map {

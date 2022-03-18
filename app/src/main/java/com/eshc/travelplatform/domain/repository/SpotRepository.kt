@@ -13,4 +13,5 @@ interface SpotRepository {
 
     suspend fun getSpot(id : Int) : Spot
 
+    suspend fun deleteKeep(spot: Spot)
 }

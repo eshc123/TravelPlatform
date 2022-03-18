@@ -10,13 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import java.io.IOException
 
-/**
- * Class that handles authentication w/ login credentials and retrieves user information.
- */
 class UserLocalDataSource(private val userDao : UserDao) {
-
-
-
     suspend fun login(username: String, password: String): Result<Boolean> {
         if(userDao.getPassword(username) == password) {
             try {
@@ -40,7 +34,9 @@ class UserLocalDataSource(private val userDao : UserDao) {
     @WorkerThread
     suspend fun insert(username: String, password: String,phoneNum:String): Result<Boolean> {
         try {
-            userDao.insertUser(UserEntity(userId = username,password = password,phoneNum = phoneNum))
+            val user = UserEntity(userId = username,password = password,phoneNum = phoneNum)
+            userDao.insertUser(user)
+            MainApplication.getInstance().user = user.toUser()
             return Result.Success(true)
         } catch (e: Throwable) {
             return Result.Error(IOException("Error logging in", e))

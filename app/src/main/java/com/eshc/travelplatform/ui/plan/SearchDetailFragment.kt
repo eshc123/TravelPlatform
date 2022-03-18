@@ -78,12 +78,14 @@ class SearchDetailFragment(val spotSuggestion: Spot) : BottomSheetDialogFragment
     }
     fun keepSpot(spot: Spot) {
         if(spot.mine == true)
-//            lifecycleScope.launch {
-//                searchViewModel.postKeep(spot)
-//            }
+            lifecycleScope.launch {
+                searchDetailViewModel.deleteKeep(spot)
+                searchDetailViewModel.getSearchSpot(spot.id)
+            }
         else {
             lifecycleScope.launch {
                 searchDetailViewModel.postKeep(spot)
+                searchDetailViewModel.getSearchSpot(spot.id)
             }
         }
     }

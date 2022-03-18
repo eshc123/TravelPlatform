@@ -40,4 +40,7 @@ class SpotRepositoryImpl(val spotDataSource: SpotLocalDataSource,val keepDataSou
       return spot
    }
 
+   override suspend fun deleteKeep(spot: Spot) {
+      keepDataSource.deleteKeep(spot)
+   }
 }
