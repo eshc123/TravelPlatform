@@ -22,4 +22,7 @@ interface SpotDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertSpots(spotEntities : List<SpotEntity>)
 
+    @Query("SELECT * FROM spot_table WHERE :id == spot_table.id")
+    suspend fun getSpot(id :Int) : SpotEntity
+
 }

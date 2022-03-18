@@ -2,18 +2,18 @@ package com.eshc.travelplatform.data.repository
 
 import com.eshc.travelplatform.data.local.KeepLocalDataSource
 import com.eshc.travelplatform.data.local.SpotLocalDataSource
-import com.eshc.travelplatform.data.local.toMySpot
 import com.eshc.travelplatform.data.local.toSpot
-import com.eshc.travelplatform.data.mapper.Mapper
+import com.eshc.travelplatform.data.local.toSpotList
 import com.eshc.travelplatform.domain.model.Spot
 import com.eshc.travelplatform.domain.repository.SpotRepository
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.coroutineScope
 
 class SpotRepositoryImpl(val spotDataSource: SpotLocalDataSource,val keepDataSource : KeepLocalDataSource) : SpotRepository {
 
+
+
    override suspend fun getSuggestions(): List<Spot>{
-      val allSpots = spotDataSource.getSpots().toSpot()
+      val allSpots = spotDataSource.getSpots().toSpotList()
       val keepMap = spotDataSource.getKeepSpotsMap()
       allSpots.map {
          it.mine = keepMap.get(it.id)
@@ -22,7 +22,7 @@ class SpotRepositoryImpl(val spotDataSource: SpotLocalDataSource,val keepDataSou
    }
 
    override suspend fun getPopularSpots(): List<Spot> {
-      return spotDataSource.getPopularSpots().toSpot()
+      return spotDataSource.getPopularSpots().toSpotList()
    }
 
    override suspend fun postKeep(spot: Spot) {
@@ -30,7 +30,14 @@ class SpotRepositoryImpl(val spotDataSource: SpotLocalDataSource,val keepDataSou
    }
 
    override suspend fun getKeepSpots(): List<Spot> {
-      return spotDataSource.getKeepSpots().toSpot()
+      return spotDataSource.getKeepSpots().toSpotList()
+   }
+
+   override suspend fun getSpot(id: Int): Spot {
+      val spot = spotDataSource.getSpot(id).toSpot()
+      val keepMap = spotDataSource.getKeepSpotsMap()
+      spot.mine = keepMap.get(spot.id)
+      return spot
    }
 
 }

@@ -39,8 +39,8 @@ class PlanViewModel(spotRepositoryImpl: SpotRepositoryImpl) : ViewModel() {
 //        )
 
         _courses.value = mutableListOf(
-            Course("겨울 바다? 오히려 좋아","청사포 다릿돌전망대 → 송정 해수욕장 → 이것저것 → ..."),
-            Course("부산 먹거리는 못 참지","자갈치 시장 → 죄송합니다 → 부산 시장을 → 잘몰라요 → "),
+            Course("겨울 바다? 오히려 좋아","청사포 다릿돌전망대 → 송정 해수욕장 → 부산 롯데월드 → ...","https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=8de5fed1-5b7e-4078-8ec3-14c524629079"),
+            Course("부산 먹거리는 못 참지","자갈치 시장 → 남포동 밀면→ 싸앗호떡 → 더 베이 101 → ","https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=936f2e57-f75c-41c8-acc0-d29dd494e73d"),
             Course("부산 먹거리는 못 참지","자갈치 시장 → 죄송합니다 → 부산 시장을 → 잘몰라요 → ")
         )
     }

@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="spot"
+            type="com.eshc.travelplatform.domain.model.Spot" />
         <variable
             name="fragment"
             type="com.eshc.travelplatform.ui.plan.SearchDetailFragment" />
@@ -59,7 +61,7 @@
                         android:ellipsize="end"
                         android:fontFamily="@font/pretendard_semi_bold"
                         android:maxLines="1"
-                        android:text="@{fragment.place.title}"
+                        android:text="@{spot.title}"
                         android:textColor="@color/title_color"
                         app:layout_constrainedWidth="true"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,7 +80,7 @@
                         android:ellipsize="end"
                         android:fontFamily="@font/pretendard_regular"
                         android:maxLines="1"
-                        android:text="@{fragment.place.category}"
+                        android:text="@{spot.category}"
                         android:textColor="@color/hint_color"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +96,7 @@
                     android:ellipsize="end"
                     android:fontFamily="@font/pretendard_regular"
                     android:maxLines="1"
-                    android:text="@{fragment.place.address}"
+                    android:text="@{spot.address}"
                     android:textColor="@color/content_color"
                     tools:text="부산광역시 연제구 연산동" />
             </androidx.appcompat.widget.LinearLayoutCompat>
@@ -149,7 +151,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:onClick="@{()->fragment.keepSpot(fragment.place)}"
+                android:onClick="@{()->fragment.keepSpot(spot)}"
                 android:orientation="vertical">
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -157,7 +159,7 @@
                     android:layout_height="30dp"
                     android:layout_gravity="center_horizontal"
 
-                    android:src="@{fragment.place.mine ? @drawable/ic_heart_fill : @drawable/ic_heart}" />
+                    android:src="@{spot.mine ? @drawable/ic_heart_fill : @drawable/ic_heart}" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:layout_width="wrap_content"
@@ -165,7 +167,7 @@
                     android:layout_gravity="center_horizontal"
                     android:layout_marginTop="7dp"
                     android:fontFamily="@font/pretendard_regular"
-                    android:text="@{fragment.place.mine ? @string/unsave : @string/save}"
+                    android:text="@{spot.mine ? @string/unsave : @string/save}"
                     android:textColor="@color/content_color"
                     android:textSize="14sp" />
             </androidx.appcompat.widget.LinearLayoutCompat>

@@ -20,18 +20,19 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 
-class SearchDetailFragment(spotSuggestion: Spot) : BottomSheetDialogFragment() {
+class SearchDetailFragment(val spotSuggestion: Spot) : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentSearchDetailBinding
-    private lateinit var searchViewModel : SearchViewModel
-    var place = spotSuggestion
+    private lateinit var searchDetailViewModel : SearchDetailViewModel
+
     override fun getTheme(): Int {
         return R.style.AppBottomSheetDialogTransparentTheme
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        searchViewModel= ViewModelProvider(this, SearchViewModelFactory())
-            .get(SearchViewModel::class.java)
+        searchDetailViewModel= ViewModelProvider(this, SearchDetailViewModelFactory(spotSuggestion.id))
+            .get(SearchDetailViewModel::class.java)
+
     }
 
 
@@ -46,6 +47,9 @@ class SearchDetailFragment(spotSuggestion: Spot) : BottomSheetDialogFragment() {
         (dialog as BottomSheetDialog).behavior.apply {
             peekHeight = 200.dpToPx()
         }
+        searchDetailViewModel.searchSpot.observe(viewLifecycleOwner,{
+            binding.spot = it
+        })
         return binding.root
     }
 
@@ -79,7 +83,7 @@ class SearchDetailFragment(spotSuggestion: Spot) : BottomSheetDialogFragment() {
 //            }
         else {
             lifecycleScope.launch {
-                searchViewModel.postKeep(spot)
+                searchDetailViewModel.postKeep(spot)
             }
         }
     }
