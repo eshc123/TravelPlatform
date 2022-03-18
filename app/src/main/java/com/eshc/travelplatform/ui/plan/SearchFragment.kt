@@ -30,6 +30,8 @@ class SearchFragment : Fragment() {
     private lateinit var kakaoMapView : MapView
 
     private var isUsingEmulator = true
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         searchViewModel= ViewModelProvider(this, SearchViewModelFactory())

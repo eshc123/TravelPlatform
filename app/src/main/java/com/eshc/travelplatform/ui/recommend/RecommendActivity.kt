@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.SimpleItemAnimator
 import com.eshc.travelplatform.MainApplication
 import com.eshc.travelplatform.R
@@ -94,6 +95,11 @@ class RecommendActivity : AppCompatActivity() {
                 startAnimation()
             }
             3 -> {
+                lifecycleScope.launch {
+                    recommendViewModel.postItinerary("${binding.spMonth.selectedItemPosition+1}월"+"${binding.spDate.selectedItemPosition+1}일"
+                        ,"${binding.spMonth.selectedItemPosition+1}월"+"${binding.spDate.selectedItemPosition+1+binding.spNight.selectedItemPosition}일","")
+                    finish()
+                }
 
             }
         }

@@ -1,9 +1,7 @@
 package com.eshc.travelplatform
 
 import android.app.Application
-import com.eshc.travelplatform.data.local.KeepLocalDataSource
-import com.eshc.travelplatform.data.local.SpotLocalDataSource
-import com.eshc.travelplatform.data.local.UserLocalDataSource
+import com.eshc.travelplatform.data.local.*
 import com.eshc.travelplatform.data.local.db.AppDatabase
 import com.eshc.travelplatform.domain.model.User
 import com.eshc.travelplatform.shared.util.DataStoreUtil
@@ -20,6 +18,8 @@ class MainApplication : Application() {
     val userLocalDataSource by lazy { UserLocalDataSource(database.userDao())}
     val spotLocalDataSource by lazy { SpotLocalDataSource(database.spotDao())}
     val keepLocalDataSource by lazy { KeepLocalDataSource(database.keepDao())}
+    val scheduleDataSource by lazy { ScheduleLocalDataSource(database.scheduleDao())}
+    val dailyScheduleDataSource by lazy { DailyScheduleLocalDataSource()}
     companion object {
         private lateinit var mainApplication: MainApplication
         fun getInstance() : MainApplication = mainApplication
