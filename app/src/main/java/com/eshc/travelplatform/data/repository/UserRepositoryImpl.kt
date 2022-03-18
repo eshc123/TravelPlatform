@@ -12,7 +12,7 @@ class UserRepositoryImpl(val dataSource: UserLocalDataSource) : UserRepository {
     var user: User? = null
         private set
 
-    val allUsers = dataSource.allUsers
+
 
 
     init {

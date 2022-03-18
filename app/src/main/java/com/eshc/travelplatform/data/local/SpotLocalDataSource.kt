@@ -25,7 +25,6 @@ fun List<SpotEntity>.toSpotList() : List<Spot>{
             title = it.name,
             category = it.category,
             address = it.address,
-            distance = "42.195Km",
             url = it.image,
             point = Pair(it.x,it.y)
         )
@@ -37,7 +36,6 @@ fun SpotEntity.toSpot() : Spot{
         title = this.name,
         category = this.category,
         address = this.address,
-        distance = "42.195Km",
         url = this.image,
         point = Pair(this.x,this.y)
     )

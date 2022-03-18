@@ -5,5 +5,6 @@ package com.eshc.travelplatform.domain.model
  */
 data class User(
     val userId: String,
-    val displayName: String
+    val displayName: String,
+    val phoneNum: String? = null
 )

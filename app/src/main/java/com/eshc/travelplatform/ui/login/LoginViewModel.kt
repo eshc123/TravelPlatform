@@ -17,7 +17,6 @@ class LoginViewModel(private val userRepositoryImpl: UserRepositoryImpl) : ViewM
     private val _loginResult = MutableLiveData<LoginResult>()
     val loginResult: LiveData<LoginResult> = _loginResult
 
-    val allUsers : LiveData<List<UserEntity>> = userRepositoryImpl.allUsers.asLiveData()
 
     fun login(username: String, password: String) = viewModelScope.launch {
         val result = userRepositoryImpl.login(username, password)

@@ -13,9 +13,9 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertUser(userEntity: UserEntity)
 
-    @Query("SELECT * FROM user_table")
-    fun getUsers() : Flow<List<UserEntity>>
+    @Query("SELECT * FROM user_table WHERE userId == :id")
+    suspend fun getUserById(id: String) : UserEntity
 
     @Query("SELECT password FROM user_table WHERE userId LIKE :id")
-    fun getPassword(id : String) : Flow<String>
+    suspend fun getPassword(id : String) : String
 }

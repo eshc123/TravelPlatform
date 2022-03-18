@@ -1,9 +1,11 @@
 package com.eshc.travelplatform.data.local
 
 import androidx.annotation.WorkerThread
+import com.eshc.travelplatform.MainApplication
 import com.eshc.travelplatform.data.local.db.dao.UserDao
 import com.eshc.travelplatform.data.model.Result
 import com.eshc.travelplatform.data.local.db.entity.UserEntity
+import com.eshc.travelplatform.domain.model.User
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import java.io.IOException
@@ -13,13 +15,12 @@ import java.io.IOException
  */
 class UserLocalDataSource(private val userDao : UserDao) {
 
-    val allUsers : Flow<List<UserEntity>> = userDao.getUsers()
 
 
     suspend fun login(username: String, password: String): Result<Boolean> {
-        if(userDao.getPassword(username).first() == password) {
+        if(userDao.getPassword(username) == password) {
             try {
-
+                MainApplication.getInstance().user = getUser(username)
                 // TODO: handle loggedInUser authentication
 
                 return Result.Success(true)
@@ -45,4 +46,14 @@ class UserLocalDataSource(private val userDao : UserDao) {
             return Result.Error(IOException("Error logging in", e))
         }
     }
+    suspend fun getUser(username : String) : User {
+       return  ( userDao.getUserById(username).toUser())
+    }
+}
+fun UserEntity.toUser() : User{
+    return User(
+        this.userId,
+        this.userId,
+        this.phoneNum
+    )
 }

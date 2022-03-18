@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.eshc.travelplatform.ui.mypage.MypageViewModel" />
         <variable
             name="fragment"
             type="com.eshc.travelplatform.ui.mypage.MypageFragment" />
@@ -55,7 +57,7 @@
                     android:layout_height="wrap_content"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:text="유저아이디나닉네임"
+                    android:text="@{viewModel.user.userId}"
                     android:textColor="@color/main_color"
                     android:fontFamily="@font/pretendard_semi_bold"
                     android:textSize="18sp"
@@ -72,7 +74,7 @@
                     android:id="@+id/tv_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="01012345678"
+                    android:text="@{viewModel.user.phoneNum}"
                     android:textColor="@color/sub_color"
                     android:fontFamily="@font/pretendard_semi_bold"
                     android:textSize="14sp"

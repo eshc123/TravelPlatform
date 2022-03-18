@@ -5,6 +5,7 @@ import com.eshc.travelplatform.data.local.KeepLocalDataSource
 import com.eshc.travelplatform.data.local.SpotLocalDataSource
 import com.eshc.travelplatform.data.local.UserLocalDataSource
 import com.eshc.travelplatform.data.local.db.AppDatabase
+import com.eshc.travelplatform.domain.model.User
 import com.eshc.travelplatform.shared.util.DataStoreUtil
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -13,6 +14,7 @@ import kotlinx.coroutines.flow.first
 class MainApplication : Application() {
     private lateinit var dataStore : DataStoreUtil
     private val applicationScope = CoroutineScope(SupervisorJob())
+    var user : User? = null
 
     val database by lazy { AppDatabase.getDatabase(this,applicationScope) }
     val userLocalDataSource by lazy { UserLocalDataSource(database.userDao())}
@@ -37,7 +39,6 @@ class MainApplication : Application() {
         val pw = getInstance().getDataStore().password.first()
         return !(id.isBlank() || pw.isBlank())
     }
-
 
 
 }
