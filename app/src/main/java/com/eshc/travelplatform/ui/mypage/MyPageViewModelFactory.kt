@@ -14,6 +14,10 @@ class MyPageViewModelFactory : ViewModelProvider.Factory {
             return MypageViewModel(
                 userRepository = UserRepositoryImpl(
                     MainApplication.getInstance().userLocalDataSource
+                ),
+                spotRepositoryImpl = SpotRepositoryImpl(
+                    MainApplication.getInstance().spotLocalDataSource,
+                    MainApplication.getInstance().keepLocalDataSource
                 )
             ) as T
         }

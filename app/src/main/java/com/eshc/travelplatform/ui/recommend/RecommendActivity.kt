@@ -96,7 +96,8 @@ class RecommendActivity : AppCompatActivity() {
             }
             3 -> {
                 lifecycleScope.launch {
-                    recommendViewModel.postItinerary("${binding.spMonth.selectedItemPosition+1}월"+"${binding.spDate.selectedItemPosition+1}일"
+                    // TODO 날짜 고치기 (32일 이상 나올 수 있음)
+                    recommendViewModel.postItinerary("","${binding.spMonth.selectedItemPosition+1}월"+"${binding.spDate.selectedItemPosition+1}일"
                         ,"${binding.spMonth.selectedItemPosition+1}월"+"${binding.spDate.selectedItemPosition+1+binding.spNight.selectedItemPosition}일","")
                     finish()
                 }

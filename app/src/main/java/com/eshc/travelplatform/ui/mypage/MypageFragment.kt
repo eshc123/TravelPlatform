@@ -37,7 +37,10 @@ class MypageFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_mypage, container, false)
         binding.fragment = this
         binding.viewModel = mypageViewModel
-        binding
+        mypageViewModel.keepSpots.observe(viewLifecycleOwner, Observer {
+            binding.tvKeepNum.text = it.size.toString()
+        })
+
 
         return binding.root
     }

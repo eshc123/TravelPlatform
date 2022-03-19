@@ -4,13 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.eshc.travelplatform.data.repository.ItineraryRepositoryImpl
 import com.eshc.travelplatform.data.repository.SpotRepositoryImpl
 import com.eshc.travelplatform.domain.model.Course
+import com.eshc.travelplatform.domain.model.Itinerary
 import com.eshc.travelplatform.domain.model.Spot
+import com.eshc.travelplatform.domain.usecase.itinerary.GetItinerariesUseCase
 import com.eshc.travelplatform.domain.usecase.spot.GetPopularSpotsUseCase
 import kotlinx.coroutines.launch
 
-class PlanViewModel(spotRepositoryImpl: SpotRepositoryImpl) : ViewModel() {
+class PlanViewModel(spotRepositoryImpl: SpotRepositoryImpl,itineraryRepositoryImpl: ItineraryRepositoryImpl) : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "일정 만들기"
@@ -21,13 +24,19 @@ class PlanViewModel(spotRepositoryImpl: SpotRepositoryImpl) : ViewModel() {
     val recommendSpots: LiveData<MutableList<Spot>> = _recommendSpots
     private val _courses = MutableLiveData<MutableList<Course>>()
     val courses: LiveData<MutableList<Course>> = _courses
-    private val _hasPlans = MutableLiveData<Boolean>()
-    val hasPlans : LiveData<Boolean> = _hasPlans
+
+    private val _itineraries = MutableLiveData<MutableList<Itinerary>>()
+    val itineraries: LiveData<MutableList<Itinerary>> = _itineraries
+
+
 
     val getPopularSpots = GetPopularSpotsUseCase(spotRepositoryImpl)
+    val getItineraryUseCase = GetItinerariesUseCase(itineraryRepositoryImpl)
     init {
         viewModelScope.launch {
             _recommendSpots.value = getPopularSpots().toMutableList()
+            _itineraries.value = getItineraryUseCase().toMutableList()
+
         }
             //mutableListOf(
 //            Spot("울산의 초록빛과 부산의 푸른빛에 둘려쌓여 자유를 만끽하다!","https://tong.visitkorea.or.kr/cms/resource/56/2716256_image2_1.jpg"),
@@ -41,7 +50,7 @@ class PlanViewModel(spotRepositoryImpl: SpotRepositoryImpl) : ViewModel() {
         _courses.value = mutableListOf(
             Course("겨울 바다? 오히려 좋아","청사포 다릿돌전망대 → 송정 해수욕장 → 부산 롯데월드 → ...","https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=8de5fed1-5b7e-4078-8ec3-14c524629079"),
             Course("부산 먹거리는 못 참지","자갈치 시장 → 남포동 밀면→ 싸앗호떡 → 더 베이 101 → ","https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=936f2e57-f75c-41c8-acc0-d29dd494e73d"),
-            Course("부산 먹거리는 못 참지","자갈치 시장 → 죄송합니다 → 부산 시장을 → 잘몰라요 → ")
+            Course("부산 먹거리는 못 참지","자갈치 시장 → 죄송합니다 → 부산 시장을 → 잘몰라요 → ","https://cdn.visitkorea.or.kr/img/call?cmd=VIEW&id=936f2e57-f75c-41c8-acc0-d29dd494e73d")
         )
     }
 }

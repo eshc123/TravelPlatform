@@ -221,13 +221,14 @@
                     android:textColor="@color/title_color"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/iv_more"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_more"
-                    android:layout_width="18.4dp"
-                    android:layout_height="4.4dp"
-                    android:layout_marginStart="4dp"
+                    android:layout_width="19.0dp"
+                    android:layout_height="5.0dp"
+                    android:layout_marginStart="8dp"
                     android:src="@drawable/ic_more"
                     app:layout_constraintBottom_toBottomOf="@id/tv_day"
                     app:layout_constraintStart_toEndOf="@id/tv_day"

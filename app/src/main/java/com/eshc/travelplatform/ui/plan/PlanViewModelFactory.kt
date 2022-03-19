@@ -3,6 +3,7 @@ package com.eshc.travelplatform.ui.plan
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.eshc.travelplatform.MainApplication
+import com.eshc.travelplatform.data.repository.ItineraryRepositoryImpl
 import com.eshc.travelplatform.data.repository.SpotRepositoryImpl
 
 class PlanViewModelFactory : ViewModelProvider.Factory {
@@ -14,6 +15,10 @@ class PlanViewModelFactory : ViewModelProvider.Factory {
                 spotRepositoryImpl = SpotRepositoryImpl(
                     spotDataSource = MainApplication.getInstance().spotLocalDataSource,
                     keepDataSource = MainApplication.getInstance().keepLocalDataSource
+                ),
+                itineraryRepositoryImpl = ItineraryRepositoryImpl(
+                    scheduleDataSource = MainApplication.getInstance().scheduleDataSource,
+                    dailyScheduleDataSource = MainApplication.getInstance().dailyScheduleDataSource
                 )
             ) as T
         }

@@ -19,7 +19,7 @@ class CourseAdapter(val fragment : Fragment)  : BaseRecyclerViewAdapter<Course,I
     ): ViewHolder<ItemCourseBinding> {
         return super.onCreateViewHolder(parent, viewType).apply {
             this.itemView.setOnClickListener {
-                (fragment as PlanFragment).initScheduleBottomSheet()
+                //(fragment as PlanFragment).initScheduleBottomSheet()
             }
         }
     }

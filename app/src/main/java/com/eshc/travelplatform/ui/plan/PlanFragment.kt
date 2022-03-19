@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentPlanBinding
+import com.eshc.travelplatform.domain.model.Itinerary
 import com.eshc.travelplatform.shared.util.adapter.CourseAdapter
 import com.eshc.travelplatform.shared.util.adapter.SpotAdapter
 import com.eshc.travelplatform.shared.util.dpToPx
@@ -24,6 +25,8 @@ class PlanFragment : Fragment() {
     private lateinit var binding : FragmentPlanBinding
     private lateinit var bottomSheet : ConstraintLayout
     private lateinit var bottomSheetBehavior : BottomSheetBehavior<ConstraintLayout>
+    private lateinit var dailyScheduleViews : MutableList<View>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         planViewModel= ViewModelProvider(this, PlanViewModelFactory())
@@ -56,7 +59,14 @@ class PlanFragment : Fragment() {
         planViewModel.courses.observe(viewLifecycleOwner, Observer {
             courseAdapter.replaceAll(it)
         })
-
+        planViewModel.itineraries.observe(viewLifecycleOwner, Observer {
+            if(it.isNotEmpty()){
+                dailyScheduleViews = mutableListOf()
+                initScheduleBottomSheet(it)
+                binding.tvDay.text = it.first().startDate.plus(" ~ ").plus(it.first().endDate)
+                binding.tvSubtitle.text = it.first().description
+            }
+        })
         //openSearchDetailBottomSheet()
 
         return binding.root
@@ -85,15 +95,15 @@ class PlanFragment : Fragment() {
         activity?.startActivity(Intent(activity, RecommendActivity::class.java))
     }
 
-    fun initScheduleBottomSheet(){
-
+    fun initScheduleBottomSheet(itineraries: MutableList<Itinerary>){
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
         bottomSheetBehavior.peekHeight = 200.dpToPx()
         bottomSheetBehavior.isHideable = false
         binding.clTop.visibility = View.GONE
         binding.clPlan.visibility = View.VISIBLE
-        val view = layoutInflater.inflate(R.layout.layout_schedule,binding.llContainer,false)
-        binding.llContainer.addView(view)
+        addDailyScheduleViews(itineraries)
+        //val dailyScheduleView = layoutInflater.inflate(R.layout.layout_itinerary,binding.llContainer,false)
+       // binding.llContainer.addView(dailyScheduleView)
 //        view.findViewById<RecyclerView>(R.id.rv_spot).adapter = SpotAdapter()
 //        (view.findViewById<RecyclerView>(R.id.rv_spot).adapter as SpotAdapter).replaceAll(listOf(
 //            Spot("해동 용궁사",0.0,0.0),Spot("두번째",0.0,0.0)
@@ -107,5 +117,18 @@ class PlanFragment : Fragment() {
 //        ))
         binding.clTop.setPadding(0,0,0,200.dpToPx())
     }
+    private fun addDailyScheduleViews(itineraries: MutableList<Itinerary>){
+        itineraries.first().schedules?.let{
+            it.forEach { _ ->
+                dailyScheduleViews.add(layoutInflater.inflate(R.layout.layout_itinerary,binding.llContainer,false))
 
+            }.apply {
+                var idx = 1
+                dailyScheduleViews.forEach {
+                    it.findViewById<AppCompatTextView>(R.id.tv_day).text = "${idx++}일차"
+                    binding.llContainer.addView(it)
+                }
+            }
+        }
+    }
 }

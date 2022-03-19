@@ -47,7 +47,7 @@ class ScheduleFragment : BottomSheetDialogFragment() {
 
     }
     fun addScheduleView(){
-        val view = layoutInflater.inflate(R.layout.layout_schedule,binding.llContainer,false)
+        val view = layoutInflater.inflate(R.layout.layout_itinerary,binding.llContainer,false)
         binding.llContainer.addView(view)
     }
 }

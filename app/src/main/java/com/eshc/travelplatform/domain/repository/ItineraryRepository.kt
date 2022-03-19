@@ -1,9 +1,11 @@
 package com.eshc.travelplatform.domain.repository
 
-interface ItineraryRepository {
-    suspend fun getItinerary()
+import com.eshc.travelplatform.domain.model.Itinerary
 
-    suspend fun postItinerary(startData : String,endDate : String, description : String)
+interface ItineraryRepository {
+    suspend fun getItinerary() : List<Itinerary>
+
+    suspend fun postItinerary(title : String,startData : String,endDate : String, description : String)
 
     suspend fun putItinerary()
 }
