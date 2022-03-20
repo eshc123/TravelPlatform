@@ -7,13 +7,14 @@ import com.eshc.travelplatform.domain.model.Itinerary
 class ScheduleLocalDataSource (
     private val scheduleDao : ScheduleDao
 ){
-    suspend fun postSchedule(title : String,startData : String,endDate : String, description : String){
+    suspend fun postSchedule(title : String,startDate : String,endDate : String, description : String,period: Int){
         scheduleDao.postSchedule(
             schedule = ScheduleEntity(
                 title = title,
-                startDate = startData,
+                startDate = startDate,
                 endDate = endDate,
-                description = description
+                description = description,
+                period = period
             )
         )
     }
@@ -28,7 +29,8 @@ fun List<ScheduleEntity>.toItinerary() : List<Itinerary>{
             startDate = it.startDate,
             endDate = it.endDate,
             description = it.description,
-            title = it.title
+            title = it.title,
+            period = it.period
         )
     }
 }

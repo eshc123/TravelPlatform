@@ -10,5 +10,6 @@ data class ScheduleEntity(
     val title : String,
     @ColumnInfo(name = "start_date") val startDate : String,
     @ColumnInfo(name = "end_date") val endDate : String,
-    val description : String
+    val description : String,
+    val period : Int
 )

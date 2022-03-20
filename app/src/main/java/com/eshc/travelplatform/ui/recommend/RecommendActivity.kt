@@ -48,12 +48,12 @@ class RecommendActivity : AppCompatActivity() {
         styleAdapter.setHasStableIds(true)
         binding.rvStyle.adapter = styleAdapter
 
-        recommendViewModel.conditionWho.observe(this, Observer {
+        recommendViewModel.conditionWho.observe(this) {
             whoAdapter.replaceAll(it)
-        })
-        recommendViewModel.conditionStyle.observe(this, Observer {
+        }
+        recommendViewModel.conditionStyle.observe(this) {
             styleAdapter.replaceAll(it)
-        })
+        }
         initSpinners()
         binding.ivBack.setOnClickListener {
             backToPrevious()
@@ -97,8 +97,12 @@ class RecommendActivity : AppCompatActivity() {
             3 -> {
                 lifecycleScope.launch {
                     // TODO 날짜 고치기 (32일 이상 나올 수 있음)
-                    recommendViewModel.postItinerary("","${binding.spMonth.selectedItemPosition+1}월"+"${binding.spDate.selectedItemPosition+1}일"
-                        ,"${binding.spMonth.selectedItemPosition+1}월"+"${binding.spDate.selectedItemPosition+1+binding.spNight.selectedItemPosition}일","")
+                    recommendViewModel.postItinerary(
+                        title = "",
+                        startDate = "${binding.spMonth.selectedItemPosition+1}월"+"${binding.spDate.selectedItemPosition+1}일",
+                        endDate = "${binding.spMonth.selectedItemPosition+1}월"+"${binding.spDate.selectedItemPosition+1+binding.spNight.selectedItemPosition}일",
+                        description = "",
+                        period = binding.spNight.selectedItemPosition +1 )
                     finish()
                 }
 

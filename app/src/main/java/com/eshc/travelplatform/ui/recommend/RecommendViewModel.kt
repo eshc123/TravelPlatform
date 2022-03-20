@@ -23,5 +23,5 @@ class RecommendViewModel(itineraryRepositoryImpl: ItineraryRepositoryImpl) : Vie
         )
     }
 
-    suspend fun postItinerary(title : String,startData : String,endDate : String, description : String) = postItinerariesUseCase(title,startData,endDate,description)
+    suspend fun postItinerary(title : String,startDate : String,endDate : String, description : String,period: Int) = postItinerariesUseCase(title,startDate,endDate,description,period)
 }
