@@ -11,20 +11,10 @@ class UserRepositoryImpl(val dataSource: UserLocalDataSource) : UserRepository {
 
     var user: User? = null
         private set
-
-
-
-
-    init {
-        user = null
-    }
-
     override fun logout() {
         user = null
         dataSource.logout()
     }
-
-
 
     override suspend fun login(username: String, password: String): Result<User> {
         val result = dataSource.login(username, password)
@@ -33,7 +23,7 @@ class UserRepositoryImpl(val dataSource: UserLocalDataSource) : UserRepository {
             val fakeUser =
                 User(
                     UUID.randomUUID().toString(),
-                    "Jane Doe"
+                    UUID.randomUUID().toString()
                 )
             setLoggedInUser(fakeUser)
             return Result.Success(fakeUser)
@@ -53,7 +43,7 @@ class UserRepositoryImpl(val dataSource: UserLocalDataSource) : UserRepository {
             val fakeUser =
                 User(
                     UUID.randomUUID().toString(),
-                    "Jane Doe"
+                    UUID.randomUUID().toString()
                 )
             setLoggedInUser(fakeUser)
             return Result.Success(fakeUser)

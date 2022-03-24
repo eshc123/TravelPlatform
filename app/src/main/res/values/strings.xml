@@ -19,6 +19,7 @@
     <string name="action_register_short">회원가입</string>
 
     <string name="ok">확인</string>
+    <string name="delete">삭제</string>
 
     <string name="prompt_add_location">장소 추가</string>
 
@@ -34,6 +35,7 @@
     <string name="just_register">괜찮아요. 천천히 둘러볼게요.</string>
 
     <string name="waiting_please">개발중입니다..!</string>
+    <string name="delete_please">삭제하시겠습니까?</string>
 
     <string name="intro_home">안녕하세요, ㅇㅇㅇ님!\n걷기 좋은 청사포 다릿돌전망대 어때요?</string>
     <string name="subtitle_first_home">ㅇㅇㅇ님을 위한 추천 경로</string>

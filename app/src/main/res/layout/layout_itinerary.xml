@@ -163,7 +163,7 @@
         android:layout_height="wrap_content"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:orientation="vertical"
-        tools:listitem="@layout/item_spot"
+        tools:listitem="@layout/item_suggestion"
         tools:itemCount="2"
         app:layout_constraintTop_toBottomOf="@id/v_border"/>
     <androidx.constraintlayout.widget.ConstraintLayout

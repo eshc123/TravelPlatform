@@ -115,6 +115,9 @@ class PlanFragment : Fragment() {
 //        (view1.findViewById<RecyclerView>(R.id.rv_spot).adapter as SpotAdapter).replaceAll(listOf(
 //            Spot("영화의 전당",0.0,0.0)
 //        ))
+        binding.ivSearchPlan.setOnClickListener {
+            navigateToSearch()
+        }
         binding.clTop.setPadding(0,0,0,200.dpToPx())
     }
     private fun addDailyScheduleViews(itineraries: MutableList<Itinerary>){
@@ -122,10 +125,14 @@ class PlanFragment : Fragment() {
             it.forEach { _ ->
                 dailyScheduleViews.add(layoutInflater.inflate(R.layout.layout_itinerary,binding.llContainer,false))
 
+
             }.apply {
                 var idx = 1
                 dailyScheduleViews.forEach {
                     it.findViewById<AppCompatTextView>(R.id.tv_day).text = "${idx++}일차"
+                    it.findViewById<ConstraintLayout>(R.id.cl_calendar).setOnClickListener {
+                        navigateToSearch()
+                    }
                     binding.llContainer.addView(it)
                 }
             }

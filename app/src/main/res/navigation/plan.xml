@@ -22,7 +22,6 @@
         tools:layout="@layout/fragment_search">
 
 
-
     </fragment>
 
 </navigation>
