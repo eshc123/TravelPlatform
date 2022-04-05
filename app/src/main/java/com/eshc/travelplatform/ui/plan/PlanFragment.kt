@@ -47,6 +47,7 @@ class PlanFragment : Fragment() {
         bottomSheet = binding.clBottomContainer
         bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
         bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
+
         binding.rvRecommendation.adapter = recommendationAdapter
         binding.rvCourse.adapter = courseAdapter
 
@@ -67,8 +68,6 @@ class PlanFragment : Fragment() {
                 binding.tvSubtitle.text = it.first().description
             }
         })
-        //openSearchDetailBottomSheet()
-
         return binding.root
     }
 
@@ -77,14 +76,10 @@ class PlanFragment : Fragment() {
 
         binding.clAdd.setOnClickListener {
             startRecommend()
-
-//            val planBottomSheetFragment = PlanBottomSheetFragment()
-//            planBottomSheetFragment.show(childFragmentManager,planBottomSheetFragment.tag)
         }
         binding.ivSearch.setOnClickListener {
             navigateToSearch()
         }
-        //initScheduleBottomSheet()
     }
 
 
@@ -96,12 +91,17 @@ class PlanFragment : Fragment() {
     }
 
     fun initScheduleBottomSheet(itineraries: MutableList<Itinerary>){
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
-        bottomSheetBehavior.peekHeight = 200.dpToPx()
-        bottomSheetBehavior.isHideable = false
+        initBottomSheet()
         binding.clTop.visibility = View.GONE
         binding.clPlan.visibility = View.VISIBLE
+        binding.clTop.setPadding(0,0,0,200.dpToPx())
+
+        binding.ivSearchPlan.setOnClickListener {
+            navigateToSearch()
+        }
         addDailyScheduleViews(itineraries)
+
+
         //val dailyScheduleView = layoutInflater.inflate(R.layout.layout_itinerary,binding.llContainer,false)
        // binding.llContainer.addView(dailyScheduleView)
 //        view.findViewById<RecyclerView>(R.id.rv_spot).adapter = SpotAdapter()
@@ -115,17 +115,16 @@ class PlanFragment : Fragment() {
 //        (view1.findViewById<RecyclerView>(R.id.rv_spot).adapter as SpotAdapter).replaceAll(listOf(
 //            Spot("영화의 전당",0.0,0.0)
 //        ))
-        binding.ivSearchPlan.setOnClickListener {
-            navigateToSearch()
-        }
-        binding.clTop.setPadding(0,0,0,200.dpToPx())
+    }
+    private fun initBottomSheet() {
+        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
+        bottomSheetBehavior.peekHeight = 200.dpToPx()
+        bottomSheetBehavior.isHideable = false
     }
     private fun addDailyScheduleViews(itineraries: MutableList<Itinerary>){
         itineraries.first().schedules?.let{
             it.forEach { _ ->
                 dailyScheduleViews.add(layoutInflater.inflate(R.layout.layout_itinerary,binding.llContainer,false))
-
-
             }.apply {
                 var idx = 1
                 dailyScheduleViews.forEach {
