@@ -15,7 +15,6 @@ class UserLocalDataSource(private val userDao : UserDao) {
         if(userDao.getPassword(username) == password) {
             try {
                 MainApplication.getInstance().user = getUser(username)
-                // TODO: handle loggedInUser authentication
 
                 return Result.Success(true)
             } catch (e: Throwable) {

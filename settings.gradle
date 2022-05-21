@@ -1,2 +1,4 @@
 rootProject.name = "TravelPlatform"
 include ':app'
+include ':data'
+include ':domain'
