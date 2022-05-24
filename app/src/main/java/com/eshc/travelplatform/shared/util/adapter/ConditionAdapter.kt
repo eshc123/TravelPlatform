@@ -1,14 +1,11 @@
 package com.eshc.travelplatform.shared.util.adapter
 
 import android.content.Context
-import android.content.res.ColorStateList
 import android.graphics.Color
-import android.graphics.ColorFilter
-import android.graphics.drawable.GradientDrawable
 import androidx.core.content.ContextCompat
 import com.eshc.travelplatform.BR
 import com.eshc.travelplatform.R
-import com.eshc.travelplatform.domain.model.Condition
+import com.eshc.domain.model.Condition
 import com.eshc.travelplatform.databinding.ItemConditionBinding
 import com.eshc.travelplatform.ui.base.BaseRecyclerViewAdapter
 

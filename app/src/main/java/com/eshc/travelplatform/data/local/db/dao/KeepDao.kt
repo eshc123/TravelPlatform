@@ -2,7 +2,6 @@ package com.eshc.travelplatform.data.local.db.dao
 
 import androidx.room.*
 import com.eshc.travelplatform.data.local.db.entity.KeepEntity
-import com.eshc.travelplatform.domain.model.Spot
 import kotlinx.coroutines.flow.Flow
 
 @Dao

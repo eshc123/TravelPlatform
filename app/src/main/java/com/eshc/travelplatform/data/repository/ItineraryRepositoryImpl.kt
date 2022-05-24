@@ -2,9 +2,9 @@ package com.eshc.travelplatform.data.repository
 
 import com.eshc.travelplatform.data.local.DailyScheduleLocalDataSource
 import com.eshc.travelplatform.data.local.ScheduleLocalDataSource
-import com.eshc.travelplatform.domain.model.Course
-import com.eshc.travelplatform.domain.model.Itinerary
-import com.eshc.travelplatform.domain.repository.ItineraryRepository
+import com.eshc.domain.model.Course
+import com.eshc.domain.model.Itinerary
+import com.eshc.domain.repository.ItineraryRepository
 
 class ItineraryRepositoryImpl(val scheduleDataSource: ScheduleLocalDataSource,val dailyScheduleDataSource : DailyScheduleLocalDataSource) : ItineraryRepository {
     override suspend fun getItinerary() : List<Itinerary> {

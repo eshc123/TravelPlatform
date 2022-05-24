@@ -4,9 +4,8 @@ import com.eshc.travelplatform.data.local.KeepLocalDataSource
 import com.eshc.travelplatform.data.local.SpotLocalDataSource
 import com.eshc.travelplatform.data.local.toSpot
 import com.eshc.travelplatform.data.local.toSpotList
-import com.eshc.travelplatform.domain.model.Spot
-import com.eshc.travelplatform.domain.repository.SpotRepository
-import kotlinx.coroutines.coroutineScope
+import com.eshc.domain.model.Spot
+import com.eshc.domain.repository.SpotRepository
 
 class SpotRepositoryImpl(val spotDataSource: SpotLocalDataSource,val keepDataSource : KeepLocalDataSource) : SpotRepository {
 

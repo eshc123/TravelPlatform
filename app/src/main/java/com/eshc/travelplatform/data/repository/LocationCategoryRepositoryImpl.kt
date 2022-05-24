@@ -1,12 +1,7 @@
 package com.eshc.travelplatform.data.repository
 
-import com.eshc.travelplatform.data.local.KeepLocalDataSource
 import com.eshc.travelplatform.data.local.LocationCategoryLocalDataSource
-import com.eshc.travelplatform.data.local.SpotLocalDataSource
-import com.eshc.travelplatform.domain.model.Spot
-import com.eshc.travelplatform.domain.repository.LocationCategoryRepository
-import com.eshc.travelplatform.domain.repository.SpotRepository
-import kotlinx.coroutines.flow.first
+import com.eshc.domain.repository.LocationCategoryRepository
 
 class LocationCategoryRepositoryImpl(val locationCategoryLocalDataSource: LocationCategoryLocalDataSource) : LocationCategoryRepository {
 

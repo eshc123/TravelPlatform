@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.eshc.travelplatform.data.repository.ItineraryRepositoryImpl
-import com.eshc.travelplatform.domain.model.Condition
-import com.eshc.travelplatform.domain.usecase.itinerary.PostItineraryUseCase
+import com.eshc.domain.model.Condition
+import com.eshc.domain.usecase.itinerary.PostItineraryUseCase
 
 class RecommendViewModel(itineraryRepositoryImpl: ItineraryRepositoryImpl) : ViewModel() {
     private val _conditionWho = MutableLiveData<MutableList<Condition>>()

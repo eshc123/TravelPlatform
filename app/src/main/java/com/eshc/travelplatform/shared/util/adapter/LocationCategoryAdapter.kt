@@ -1,12 +1,10 @@
 package com.eshc.travelplatform.shared.util.adapter
 
-import androidx.lifecycle.ViewModel
 import com.eshc.travelplatform.BR
 import com.eshc.travelplatform.R
-import com.eshc.travelplatform.domain.model.LocationCategory
+import com.eshc.domain.model.LocationCategory
 import com.eshc.travelplatform.databinding.ItemLocationCategoryBinding
 import com.eshc.travelplatform.ui.base.BaseRecyclerViewAdapter
-import com.eshc.travelplatform.ui.plan.SearchViewModel
 
 class LocationCategoryAdapter()  : BaseRecyclerViewAdapter<LocationCategory, ItemLocationCategoryBinding>(
     layoutResId = R.layout.item_location_category,

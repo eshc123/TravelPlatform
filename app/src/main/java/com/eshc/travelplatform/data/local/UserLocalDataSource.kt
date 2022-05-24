@@ -5,9 +5,7 @@ import com.eshc.travelplatform.MainApplication
 import com.eshc.travelplatform.data.local.db.dao.UserDao
 import com.eshc.travelplatform.data.model.Result
 import com.eshc.travelplatform.data.local.db.entity.UserEntity
-import com.eshc.travelplatform.domain.model.User
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.first
+import com.eshc.domain.model.User
 import java.io.IOException
 
 class UserLocalDataSource(private val userDao : UserDao) {

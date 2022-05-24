@@ -2,7 +2,7 @@ package com.eshc.travelplatform.data.local
 
 import com.eshc.travelplatform.data.local.db.dao.KeepDao
 import com.eshc.travelplatform.data.local.db.entity.KeepEntity
-import com.eshc.travelplatform.domain.model.Spot
+import com.eshc.domain.model.Spot
 
 
 class KeepLocalDataSource  (private val keepDao : KeepDao

@@ -2,8 +2,8 @@ package com.eshc.travelplatform.data.repository
 
 import com.eshc.travelplatform.data.local.UserLocalDataSource
 import com.eshc.travelplatform.data.model.Result
-import com.eshc.travelplatform.domain.model.User
-import com.eshc.travelplatform.domain.repository.UserRepository
+import com.eshc.domain.model.User
+import com.eshc.domain.repository.UserRepository
 import java.io.IOException
 import java.util.*
 

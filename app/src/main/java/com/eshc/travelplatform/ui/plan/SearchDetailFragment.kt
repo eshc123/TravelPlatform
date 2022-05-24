@@ -12,11 +12,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentSearchDetailBinding
-import com.eshc.travelplatform.domain.model.Spot
+import com.eshc.domain.model.Spot
 import com.eshc.travelplatform.shared.util.dpToPx
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 
 

@@ -2,7 +2,7 @@ package com.eshc.travelplatform.data.local
 
 import com.eshc.travelplatform.data.local.db.dao.ScheduleDao
 import com.eshc.travelplatform.data.local.db.entity.ScheduleEntity
-import com.eshc.travelplatform.domain.model.Itinerary
+import com.eshc.domain.model.Itinerary
 
 class ScheduleLocalDataSource (
     private val scheduleDao : ScheduleDao

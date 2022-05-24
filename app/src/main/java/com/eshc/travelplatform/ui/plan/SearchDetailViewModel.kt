@@ -5,10 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eshc.travelplatform.data.repository.SpotRepositoryImpl
-import com.eshc.travelplatform.domain.model.Spot
-import com.eshc.travelplatform.domain.usecase.spot.DeleteKeepSpotUseCase
-import com.eshc.travelplatform.domain.usecase.spot.GetSpotUseCase
-import com.eshc.travelplatform.domain.usecase.spot.PostKeepSpotUseCase
+import com.eshc.domain.model.Spot
+import com.eshc.domain.usecase.spot.DeleteKeepSpotUseCase
+import com.eshc.domain.usecase.spot.GetSpotUseCase
+import com.eshc.domain.usecase.spot.PostKeepSpotUseCase
 import kotlinx.coroutines.launch
 
 class SearchDetailViewModel(spotRepositoryImpl: SpotRepositoryImpl,id: Int) : ViewModel() {

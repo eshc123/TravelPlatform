@@ -1,18 +1,14 @@
 package com.eshc.travelplatform.ui.plan
 
-import androidx.databinding.Observable
-import androidx.databinding.ObservableField
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.data.repository.SpotRepositoryImpl
-import com.eshc.travelplatform.domain.model.LocationCategory
-import com.eshc.travelplatform.domain.model.Spot
-import com.eshc.travelplatform.domain.usecase.spot.GetSpotSuggestionsUseCase
-import com.eshc.travelplatform.domain.usecase.spot.GetSpotUseCase
-import com.eshc.travelplatform.domain.usecase.spot.PostKeepSpotUseCase
+import com.eshc.domain.model.LocationCategory
+import com.eshc.domain.model.Spot
+import com.eshc.domain.usecase.spot.GetSpotSuggestionsUseCase
 import kotlinx.coroutines.launch
 
 class SearchViewModel(spotRepositoryImpl: SpotRepositoryImpl) : ViewModel() {

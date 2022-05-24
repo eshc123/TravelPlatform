@@ -2,8 +2,7 @@ package com.eshc.travelplatform.data.local
 
 import com.eshc.travelplatform.data.local.db.dao.SpotDao
 import com.eshc.travelplatform.data.local.db.entity.SpotEntity
-import com.eshc.travelplatform.domain.model.Spot
-import kotlinx.coroutines.flow.Flow
+import com.eshc.domain.model.Spot
 
 
 class SpotLocalDataSource (private val spotDao : SpotDao){

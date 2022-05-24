@@ -1,7 +1,7 @@
 package com.eshc.travelplatform.data.remote
 
 import com.eshc.travelplatform.data.model.Result
-import com.eshc.travelplatform.domain.model.User
+import com.eshc.domain.model.User
 import java.io.IOException
 import java.util.*
 

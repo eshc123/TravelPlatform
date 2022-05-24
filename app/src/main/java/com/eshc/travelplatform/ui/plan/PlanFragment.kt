@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentPlanBinding
-import com.eshc.travelplatform.domain.model.Itinerary
+import com.eshc.domain.model.Itinerary
 import com.eshc.travelplatform.shared.util.adapter.CourseAdapter
 import com.eshc.travelplatform.shared.util.adapter.SpotAdapter
 import com.eshc.travelplatform.shared.util.dpToPx

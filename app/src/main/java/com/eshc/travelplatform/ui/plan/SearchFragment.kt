@@ -13,7 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentSearchBinding
-import com.eshc.travelplatform.domain.model.Spot
+import com.eshc.domain.model.Spot
 import com.eshc.travelplatform.shared.util.adapter.LocationCategoryAdapter
 import com.eshc.travelplatform.shared.util.adapter.SpotSuggestionAdapter
 import com.eshc.travelplatform.ui.MainActivity

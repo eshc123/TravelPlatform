@@ -7,9 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.eshc.travelplatform.MainApplication
 import com.eshc.travelplatform.data.repository.SpotRepositoryImpl
 import com.eshc.travelplatform.data.repository.UserRepositoryImpl
-import com.eshc.travelplatform.domain.model.Spot
-import com.eshc.travelplatform.domain.model.User
-import com.eshc.travelplatform.domain.usecase.spot.GetKeepSpotsUseCase
+import com.eshc.domain.model.Spot
+import com.eshc.domain.model.User
+import com.eshc.domain.usecase.spot.GetKeepSpotsUseCase
+import com.eshc.domain.model.Spot
+import com.eshc.domain.model.User
+import com.eshc.domain.usecase.spot.GetKeepSpotsUseCase
 import kotlinx.coroutines.launch
 
 class MypageViewModel(userRepository: UserRepositoryImpl, spotRepositoryImpl: SpotRepositoryImpl) :

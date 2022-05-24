@@ -6,11 +6,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eshc.travelplatform.data.repository.ItineraryRepositoryImpl
 import com.eshc.travelplatform.data.repository.SpotRepositoryImpl
-import com.eshc.travelplatform.domain.model.Course
-import com.eshc.travelplatform.domain.model.Itinerary
-import com.eshc.travelplatform.domain.model.Spot
-import com.eshc.travelplatform.domain.usecase.itinerary.GetItinerariesUseCase
-import com.eshc.travelplatform.domain.usecase.spot.GetPopularSpotsUseCase
+import com.eshc.domain.model.Course
+import com.eshc.domain.model.Itinerary
+import com.eshc.domain.model.Spot
+import com.eshc.domain.usecase.itinerary.GetItinerariesUseCase
+import com.eshc.domain.usecase.spot.GetPopularSpotsUseCase
 import kotlinx.coroutines.launch
 
 class PlanViewModel(spotRepositoryImpl: SpotRepositoryImpl,itineraryRepositoryImpl: ItineraryRepositoryImpl) : ViewModel() {

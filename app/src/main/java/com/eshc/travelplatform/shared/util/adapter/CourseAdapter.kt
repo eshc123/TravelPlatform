@@ -4,10 +4,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.eshc.travelplatform.BR
 import com.eshc.travelplatform.R
-import com.eshc.travelplatform.domain.model.Course
+import com.eshc.domain.model.Course
 import com.eshc.travelplatform.databinding.ItemCourseBinding
 import com.eshc.travelplatform.ui.base.BaseRecyclerViewAdapter
-import com.eshc.travelplatform.ui.plan.PlanFragment
 
 class CourseAdapter(val fragment : Fragment)  : BaseRecyclerViewAdapter<Course,ItemCourseBinding>(
     layoutResId = R.layout.item_course,
