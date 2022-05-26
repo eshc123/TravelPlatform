@@ -3,7 +3,7 @@ package com.eshc.travelplatform.ui.login
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.eshc.travelplatform.MainApplication
-import com.eshc.travelplatform.data.repository.UserRepositoryImpl
+import com.eshc.data.repository.UserRepositoryImpl
 
 class LoginViewModelFactory : ViewModelProvider.Factory {
 

@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
 import androidx.lifecycle.viewModelScope
-import com.eshc.travelplatform.data.repository.UserRepositoryImpl
-import com.eshc.travelplatform.data.model.Result
+import com.eshc.data.repository.UserRepositoryImpl
+import com.eshc.domain.model.Result
 
 import com.eshc.travelplatform.R
 import kotlinx.coroutines.launch

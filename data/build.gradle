@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -46,4 +47,12 @@ dependencies {
     //okhttp3
     implementation (OkHttp.OKHTTP)
     implementation (OkHttp.LOGGING_INTERCEPTOR)
+
+    // Room components
+    implementation (Room.ROOM)
+    kapt (Room.ROOM_COMPILER)
+    androidTestImplementation (Room.ROOM_TESTING)
+
+    //coroutines
+    implementation (Coroutines.COROUTINES)
 }

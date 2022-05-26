@@ -102,6 +102,9 @@ dependencies {
     //flexbox
     implementation (Google.FLEXBOX)
 
+    //coroutines
+    implementation (Coroutines.COROUTINES)
+
     // Room components
     implementation (Room.ROOM)
     kapt (Room.ROOM_COMPILER)

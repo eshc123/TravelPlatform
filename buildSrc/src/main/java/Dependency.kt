@@ -39,6 +39,9 @@ object OkHttp {
     const val OKHTTP = "com.squareup.okhttp3:okhttp:4.9.1"
     const val LOGGING_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:4.9.1"
 }
+object Coroutines {
+    const val COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2"
+}
 object Glide {
     const val GLIDE = "com.github.bumptech.glide:glide:4.11.0"
 }
