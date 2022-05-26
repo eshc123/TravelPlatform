@@ -2,11 +2,10 @@ package com.eshc.travelplatform.ui.login
 
 import android.util.Patterns
 import androidx.lifecycle.*
-import com.eshc.travelplatform.data.repository.UserRepositoryImpl
-import com.eshc.travelplatform.data.model.Result
+import com.eshc.data.repository.UserRepositoryImpl
+import com.eshc.domain.model.Result
 
 import com.eshc.travelplatform.R
-import com.eshc.travelplatform.data.local.db.entity.UserEntity
 import kotlinx.coroutines.launch
 
 class LoginViewModel(private val userRepositoryImpl: UserRepositoryImpl) : ViewModel() {

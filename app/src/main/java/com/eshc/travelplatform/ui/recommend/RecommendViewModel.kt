@@ -3,7 +3,7 @@ package com.eshc.travelplatform.ui.recommend
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.eshc.travelplatform.data.repository.ItineraryRepositoryImpl
+import com.eshc.data.repository.ItineraryRepositoryImpl
 import com.eshc.domain.model.Condition
 import com.eshc.domain.usecase.itinerary.PostItineraryUseCase
 

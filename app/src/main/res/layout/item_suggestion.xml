@@ -7,7 +7,7 @@
 
         <variable
             name="spot_suggestion"
-            type="com.eshc.travelplatform.domain.model.Spot" />
+            type="com.eshc.domain.model.Spot" />
 
     </data>
 

@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.eshc.travelplatform.data.repository.ItineraryRepositoryImpl
-import com.eshc.travelplatform.data.repository.SpotRepositoryImpl
+import com.eshc.data.repository.ItineraryRepositoryImpl
+import com.eshc.data.repository.SpotRepositoryImpl
 import com.eshc.domain.model.Course
 import com.eshc.domain.model.Itinerary
 import com.eshc.domain.model.Spot

@@ -3,8 +3,8 @@ package com.eshc.travelplatform.ui.mypage
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.eshc.travelplatform.MainApplication
-import com.eshc.travelplatform.data.repository.SpotRepositoryImpl
-import com.eshc.travelplatform.data.repository.UserRepositoryImpl
+import com.eshc.data.repository.SpotRepositoryImpl
+import com.eshc.data.repository.UserRepositoryImpl
 
 class MyPageViewModelFactory : ViewModelProvider.Factory {
 

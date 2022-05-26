@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eshc.travelplatform.R
-import com.eshc.travelplatform.data.repository.SpotRepositoryImpl
+import com.eshc.data.repository.SpotRepositoryImpl
 import com.eshc.domain.model.LocationCategory
 import com.eshc.domain.model.Spot
 import com.eshc.domain.usecase.spot.GetSpotSuggestionsUseCase

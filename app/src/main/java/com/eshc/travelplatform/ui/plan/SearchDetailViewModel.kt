@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.eshc.travelplatform.data.repository.SpotRepositoryImpl
+import com.eshc.data.repository.SpotRepositoryImpl
 import com.eshc.domain.model.Spot
 import com.eshc.domain.usecase.spot.DeleteKeepSpotUseCase
 import com.eshc.domain.usecase.spot.GetSpotUseCase

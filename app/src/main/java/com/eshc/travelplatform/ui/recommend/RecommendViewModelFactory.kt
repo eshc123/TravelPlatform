@@ -3,7 +3,7 @@ package com.eshc.travelplatform.ui.recommend
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.eshc.travelplatform.MainApplication
-import com.eshc.travelplatform.data.repository.ItineraryRepositoryImpl
+import com.eshc.data.repository.ItineraryRepositoryImpl
 
 class RecommendViewModelFactory : ViewModelProvider.Factory {
 
