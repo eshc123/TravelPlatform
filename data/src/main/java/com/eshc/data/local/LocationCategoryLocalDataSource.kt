@@ -1,7 +1,7 @@
-package com.eshc.travelplatform.data.local
+package com.eshc.data.local
 
-import com.eshc.travelplatform.data.local.db.dao.LocationCategoryDao
-import com.eshc.travelplatform.data.local.db.entity.LocationCategoryEntity
+import com.eshc.data.local.db.dao.LocationCategoryDao
+import com.eshc.data.local.db.entity.LocationCategoryEntity
 import kotlinx.coroutines.flow.Flow
 
 

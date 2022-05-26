@@ -1,12 +1,12 @@
-package com.eshc.travelplatform.data.local.db
+package com.eshc.data.local.db
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.eshc.travelplatform.data.local.db.dao.*
-import com.eshc.travelplatform.data.local.db.entity.*
+import com.eshc.data.local.db.dao.*
+import com.eshc.data.local.db.entity.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

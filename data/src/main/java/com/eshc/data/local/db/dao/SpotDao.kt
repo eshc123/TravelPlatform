@@ -1,10 +1,10 @@
-package com.eshc.travelplatform.data.local.db.dao
+package com.eshc.data.local.db.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.eshc.travelplatform.data.local.db.entity.SpotEntity
+import com.eshc.data.local.db.entity.SpotEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

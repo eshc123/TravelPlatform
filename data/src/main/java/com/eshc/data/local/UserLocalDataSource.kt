@@ -1,10 +1,10 @@
-package com.eshc.travelplatform.data.local
+package com.eshc.data.local
 
 import androidx.annotation.WorkerThread
-import com.eshc.travelplatform.MainApplication
-import com.eshc.travelplatform.data.local.db.dao.UserDao
-import com.eshc.travelplatform.data.model.Result
-import com.eshc.travelplatform.data.local.db.entity.UserEntity
+//import com.eshc.travelplatform.MainApplication
+import com.eshc.domain.model.Result
+import com.eshc.data.local.db.dao.UserDao
+import com.eshc.data.local.db.entity.UserEntity
 import com.eshc.domain.model.User
 import java.io.IOException
 
@@ -12,7 +12,7 @@ class UserLocalDataSource(private val userDao : UserDao) {
     suspend fun login(username: String, password: String): Result<Boolean> {
         if(userDao.getPassword(username) == password) {
             try {
-                MainApplication.getInstance().user = getUser(username)
+                //MainApplication.getInstance().user = getUser(username)
 
                 return Result.Success(true)
             } catch (e: Throwable) {
@@ -33,7 +33,7 @@ class UserLocalDataSource(private val userDao : UserDao) {
         try {
             val user = UserEntity(userId = username,password = password,phoneNum = phoneNum)
             userDao.insertUser(user)
-            MainApplication.getInstance().user = user.toUser()
+            //MainApplication.getInstance().user = user.toUser()
             return Result.Success(true)
         } catch (e: Throwable) {
             return Result.Error(IOException("Error logging in", e))
