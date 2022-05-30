@@ -5,10 +5,12 @@ import com.eshc.data.local.*
 import com.eshc.data.local.db.AppDatabase
 import com.eshc.domain.model.User
 import com.eshc.travelplatform.shared.util.DataStoreUtil
+import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.first
 
+@HiltAndroidApp
 class MainApplication : Application() {
     private lateinit var dataStore : DataStoreUtil
     private val applicationScope = CoroutineScope(SupervisorJob())
