@@ -16,7 +16,7 @@
 
 - Domain, Data, Presentation(UI)로 분리
 
-  - 패키지단위로 분리, 모듈화 공부 후 모듈화 적용
+  - ~~패키지단위로 분리, 모듈화 공부 후 모듈화 적용~~ -> 모듈화 적용
 
 - Domain
 
@@ -36,17 +36,15 @@
 
       *백엔드 개발 중단으로 인해 Remote는 쓰이지 않고 모든 데이터를 Local에서 하는 것으로 대체*
 
-- Presentation(UI)
+- Presentation(UI) 
   - MVVM 구조 따르고자 함
-
-
+  - 프로젝트 내 app
 
 ##### Room
 
 
 
 ##### Coroutine
-
 
 
 
