@@ -1,4 +1,4 @@
-package com.eshc.data.remote
+package com.eshc.data.remote.datasource
 
 import com.eshc.domain.model.Result
 import com.eshc.domain.model.User
