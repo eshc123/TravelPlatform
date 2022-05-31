@@ -1,6 +1,12 @@
-# Travel Platform App
+<h1 align="center">Travel Platform : Busan Travel</h1>  
 
-#### : Busan Travel Platform
+<p align="center">  
+  <a href="https://android-arsenal.com/api?level=21"><img alt="API" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat"/></a>  
+</p>  
+
+<p align="center">  
+<img src="https://user-images.githubusercontent.com/50227341/171097430-c06a6a1e-8592-4c1d-ba11-04533668b12e.png" width="75%" />  
+</p>  
 
 
 
