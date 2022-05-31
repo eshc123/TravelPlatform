@@ -1,12 +1,12 @@
 package com.eshc.data.repository
 
-import com.eshc.data.local.DailyScheduleLocalDataSource
-import com.eshc.data.local.ScheduleLocalDataSource
+import com.eshc.data.local.datasource.DailyScheduleLocalDataSource
+import com.eshc.data.local.datasource.ScheduleLocalDataSource
 import com.eshc.domain.model.Course
 import com.eshc.domain.model.Itinerary
 import com.eshc.domain.repository.ItineraryRepository
 
-class ItineraryRepositoryImpl(val scheduleDataSource: ScheduleLocalDataSource,val dailyScheduleDataSource : DailyScheduleLocalDataSource) : ItineraryRepository {
+class ItineraryRepositoryImpl(val scheduleDataSource: ScheduleLocalDataSource, val dailyScheduleDataSource : DailyScheduleLocalDataSource) : ItineraryRepository {
     override suspend fun getItinerary() : List<Itinerary> {
         val schedules = scheduleDataSource.getSchedule()
         //daily Schedule 없을 시

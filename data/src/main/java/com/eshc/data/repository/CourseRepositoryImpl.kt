@@ -1,6 +1,6 @@
 package com.eshc.data.repository
 
-import com.eshc.data.local.CourseLocalDataSource
+import com.eshc.data.local.datasource.CourseLocalDataSource
 import com.eshc.domain.repository.CourseRepository
 
 class CourseRepositoryImpl(val courseLocalDataSource: CourseLocalDataSource) : CourseRepository {
