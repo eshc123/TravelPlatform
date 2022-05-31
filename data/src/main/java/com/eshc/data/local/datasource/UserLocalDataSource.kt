@@ -1,4 +1,4 @@
-package com.eshc.data.local
+package com.eshc.data.local.datasource
 
 import androidx.annotation.WorkerThread
 //import com.eshc.travelplatform.MainApplication

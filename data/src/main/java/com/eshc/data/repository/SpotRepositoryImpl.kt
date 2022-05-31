@@ -1,13 +1,13 @@
 package com.eshc.data.repository
 
-import com.eshc.data.local.KeepLocalDataSource
-import com.eshc.data.local.SpotLocalDataSource
-import com.eshc.data.local.toSpot
-import com.eshc.data.local.toSpotList
+import com.eshc.data.local.datasource.KeepLocalDataSource
+import com.eshc.data.local.datasource.SpotLocalDataSource
+import com.eshc.data.local.datasource.toSpot
+import com.eshc.data.local.datasource.toSpotList
 import com.eshc.domain.model.Spot
 import com.eshc.domain.repository.SpotRepository
 
-class SpotRepositoryImpl(val spotDataSource: SpotLocalDataSource,val keepDataSource : KeepLocalDataSource) : SpotRepository {
+class SpotRepositoryImpl(val spotDataSource: SpotLocalDataSource, val keepDataSource : KeepLocalDataSource) : SpotRepository {
 
 
 

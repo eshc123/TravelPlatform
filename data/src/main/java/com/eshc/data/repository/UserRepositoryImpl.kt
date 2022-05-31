@@ -1,6 +1,6 @@
 package com.eshc.data.repository
 
-import com.eshc.data.local.UserLocalDataSource
+import com.eshc.data.local.datasource.UserLocalDataSource
 import com.eshc.domain.model.Result
 import com.eshc.domain.model.User
 import com.eshc.domain.repository.UserRepository
