@@ -7,11 +7,17 @@ import android.util.Patterns
 import androidx.lifecycle.viewModelScope
 import com.eshc.data.repository.UserRepositoryImpl
 import com.eshc.domain.model.Result
+import com.eshc.domain.usecase.user.LoginUseCase
+import com.eshc.domain.usecase.user.RegisterUseCase
 
 import com.eshc.travelplatform.R
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-
-class RegisterViewModel(private val userRepositoryImpl: UserRepositoryImpl) : ViewModel() {
+import javax.inject.Inject
+@HiltViewModel
+class RegisterViewModel @Inject constructor(
+    private val registerUseCase: RegisterUseCase
+) : ViewModel() {
 
     private val _registerForm = MutableLiveData<RegisterFormState>()
     val registerFormState: LiveData<RegisterFormState> = _registerForm
@@ -20,14 +26,15 @@ class RegisterViewModel(private val userRepositoryImpl: UserRepositoryImpl) : Vi
     val registerResult: LiveData<RegisterResult> = _registerResult
 
     fun register(username: String, password: String,phoneNum: String) = viewModelScope.launch {
-        val result = userRepositoryImpl.register(username, password,phoneNum)
-
-        if (result is Result.Success) {
-            _registerResult.value =
-                RegisterResult(success = RegisteredInUserView(displayName = result.data.displayName))
-        } else {
-            _registerResult.value = RegisterResult(error = R.string.login_failed)
-        }
+        registerUseCase(username,password)
+//        val result = userRepositoryImpl.register(username, password,phoneNum)
+//
+//        if (result is Result.Success) {
+//            _registerResult.value =
+//                RegisterResult(success = RegisteredInUserView(displayName = result.data.displayName))
+//        } else {
+//            _registerResult.value = RegisterResult(error = R.string.login_failed)
+//        }
     }
 
     fun registerDataChanged(username: String, password: String,phoneNum:String) {

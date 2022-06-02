@@ -15,6 +15,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatTextView
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.eshc.travelplatform.R
@@ -24,20 +25,15 @@ import com.eshc.travelplatform.ui.MainActivity
 import com.eshc.travelplatform.ui.recommend.RecommendActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class RegisterFragment : BottomSheetDialogFragment() {
 
-    private lateinit var registerViewModel: RegisterViewModel
+    private val registerViewModel by viewModels<RegisterViewModel>()
     private lateinit var binding: FragmentRegisterBinding
     override fun getTheme(): Int {
         return R.style.AppBottomSheetDialogTheme
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        registerViewModel = ViewModelProvider(this, RegisterViewModelFactory())
-            .get(RegisterViewModel::class.java)
-
     }
 
     override fun onCreateView(

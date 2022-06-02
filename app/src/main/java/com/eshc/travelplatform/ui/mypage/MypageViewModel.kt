@@ -12,7 +12,7 @@ import com.eshc.domain.model.User
 import com.eshc.domain.usecase.spot.GetKeepSpotsUseCase
 import kotlinx.coroutines.launch
 
-class MypageViewModel(userRepository: UserRepositoryImpl, spotRepositoryImpl: SpotRepositoryImpl) :
+class MypageViewModel(spotRepositoryImpl: SpotRepositoryImpl) :
     ViewModel() {
     private val _user = MutableLiveData<User>()
     val user: LiveData<User> = _user
