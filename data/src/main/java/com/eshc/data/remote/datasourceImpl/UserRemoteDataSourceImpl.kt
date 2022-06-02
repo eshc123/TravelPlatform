@@ -17,7 +17,7 @@ class UserRemoteDataSourceImpl () : UserRemoteDataSource{
 
     }
 
-    override suspend fun register(username: String, password: String,phoneNum:String) {
+    override suspend fun register(username: String, password: String) {
 
     }
 }

@@ -5,9 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import android.util.Patterns
 import androidx.lifecycle.viewModelScope
-import com.eshc.data.repository.UserRepositoryImpl
-import com.eshc.domain.model.Result
-import com.eshc.domain.usecase.user.LoginUseCase
 import com.eshc.domain.usecase.user.RegisterUseCase
 
 import com.eshc.travelplatform.R
@@ -27,14 +24,6 @@ class RegisterViewModel @Inject constructor(
 
     fun register(username: String, password: String,phoneNum: String) = viewModelScope.launch {
         registerUseCase(username,password)
-//        val result = userRepositoryImpl.register(username, password,phoneNum)
-//
-//        if (result is Result.Success) {
-//            _registerResult.value =
-//                RegisterResult(success = RegisteredInUserView(displayName = result.data.displayName))
-//        } else {
-//            _registerResult.value = RegisterResult(error = R.string.login_failed)
-//        }
     }
 
     fun registerDataChanged(username: String, password: String,phoneNum:String) {

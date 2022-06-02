@@ -12,5 +12,5 @@ interface UserRemoteDataSource {
 
     suspend fun logout()
 
-    suspend fun register(username: String, password: String,phoneNum:String)
+    suspend fun register(username: String, password: String)
 }

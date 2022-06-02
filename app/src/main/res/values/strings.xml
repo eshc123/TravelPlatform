@@ -23,7 +23,7 @@
 
     <string name="prompt_add_location">장소 추가</string>
 
-    <string name="welcome">"Welcome !"</string>
+    <string name="welcome">"환영합니다. 님!"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">비밀번호는 6자 이상이어야 합니다.</string>
     <string name="invalid_phonenum">\'-\'를 제외한 휴대폰 번호 11자리를 입력해주세요</string>

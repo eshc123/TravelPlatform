@@ -2,14 +2,12 @@ package com.eshc.travelplatform.ui.login
 
 import android.util.Patterns
 import androidx.lifecycle.*
-import com.eshc.data.repository.UserRepositoryImpl
 import com.eshc.domain.model.Result
 import com.eshc.domain.usecase.user.LoginUseCase
-import com.eshc.domain.usecase.user.RegisterUseCase
-
 import com.eshc.travelplatform.R
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import java.lang.Exception
 import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel@Inject constructor(
@@ -24,15 +22,14 @@ class LoginViewModel@Inject constructor(
 
 
     fun login(username: String, password: String) = viewModelScope.launch {
-//        val result = userRepositoryImpl.login(username, password)
-//
-//        if (result is Result.Success) {
-//            _loginResult.value =
-//                LoginResult(success = LoggedInUserView(displayName = result.data.displayName))
-//        } else {
-//            _loginResult.value = LoginResult(error = R.string.login_failed)
-//        }
-        loginUseCase(username,password)
+        try {
+            loginUseCase(username,password)
+            _loginResult.value =
+                LoginResult(success = LoggedInUserView(displayName = username))
+        }
+        catch (e : Exception){
+            _loginResult.value = LoginResult(error = R.string.login_failed)
+        }
     }
 
     fun loginDataChanged(username: String, password: String) {

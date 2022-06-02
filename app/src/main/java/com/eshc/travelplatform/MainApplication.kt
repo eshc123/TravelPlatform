@@ -17,7 +17,6 @@ class MainApplication : Application() {
     var user : User? = null
 
     val database by lazy { AppDatabase.getDatabase(this,applicationScope) }
-    val userLocalDataSource by lazy { UserLocalDataSource(database.userDao()) }
     val spotLocalDataSource by lazy { SpotLocalDataSource(database.spotDao()) }
     val keepLocalDataSource by lazy { KeepLocalDataSource(database.keepDao()) }
     val scheduleDataSource by lazy { ScheduleLocalDataSource(database.scheduleDao()) }
