@@ -12,9 +12,6 @@ class MyPageViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MypageViewModel::class.java)) {
             return MypageViewModel(
-                userRepository = UserRepositoryImpl(
-                    MainApplication.getInstance().userLocalDataSource
-                ),
                 spotRepositoryImpl = SpotRepositoryImpl(
                     MainApplication.getInstance().spotLocalDataSource,
                     MainApplication.getInstance().keepLocalDataSource

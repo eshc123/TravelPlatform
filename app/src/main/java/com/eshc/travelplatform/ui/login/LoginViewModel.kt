@@ -2,13 +2,17 @@ package com.eshc.travelplatform.ui.login
 
 import android.util.Patterns
 import androidx.lifecycle.*
-import com.eshc.data.repository.UserRepositoryImpl
 import com.eshc.domain.model.Result
-
+import com.eshc.domain.usecase.user.LoginUseCase
 import com.eshc.travelplatform.R
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-
-class LoginViewModel(private val userRepositoryImpl: UserRepositoryImpl) : ViewModel() {
+import java.lang.Exception
+import javax.inject.Inject
+@HiltViewModel
+class LoginViewModel@Inject constructor(
+    private val loginUseCase: LoginUseCase
+) : ViewModel() {
 
     private val _loginForm = MutableLiveData<LoginFormState>()
     val loginFormState: LiveData<LoginFormState> = _loginForm
@@ -18,12 +22,12 @@ class LoginViewModel(private val userRepositoryImpl: UserRepositoryImpl) : ViewM
 
 
     fun login(username: String, password: String) = viewModelScope.launch {
-        val result = userRepositoryImpl.login(username, password)
-
-        if (result is Result.Success) {
+        try {
+            loginUseCase(username,password)
             _loginResult.value =
-                LoginResult(success = LoggedInUserView(displayName = result.data.displayName))
-        } else {
+                LoginResult(success = LoggedInUserView(displayName = username))
+        }
+        catch (e : Exception){
             _loginResult.value = LoginResult(error = R.string.login_failed)
         }
     }

@@ -1,13 +1,14 @@
 package com.eshc.data.repository
 
 import com.eshc.data.local.datasource.CourseLocalDataSource
+import com.eshc.data.local.datasourceImpl.CourseLocalDataSourceImpl
 import com.eshc.domain.repository.CourseRepository
 
-class CourseRepositoryImpl(val courseLocalDataSource: CourseLocalDataSource) : CourseRepository {
+class CourseRepositoryImpl(val courseLocalDataSourceImpl: CourseLocalDataSourceImpl) : CourseRepository {
 
 
    override suspend fun postCourse(dailyScheduleId: Int, order: Int, spotId: Int) {
-      courseLocalDataSource.postCourse(dailyScheduleId, order, spotId)
+      courseLocalDataSourceImpl.postCourse(dailyScheduleId, order, spotId)
    }
 
 

@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -18,15 +19,16 @@ import com.eshc.travelplatform.shared.util.KeyboardVisibilityUtils
 import com.eshc.travelplatform.shared.util.ext.afterTextChanged
 import com.eshc.travelplatform.ui.MainActivity
 import com.eshc.travelplatform.ui.register.RegisterFragment
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
-
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
-    private lateinit var loginViewModel: LoginViewModel
+    private val loginViewModel by viewModels<LoginViewModel>()
     private lateinit var binding: ActivityLoginBinding
     private lateinit var keyboardVisibilityUtils: KeyboardVisibilityUtils
     private lateinit var registerBottomSheetFragment : RegisterFragment
@@ -44,11 +46,6 @@ class LoginActivity : AppCompatActivity() {
         val register = binding.register
         val loading = binding.loading
         val nestScrollView = binding.nvRoot
-
-        loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
-            .get(LoginViewModel::class.java)
-
-
 
         loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
             val loginState = it ?: return@Observer
