@@ -62,7 +62,7 @@ class RegisterFragment : BottomSheetDialogFragment() {
 
         val username = binding.username
         val password = binding.password
-        val phoneNum = binding.phonenum
+        val passwordCheck = binding.passwordCheck
         val register = binding.register
         val back = binding.back
 
@@ -70,7 +70,7 @@ class RegisterFragment : BottomSheetDialogFragment() {
             registerViewModel.registerDataChanged(
                 username.text.toString(),
                 password.text.toString(),
-                phoneNum.text.toString()
+                passwordCheck.text.toString()
             )
         }
 
@@ -79,16 +79,17 @@ class RegisterFragment : BottomSheetDialogFragment() {
                 registerViewModel.registerDataChanged(
                     username.text.toString(),
                     password.text.toString(),
-                    phoneNum.text.toString()
+                    passwordCheck.text.toString()
                 )
             }
+
         }
-        phoneNum.apply {
+        passwordCheck.apply {
             afterTextChanged {
                 registerViewModel.registerDataChanged(
                     username.text.toString(),
                     password.text.toString(),
-                    phoneNum.text.toString()
+                    passwordCheck.text.toString()
                 )
             }
             setOnEditorActionListener { _, actionId, _ ->
@@ -96,15 +97,14 @@ class RegisterFragment : BottomSheetDialogFragment() {
                     EditorInfo.IME_ACTION_DONE ->
                         registerViewModel.register(
                             username.text.toString(),
-                            password.text.toString(),
-                            phoneNum.text.toString()
+                            password.text.toString()
                         )
                 }
                 false
             }
 
             register.setOnClickListener {
-                registerViewModel.register(username.text.toString(), password.text.toString(), phoneNum.text.toString())
+                registerViewModel.register(username.text.toString(), password.text.toString())
                 createDialog()
                 this@RegisterFragment.dismiss()
 
@@ -126,8 +126,8 @@ class RegisterFragment : BottomSheetDialogFragment() {
             if (registerState.passwordError != null) {
                 password.error = getString(registerState.passwordError)
             }
-            if  (registerState.phonenumError != null) {
-                phoneNum.error = getString(registerState.phonenumError)
+            if (registerState.passwordCheckError != null){
+                passwordCheck.error = getString(registerState.passwordCheckError)
             }
         })
 
@@ -170,6 +170,22 @@ class RegisterFragment : BottomSheetDialogFragment() {
                     alertDialog.dismiss()
                     mActivity?.startActivity(Intent(mActivity, MainActivity::class.java))
                     mActivity?.finish()
+                }
+            }
+    }
+    private fun idCheckDialog(){
+        AlertDialog.Builder(requireContext(),R.style.AlertDialogTheme)
+            .setView(R.layout.dialog_default)
+            .show()
+            .also { dialog ->
+                if(dialog == null) {
+                    return@also
+                }
+                val textView = dialog.findViewById<AppCompatTextView>(R.id.tv_default)
+                textView?.text = resources.getString( R.string.id_check)
+                val planButton = dialog.findViewById<AppCompatTextView>(R.id.btn_plan)
+                planButton?.setOnClickListener {
+                    dialog.dismiss()
                 }
             }
     }

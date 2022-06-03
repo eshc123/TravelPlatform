@@ -22,17 +22,17 @@ class RegisterViewModel @Inject constructor(
     private val _registerResult = MutableLiveData<RegisterResult>()
     val registerResult: LiveData<RegisterResult> = _registerResult
 
-    fun register(username: String, password: String,phoneNum: String) = viewModelScope.launch {
+    fun register(username: String, password: String) = viewModelScope.launch {
         registerUseCase(username,password)
     }
 
-    fun registerDataChanged(username: String, password: String,phoneNum:String) {
+    fun registerDataChanged(username: String, password: String,passwordCheck: String) {
         if (!isUserNameValid(username)) {
             _registerForm.value = RegisterFormState(usernameError = R.string.invalid_username)
         } else if (!isPasswordValid(password)) {
             _registerForm.value = RegisterFormState(passwordError = R.string.invalid_password)
-        } else if(!isPhoneNumValid(phoneNum)){
-            _registerForm.value = RegisterFormState(phonenumError = R.string.invalid_phonenum)
+        } else if (!isPasswordCheckValid(password,passwordCheck)){
+            _registerForm.value = RegisterFormState(passwordCheckError = R.string.invalid_password_check)
         } else {
             _registerForm.value = RegisterFormState(isDataValid = true)
         }
@@ -49,8 +49,8 @@ class RegisterViewModel @Inject constructor(
     private fun isPasswordValid(password: String): Boolean {
         return password.length > 5
     }
-
-    private fun isPhoneNumValid(phoneNum: String): Boolean {
-        return phoneNum.length > 10
+    private fun isPasswordCheckValid(password: String,passwordCheck : String): Boolean {
+        return password == passwordCheck
     }
+
 }
