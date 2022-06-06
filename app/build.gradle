@@ -64,7 +64,7 @@ dependencies {
     implementation project(':domain')
 
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation files('libs/libDaumMapAndroid.jar')
+//    implementation files('libs/libDaumMapAndroid.jar')
 
     implementation (KTX.CORE)
     implementation (AndroidX.APP_COMPAT)
