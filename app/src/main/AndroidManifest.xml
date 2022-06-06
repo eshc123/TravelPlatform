@@ -19,9 +19,9 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.recommend.RecommendActivity" />
 
-        <meta-data
-            android:name="com.kakao.sdk.AppKey"
-            android:value="${KAKAO_NATIVE_APP_KEY}" />
+<!--        <meta-data-->
+<!--            android:name="com.kakao.sdk.AppKey"-->
+<!--            android:value="${KAKAO_NATIVE_APP_KEY}" />-->
 
         <activity
             android:name=".ui.SplashActivity"
