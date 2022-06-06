@@ -61,13 +61,15 @@ class SearchDetailFragment(val spotSuggestion: Spot) : BottomSheetDialogFragment
     }
     fun createWaitingDialog(){
         AlertDialog.Builder(requireContext(), R.style.AlertDialogTheme)
-            .setView(R.layout.dialog_waiting)
+            .setView(R.layout.dialog_default)
             .show()
             .also { alertDialog ->
                 val mActivity = activity
                 if(alertDialog == null) {
                     return@also
                 }
+                val textView = alertDialog.findViewById<AppCompatTextView>(R.id.tv_default)
+                textView?.text = resources.getString( R.string.waiting_please)
                 val planButton = alertDialog.findViewById<AppCompatTextView>(R.id.btn_plan)
                 planButton?.setOnClickListener {
                     alertDialog.dismiss()

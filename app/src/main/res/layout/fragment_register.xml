@@ -75,24 +75,20 @@
                 app:layout_constraintTop_toBottomOf="@+id/username" />
 
             <androidx.appcompat.widget.AppCompatEditText
-                android:id="@+id/phonenum"
+                android:id="@+id/password_check"
                 android:layout_width="match_parent"
                 android:layout_height="52dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/background_corner_round"
                 android:fontFamily="@font/pretendard_regular"
-                android:hint="@string/prompt_phone"
-                android:imeActionLabel="@string/action_register_short"
-                android:imeOptions="actionDone"
-                android:inputType="number"
-                android:maxLength="11"
+                android:hint="@string/prompt_password_check"
+                android:inputType="textPassword"
                 android:paddingStart="18dp"
                 android:selectAllOnFocus="true"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/password" />
-
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/register"
@@ -107,7 +103,7 @@
                 android:text="@string/action_register"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phonenum" />
+                app:layout_constraintTop_toBottomOf="@+id/password_check" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/back"
