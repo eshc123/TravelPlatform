@@ -5,9 +5,10 @@ import com.eshc.domain.model.Result
 import com.eshc.domain.model.User
 import java.io.IOException
 import java.util.*
+import javax.inject.Inject
 
 
-class UserRemoteDataSourceImpl () : UserRemoteDataSource{
+class UserRemoteDataSourceImpl @Inject constructor () : UserRemoteDataSource{
 
     override suspend fun login(username: String, password: String){
 
