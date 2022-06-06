@@ -51,6 +51,6 @@ jobs:
     - name: 테스트용 apk artifact 업로드
       uses: actions/upload-artifact@v2
       with:
-        name: app-release-unsigned.apk
-        path: app/build/outputs/apk/release/app-release-unsigned.apk
+        name: app-armeabi-release-unsigned.apk
+        path: app/build/outputs/apk/release/app-armeabi-release-unsigned.apk
      
