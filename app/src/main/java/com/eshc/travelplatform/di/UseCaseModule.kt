@@ -1,6 +1,8 @@
 package com.eshc.travelplatform.di
 
+import com.eshc.domain.repository.SpotRepository
 import com.eshc.domain.repository.UserRepository
+import com.eshc.domain.usecase.spot.GetSpotUseCase
 import com.eshc.domain.usecase.user.LoginUseCase
 import com.eshc.domain.usecase.user.RegisterUseCase
 import dagger.Module
@@ -19,4 +21,8 @@ object UseCaseModule {
     @Provides
     @Singleton
     fun provideRegisterUseCase(repository: UserRepository) = RegisterUseCase(repository)
+
+    @Provides
+    @Singleton
+    fun provideGetSpotUseCase(repository: SpotRepository) = GetSpotUseCase(repository)
 }
