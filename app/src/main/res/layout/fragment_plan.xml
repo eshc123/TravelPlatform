@@ -35,76 +35,138 @@
                         android:layout_height="250dp"
                         android:background="@color/etc_color"
                         app:layout_constraintTop_toTopOf="parent">
+
                         <androidx.appcompat.widget.AppCompatImageView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/chungsapo"/>
+                            android:src="@drawable/chungsapo" />
+
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="#3B000000"/>
+                            android:background="#3B000000" />
+
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginHorizontal="25dp">
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/iv_keep"
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:layout_marginEnd="14dp"
-                            android:tint="@color/white"
-                            android:src="@drawable/ic_heart_fill"
-                            app:layout_constraintEnd_toStartOf="@id/iv_search"
-                            app:layout_constraintTop_toTopOf="@id/iv_search"
-                            app:layout_constraintBottom_toBottomOf="@id/iv_search"/>
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/iv_search"
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:layout_marginTop="60dp"
-                            android:tint="@color/white"
-                            android:src="@drawable/ic_search"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
 
-                        <androidx.appcompat.widget.AppCompatTextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="132dp"
-                            android:layout_marginBottom="26dp"
-                            android:fontFamily="@font/pretendard_semi_bold"
-                            android:gravity="start"
-                            android:text="@string/intro_home"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            app:layout_constraintBottom_toTopOf="@id/cl_add"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/iv_keep"
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:layout_marginEnd="14dp"
+                                android:src="@drawable/ic_heart_fill"
+                                android:tint="@color/white"
+                                app:layout_constraintBottom_toBottomOf="@id/iv_search"
+                                app:layout_constraintEnd_toStartOf="@id/iv_search"
+                                app:layout_constraintTop_toTopOf="@id/iv_search" />
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/cl_add"
-                            android:layout_width="match_parent"
-                            android:layout_height="62dp"
-                            android:layout_marginBottom="28dp"
-                            android:background="@drawable/background_corner_round_main"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent">
-
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/iv_search"
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:layout_marginTop="60dp"
+                                android:src="@drawable/ic_search"
+                                android:tint="@color/white"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
 
                             <androidx.appcompat.widget.AppCompatTextView
-                                android:id="@+id/text_home"
-                                android:layout_width="wrap_content"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/pretendard_regular"
-                                android:gravity="center"
+                                android:layout_marginTop="132dp"
+                                android:layout_marginBottom="26dp"
+                                android:fontFamily="@font/pretendard_semi_bold"
+                                android:gravity="start"
+                                android:text="@string/intro_home"
                                 android:textColor="@color/white"
-                                android:textSize="14sp"
+                                android:textSize="18sp"
+                                app:layout_constraintBottom_toTopOf="@id/cl_add"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cl_add"
+                                android:layout_width="0dp"
+                                android:layout_height="62dp"
+                                android:layout_marginEnd="8dp"
+                                android:layout_marginBottom="28dp"
+                                android:background="@drawable/background_corner_round_main"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/cl_my"
+                                app:layout_constraintStart_toStartOf="parent">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tv_add_plan"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/pretendard_regular"
+                                    android:gravity="center"
+                                    android:text="일정 만들기"
+                                    android:textColor="@color/white"
+                                    android:textSize="14sp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/cl_my"
+                                android:layout_width="0dp"
+                                android:layout_height="62dp"
+                                android:layout_marginStart="8dp"
+                                android:layout_marginBottom="28dp"
+                                android:background="@drawable/background_corner_round_main"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                                app:layout_constraintStart_toEndOf="@id/cl_add">
+
+                                <androidx.appcompat.widget.LinearLayoutCompat
+                                    android:id="@+id/ll_plan_num"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:gravity="center"
+                                    app:layout_constraintVertical_chainStyle="packed"
+                                    app:layout_constraintBottom_toTopOf="@id/tv_plan_num_title"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent">
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="14dp"
+                                        android:layout_height="14dp"
+                                        android:src="@drawable/ic_travel_case_white"
+                                        android:layout_marginEnd="4dp"/>
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/tv_plan_num"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="4dp"
+                                        android:fontFamily="@font/pretendard_regular"
+                                        android:gravity="center"
+                                        android:textColor="@color/white"
+                                        android:textSize="14sp"
+                                        tools:text="0" />
+                                </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tv_plan_num_title"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/pretendard_regular"
+                                    android:gravity="center"
+                                    android:textColor="@color/white"
+                                    android:textSize="14sp"
+                                    android:text="나의 여행"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@id/ll_plan_num" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -190,12 +252,12 @@
                 android:gravity="end"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toTopOf="parent">
-<!--                <androidx.appcompat.widget.AppCompatImageView-->
-<!--                    android:id="@+id/iv_keep_plan"-->
-<!--                    android:layout_width="28dp"-->
-<!--                    android:layout_height="28dp"-->
-<!--                    android:layout_marginEnd="14dp"-->
-<!--                    android:src="@drawable/ic_heart_fill"/>-->
+                <!--                <androidx.appcompat.widget.AppCompatImageView-->
+                <!--                    android:id="@+id/iv_keep_plan"-->
+                <!--                    android:layout_width="28dp"-->
+                <!--                    android:layout_height="28dp"-->
+                <!--                    android:layout_marginEnd="14dp"-->
+                <!--                    android:src="@drawable/ic_heart_fill"/>-->
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_search_plan"
                     android:layout_width="28dp"
@@ -220,8 +282,8 @@
                     android:text="2022.02.22 - 02.24"
                     android:textColor="@color/title_color"
                     android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/iv_more"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -244,9 +306,10 @@
                     android:text="이 여행의 스타일이나 테마 혹은 소제목"
                     android:textColor="@color/content_color"
                     android:textSize="14sp"
-                    app:layout_constraintTop_toBottomOf="@id/tv_day"
-                    app:layout_constraintStart_toStartOf="@id/tv_day"/>
+                    app:layout_constraintStart_toStartOf="@id/tv_day"
+                    app:layout_constraintTop_toBottomOf="@id/tv_day" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <RelativeLayout
                 android:id="@+id/mapview"
                 android:layout_width="match_parent"

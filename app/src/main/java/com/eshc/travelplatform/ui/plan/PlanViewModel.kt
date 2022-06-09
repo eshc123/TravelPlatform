@@ -15,10 +15,10 @@ import kotlinx.coroutines.launch
 
 class PlanViewModel(spotRepositoryImpl: SpotRepositoryImpl,itineraryRepositoryImpl: ItineraryRepositoryImpl) : ViewModel() {
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "일정 만들기"
+    private val _planNum = MutableLiveData<String>().apply {
+        value = "0"
     }
-    val text: LiveData<String> = _text
+    val planNum: LiveData<String> = _planNum
 
     private val _recommendSpots = MutableLiveData<MutableList<Spot>>()
     val recommendSpots: LiveData<MutableList<Spot>> = _recommendSpots
