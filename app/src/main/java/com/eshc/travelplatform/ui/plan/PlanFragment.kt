@@ -41,7 +41,7 @@ class PlanFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_plan, container, false)
         binding.fragment = this
 
-        val textView: AppCompatTextView = binding.textHome
+        val textView: AppCompatTextView = binding.tvPlanNum
         val recommendationAdapter = SpotAdapter()
         val courseAdapter = CourseAdapter(this)
         bottomSheet = binding.clBottomContainer
@@ -51,7 +51,7 @@ class PlanFragment : Fragment() {
         binding.rvRecommendation.adapter = recommendationAdapter
         binding.rvCourse.adapter = courseAdapter
 
-        planViewModel.text.observe(viewLifecycleOwner, Observer {
+        planViewModel.planNum.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         planViewModel.recommendSpots.observe(viewLifecycleOwner, Observer {
