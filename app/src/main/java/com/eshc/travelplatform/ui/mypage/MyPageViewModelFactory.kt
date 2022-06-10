@@ -3,8 +3,7 @@ package com.eshc.travelplatform.ui.mypage
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.eshc.travelplatform.MainApplication
-import com.eshc.data.repository.SpotRepositoryImpl
-import com.eshc.data.repository.UserRepositoryImpl
+import com.eshc.data.repository.SpotRepositoryLocalImpl
 
 class MyPageViewModelFactory : ViewModelProvider.Factory {
 
@@ -12,7 +11,7 @@ class MyPageViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MypageViewModel::class.java)) {
             return MypageViewModel(
-                spotRepositoryImpl = SpotRepositoryImpl(
+                spotRepositoryLocalImpl = SpotRepositoryLocalImpl(
                     MainApplication.getInstance().spotLocalDataSource,
                     MainApplication.getInstance().keepLocalDataSource
                 )

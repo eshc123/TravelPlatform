@@ -1,6 +1,8 @@
 package com.eshc.travelplatform.di
 
+import com.eshc.data.remote.datasource.SpotRemoteDataSource
 import com.eshc.data.remote.datasource.UserRemoteDataSource
+import com.eshc.data.remote.datasourceImpl.SpotRemoteDataSourceImpl
 import com.eshc.data.remote.datasourceImpl.UserRemoteDataSourceImpl
 import dagger.Module
 import dagger.Provides
@@ -13,11 +15,13 @@ import javax.inject.Singleton
 object DataSourceModule {
     @Provides
     @Singleton
-    fun provideUserRemoteDataSource(
+    fun provideUserRemoteDataSource() : UserRemoteDataSource {
+        return UserRemoteDataSourceImpl()
+    }
 
-    ) : UserRemoteDataSource {
-        return UserRemoteDataSourceImpl(
-
-        )
+    @Provides
+    @Singleton
+    fun provideSpotRemoteDataSourece() : SpotRemoteDataSource {
+        return SpotRemoteDataSourceImpl()
     }
 }

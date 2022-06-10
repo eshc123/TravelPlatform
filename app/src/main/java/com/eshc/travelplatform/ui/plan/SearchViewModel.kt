@@ -5,19 +5,19 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eshc.travelplatform.R
-import com.eshc.data.repository.SpotRepositoryImpl
+import com.eshc.data.repository.SpotRepositoryLocalImpl
 import com.eshc.domain.model.LocationCategory
 import com.eshc.domain.model.Spot
 import com.eshc.domain.usecase.spot.GetSpotSuggestionsUseCase
 import kotlinx.coroutines.launch
 
-class SearchViewModel(spotRepositoryImpl: SpotRepositoryImpl) : ViewModel() {
+class SearchViewModel(spotRepositoryLocalImpl: SpotRepositoryLocalImpl) : ViewModel() {
     private val _categories = MutableLiveData<MutableList<LocationCategory>>()
     val categories: LiveData<MutableList<LocationCategory>> = _categories
     private val _suggestions = MutableLiveData<MutableList<Spot>>()
     val suggestions: LiveData<MutableList<Spot>> = _suggestions
 
-    val getSpotSuggestions = GetSpotSuggestionsUseCase(spotRepositoryImpl)
+    val getSpotSuggestions = GetSpotSuggestionsUseCase(spotRepositoryLocalImpl)
 
     init {
         _categories.value = mutableListOf(

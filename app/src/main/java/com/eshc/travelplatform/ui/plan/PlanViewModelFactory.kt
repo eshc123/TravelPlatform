@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.eshc.travelplatform.MainApplication
 import com.eshc.data.repository.ItineraryRepositoryImpl
-import com.eshc.data.repository.SpotRepositoryImpl
+import com.eshc.data.repository.SpotRepositoryLocalImpl
 
 class PlanViewModelFactory : ViewModelProvider.Factory {
 
@@ -12,7 +12,7 @@ class PlanViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(PlanViewModel::class.java)) {
             return PlanViewModel(
-                spotRepositoryImpl = SpotRepositoryImpl(
+                spotRepositoryLocalImpl = SpotRepositoryLocalImpl(
                     spotDataSource = MainApplication.getInstance().spotLocalDataSource,
                     keepDataSource = MainApplication.getInstance().keepLocalDataSource
                 ),

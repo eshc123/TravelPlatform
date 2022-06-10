@@ -3,7 +3,7 @@ package com.eshc.travelplatform.ui.plan
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.eshc.travelplatform.MainApplication
-import com.eshc.data.repository.SpotRepositoryImpl
+import com.eshc.data.repository.SpotRepositoryLocalImpl
 
 class SearchViewModelFactory : ViewModelProvider.Factory {
 
@@ -11,7 +11,7 @@ class SearchViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SearchViewModel::class.java)) {
             return SearchViewModel(
-                spotRepositoryImpl = SpotRepositoryImpl(
+                spotRepositoryLocalImpl = SpotRepositoryLocalImpl(
                     spotDataSource = MainApplication.getInstance().spotLocalDataSource,
                     keepDataSource = MainApplication.getInstance().keepLocalDataSource
                 )
