@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.eshc.data.repository.ItineraryRepositoryImpl
-import com.eshc.data.repository.SpotRepositoryImpl
+import com.eshc.data.repository.SpotRepositoryLocalImpl
 import com.eshc.domain.model.Course
 import com.eshc.domain.model.Itinerary
 import com.eshc.domain.model.Spot
@@ -13,7 +13,7 @@ import com.eshc.domain.usecase.itinerary.GetItinerariesUseCase
 import com.eshc.domain.usecase.spot.GetPopularSpotsUseCase
 import kotlinx.coroutines.launch
 
-class PlanViewModel(spotRepositoryImpl: SpotRepositoryImpl,itineraryRepositoryImpl: ItineraryRepositoryImpl) : ViewModel() {
+class PlanViewModel(spotRepositoryLocalImpl: SpotRepositoryLocalImpl, itineraryRepositoryImpl: ItineraryRepositoryImpl) : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "일정 만들기"
@@ -30,7 +30,7 @@ class PlanViewModel(spotRepositoryImpl: SpotRepositoryImpl,itineraryRepositoryIm
 
 
 
-    val getPopularSpots = GetPopularSpotsUseCase(spotRepositoryImpl)
+    val getPopularSpots = GetPopularSpotsUseCase(spotRepositoryLocalImpl)
     val getItineraryUseCase = GetItinerariesUseCase(itineraryRepositoryImpl)
     init {
         viewModelScope.launch {
