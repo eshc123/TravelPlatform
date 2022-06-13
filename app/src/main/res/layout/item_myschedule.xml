@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="spot_suggestion"
-            type="com.eshc.domain.model.Spot" />
+            name="itinerary"
+            type="com.eshc.domain.model.Itinerary" />
 
     </data>
 
@@ -19,7 +19,7 @@
 
 
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginStart="19dp"
@@ -44,7 +44,7 @@
                     app:layout_constrainedWidth="true"
                     app:layout_constraintHorizontal_bias="0"
                     app:layout_constraintHorizontal_chainStyle="packed"
-                    android:text="@{spot_suggestion.title}"
+                    android:text="@{itinerary.title}"
                     android:textColor="@color/title_color"
                     android:maxLines="1"
                     android:ellipsize="end"
@@ -54,7 +54,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:text="@{spot_suggestion.category}"
+                    android:text="@{itinerary.description}"
                     app:layout_constraintStart_toEndOf="@id/tv_title"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -71,7 +71,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:maxLines="1"
-                android:text="@{spot_suggestion.address}"
+                android:text="@{itinerary.startDate}"
                 android:ellipsize="end"
                 android:fontFamily="@font/pretendard_regular"
                 android:textColor="@color/content_color"
