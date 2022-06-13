@@ -80,8 +80,13 @@ class PlanFragment : Fragment() {
         binding.ivSearch.setOnClickListener {
             navigateToSearch()
         }
+        binding.clMy.setOnClickListener {
+            navigateToMySchedule()
+        }
     }
-
+    private fun navigateToMySchedule(){
+        findNavController().navigate(R.id.action_navigation_plan_to_fragment_myschedule)
+    }
 
     private fun navigateToSearch(){
         findNavController().navigate(R.id.action_navigation_plan_to_fragment_search)
