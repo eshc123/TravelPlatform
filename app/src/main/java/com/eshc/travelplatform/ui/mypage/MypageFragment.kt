@@ -7,27 +7,17 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.eshc.travelplatform.R
-import com.eshc.travelplatform.databinding.FragmentKeepBinding
 import com.eshc.travelplatform.databinding.FragmentMypageBinding
-import com.eshc.travelplatform.shared.util.adapter.KeepSpotAdapter
-import com.eshc.travelplatform.ui.keep.KeepViewModel
-import com.eshc.travelplatform.ui.keep.KeepViewModelFactory
+
 
 class MypageFragment : Fragment() {
 
-    private lateinit var mypageViewModel: MypageViewModel
+    private val mypageViewModel: MypageViewModel by viewModels()
     private lateinit var binding: FragmentMypageBinding
-
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        mypageViewModel= ViewModelProvider(this, MyPageViewModelFactory())
-            .get(MypageViewModel::class.java)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

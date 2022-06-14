@@ -11,14 +11,16 @@ import com.eshc.domain.model.User
 import com.eshc.domain.usecase.spot.GetKeepSpotsUseCase
 import kotlinx.coroutines.launch
 
-class MypageViewModel(spotRepositoryLocalImpl: SpotRepositoryLocalImpl) :
-    ViewModel() {
+class MypageViewModel : ViewModel() {
     private val _user = MutableLiveData<User>()
     val user: LiveData<User> = _user
     private val _keepSpots = MutableLiveData<MutableList<Spot>>()
     val keepSpots: LiveData<MutableList<Spot>> = _keepSpots
 
-
+    val spotRepositoryLocalImpl = SpotRepositoryLocalImpl(
+        MainApplication.getInstance().spotLocalDataSource,
+        MainApplication.getInstance().keepLocalDataSource
+    )
     val getKeepSpotsUseCase = GetKeepSpotsUseCase(spotRepositoryLocalImpl)
 
     init {

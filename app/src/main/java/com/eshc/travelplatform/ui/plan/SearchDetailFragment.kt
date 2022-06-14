@@ -8,6 +8,7 @@ import android.view.WindowManager
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.eshc.travelplatform.R
@@ -19,19 +20,12 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.launch
 
 
-class SearchDetailFragment(val spotSuggestion: Spot) : BottomSheetDialogFragment() {
+class SearchDetailFragment : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentSearchDetailBinding
-    private lateinit var searchDetailViewModel : SearchDetailViewModel
+    private val searchViewModel : SearchViewModel by viewModels(ownerProducer = {requireParentFragment()})
 
     override fun getTheme(): Int {
         return R.style.AppBottomSheetDialogTransparentTheme
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        searchDetailViewModel= ViewModelProvider(this, SearchDetailViewModelFactory(spotSuggestion.id))
-            .get(SearchDetailViewModel::class.java)
-
     }
 
 
@@ -46,7 +40,7 @@ class SearchDetailFragment(val spotSuggestion: Spot) : BottomSheetDialogFragment
         (dialog as BottomSheetDialog).behavior.apply {
             peekHeight = 200.dpToPx()
         }
-        searchDetailViewModel.searchSpot.observe(viewLifecycleOwner,{
+        searchViewModel.searchSpot.observe(viewLifecycleOwner,{
             binding.spot = it
         })
         return binding.root
@@ -80,13 +74,13 @@ class SearchDetailFragment(val spotSuggestion: Spot) : BottomSheetDialogFragment
     fun keepSpot(spot: Spot) {
         if(spot.mine == true)
             lifecycleScope.launch {
-                searchDetailViewModel.deleteKeep(spot)
-                searchDetailViewModel.getSearchSpot(spot.id)
+                searchViewModel.deleteKeep(spot)
+                searchViewModel.getSearchSpot(spot.id)
             }
         else {
             lifecycleScope.launch {
-                searchDetailViewModel.postKeep(spot)
-                searchDetailViewModel.getSearchSpot(spot.id)
+                searchViewModel.postKeep(spot)
+                searchViewModel.getSearchSpot(spot.id)
             }
         }
     }
