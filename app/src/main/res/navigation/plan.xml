@@ -14,6 +14,10 @@
         <action
             android:id="@+id/action_navigation_plan_to_fragment_search"
             app:destination="@id/fragment_search" />
+        <action
+            android:id="@+id/action_navigation_plan_to_fragment_myschedule"
+            app:destination="@id/fragment_myschedule" />
+
     </fragment>
     <fragment
         android:id="@+id/fragment_search"
@@ -23,5 +27,11 @@
 
 
     </fragment>
+    <fragment
+        android:id="@+id/fragment_myschedule"
+        android:name="com.eshc.travelplatform.ui.plan.MyscheduleFragment"
+        android:label="myschedule"
+        tools:layout="@layout/fragment_myschedule">
 
+    </fragment>
 </navigation>
