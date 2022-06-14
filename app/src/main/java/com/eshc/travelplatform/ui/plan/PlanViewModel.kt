@@ -11,14 +11,24 @@ import com.eshc.domain.model.Itinerary
 import com.eshc.domain.model.Spot
 import com.eshc.domain.usecase.itinerary.GetItinerariesUseCase
 import com.eshc.domain.usecase.spot.GetPopularSpotsUseCase
+import com.eshc.travelplatform.MainApplication
 import kotlinx.coroutines.launch
 
-class PlanViewModel(spotRepositoryLocalImpl: SpotRepositoryLocalImpl, itineraryRepositoryImpl: ItineraryRepositoryImpl) : ViewModel() {
+class PlanViewModel: ViewModel() {
 
     private val _planNum = MutableLiveData<String>().apply {
         value = "0"
     }
     val planNum: LiveData<String> = _planNum
+
+    val spotRepositoryLocalImpl = SpotRepositoryLocalImpl(
+        spotDataSource = MainApplication.getInstance().spotLocalDataSource,
+        keepDataSource = MainApplication.getInstance().keepLocalDataSource
+    )
+    val itineraryRepositoryImpl = ItineraryRepositoryImpl(
+        scheduleDataSource = MainApplication.getInstance().scheduleDataSource,
+        dailyScheduleDataSource = MainApplication.getInstance().dailyScheduleDataSource
+    )
 
     private val _recommendSpots = MutableLiveData<MutableList<Spot>>()
     val recommendSpots: LiveData<MutableList<Spot>> = _recommendSpots
@@ -28,10 +38,12 @@ class PlanViewModel(spotRepositoryLocalImpl: SpotRepositoryLocalImpl, itineraryR
     private val _itineraries = MutableLiveData<MutableList<Itinerary>>()
     val itineraries: LiveData<MutableList<Itinerary>> = _itineraries
 
-
-
     val getPopularSpots = GetPopularSpotsUseCase(spotRepositoryLocalImpl)
     val getItineraryUseCase = GetItinerariesUseCase(itineraryRepositoryImpl)
+
+
+
+
     init {
         viewModelScope.launch {
             _recommendSpots.value = getPopularSpots().toMutableList()

@@ -6,13 +6,19 @@ import androidx.lifecycle.ViewModel
 import com.eshc.data.repository.ItineraryRepositoryImpl
 import com.eshc.domain.model.Condition
 import com.eshc.domain.usecase.itinerary.PostItineraryUseCase
+import com.eshc.travelplatform.MainApplication
 
-class RecommendViewModel(itineraryRepositoryImpl: ItineraryRepositoryImpl) : ViewModel() {
+class RecommendViewModel : ViewModel() {
     private val _conditionWho = MutableLiveData<MutableList<Condition>>()
     val conditionWho: LiveData<MutableList<Condition>> = _conditionWho
 
     private val _conditionStyle = MutableLiveData<MutableList<Condition>>()
     val conditionStyle: LiveData<MutableList<Condition>> = _conditionStyle
+
+    val itineraryRepositoryImpl = ItineraryRepositoryImpl(
+        scheduleDataSource = MainApplication.getInstance().scheduleDataSource,
+        dailyScheduleDataSource = MainApplication.getInstance().dailyScheduleDataSource
+    )
 
     val postItinerariesUseCase = PostItineraryUseCase(itineraryRepositoryImpl)
 

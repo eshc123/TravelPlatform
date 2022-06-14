@@ -15,7 +15,7 @@ import com.eshc.travelplatform.shared.util.adapter.MyscheduleAdapter
 
 class MyscheduleFragment : Fragment() {
 
-    private val myscheduleViewModel: MyscheduleViewModel by viewModels<MyscheduleViewModel>()
+    private val myscheduleViewModel: MyscheduleViewModel by viewModels()
     private lateinit var binding: FragmentMyscheduleBinding
     val adapter = MyscheduleAdapter()
 
