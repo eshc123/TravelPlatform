@@ -35,8 +35,7 @@ class PlanViewModel: ViewModel() {
     private val _courses = MutableLiveData<MutableList<Course>>()
     val courses: LiveData<MutableList<Course>> = _courses
 
-    private val _itineraries = MutableLiveData<MutableList<Itinerary>>()
-    val itineraries: LiveData<MutableList<Itinerary>> = _itineraries
+
 
     val getPopularSpots = GetPopularSpotsUseCase(spotRepositoryLocalImpl)
     val getItineraryUseCase = GetItinerariesUseCase(itineraryRepositoryImpl)
@@ -47,7 +46,6 @@ class PlanViewModel: ViewModel() {
     init {
         viewModelScope.launch {
             _recommendSpots.value = getPopularSpots().toMutableList()
-            _itineraries.value = getItineraryUseCase().toMutableList()
 
         }
             //mutableListOf(

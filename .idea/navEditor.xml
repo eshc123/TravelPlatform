@@ -232,6 +232,27 @@
                             <option name="y" value="340" />
                           </Point>
                         </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_fragment_myschedule_to_fragment_plan_detail">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="fragment_plan_detail">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="271" />
+                            <option name="y" value="12" />
+                          </Point>
+                        </option>
                       </LayoutPositions>
                     </value>
                   </entry>
@@ -240,8 +261,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="256" />
-                            <option name="y" value="12" />
+                            <option name="x" value="267" />
+                            <option name="y" value="-283" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -258,6 +279,16 @@
                         </option>
                         <option name="myPositions">
                           <map>
+                            <entry key="action_navigation_plan_to_fragment_myschedule">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_navigation_plan_to_fragment_plan_detail">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                             <entry key="action_navigation_plan_to_fragment_search">
                               <value>
                                 <LayoutPositions />
