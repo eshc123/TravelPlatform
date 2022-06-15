@@ -10,36 +10,29 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentMypageBinding
+import com.eshc.travelplatform.databinding.FragmentUserEditBinding
 
 
-class MypageFragment : Fragment() {
+class UserEditFragment : Fragment() {
 
     private val mypageViewModel: MypageViewModel by viewModels()
-    private lateinit var binding: FragmentMypageBinding
+    private lateinit var binding: FragmentUserEditBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_mypage, container, false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_user_edit, container, false)
         binding.fragment = this
-        binding.viewModel = mypageViewModel
-        mypageViewModel.keepSpots.observe(viewLifecycleOwner, Observer {
-            binding.tvKeepNum.text = it.size.toString()
-        })
-        binding.clNickname.setOnClickListener {
-            navigateToUserEdit()
-        }
+
+
 
         return binding.root
     }
-    private fun navigateToUserEdit(){
-        findNavController().navigate(R.id.action_navigation_mypage_to_fragment_user_edit)
-    }
+
     override fun onDestroyView() {
         super.onDestroyView()
 
