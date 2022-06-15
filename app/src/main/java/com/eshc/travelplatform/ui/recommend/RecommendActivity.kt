@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import androidx.activity.viewModels
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -29,7 +30,7 @@ import kotlin.collections.ArrayList
 class RecommendActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRecommnedBinding
-    private lateinit var recommendViewModel : RecommendViewModel
+    private val recommendViewModel : RecommendViewModel by viewModels()
     private var currentViewIndex = 0
     private var fromRegister = false
 
@@ -37,8 +38,7 @@ class RecommendActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         fromRegister = intent.getBooleanExtra("fromRegister",false)
         binding = DataBindingUtil.setContentView(this,R.layout.activity_recommned)
-        recommendViewModel= ViewModelProvider(this, RecommendViewModelFactory())
-            .get(RecommendViewModel::class.java)
+
 
         setLayoutManager()
         val whoAdapter = ConditionAdapter(context = this)

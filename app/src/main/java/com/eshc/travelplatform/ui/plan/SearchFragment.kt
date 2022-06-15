@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentSearchBinding
@@ -18,6 +20,8 @@ import com.eshc.travelplatform.shared.util.adapter.LocationCategoryAdapter
 import com.eshc.travelplatform.shared.util.adapter.SpotSuggestionAdapter
 import com.eshc.travelplatform.ui.MainActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.launch
+
 //import net.daum.mf.map.api.MapPOIItem
 //import net.daum.mf.map.api.MapPoint
 //import net.daum.mf.map.api.MapView
@@ -26,17 +30,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class SearchFragment : Fragment() {
 
     private lateinit var binding: FragmentSearchBinding
-    private lateinit var searchViewModel : SearchViewModel
+    private val searchViewModel : SearchViewModel by viewModels()
     //private lateinit var kakaoMapView : MapView
 
     private var isUsingEmulator = true
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        searchViewModel= ViewModelProvider(this, SearchViewModelFactory())
-            .get(SearchViewModel::class.java)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -123,7 +120,10 @@ class SearchFragment : Fragment() {
 
     }
     private fun openSearchDetailBottomSheet(spotSuggestion: Spot){
-        val searchDetailFragment = SearchDetailFragment(spotSuggestion)
-        searchDetailFragment.show(parentFragmentManager,this.tag)
+        val searchDetailFragment = SearchDetailFragment()
+        lifecycleScope.launch {
+            searchViewModel.getSearchSpot(spotSuggestion.id)
+        }
+        searchDetailFragment.show(childFragmentManager,this.tag)
     }
 }
