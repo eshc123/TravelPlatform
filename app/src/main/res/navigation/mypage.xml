@@ -9,7 +9,17 @@
         android:id="@+id/navigation_mypage"
         android:name="com.eshc.travelplatform.ui.mypage.MypageFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_mypage" />
+        tools:layout="@layout/fragment_mypage" >
+        <action
+            android:id="@+id/action_navigation_mypage_to_fragment_user_edit"
+            app:destination="@id/fragment_user_edit" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/fragment_user_edit"
+        android:name="com.eshc.travelplatform.ui.mypage.UserEditFragment"
+        android:label="userEdit"
+        tools:layout="@layout/fragment_user_edit">
 
+    </fragment>
 </navigation>

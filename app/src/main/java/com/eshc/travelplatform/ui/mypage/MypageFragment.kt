@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentMypageBinding
 
@@ -30,11 +31,15 @@ class MypageFragment : Fragment() {
         mypageViewModel.keepSpots.observe(viewLifecycleOwner, Observer {
             binding.tvKeepNum.text = it.size.toString()
         })
-
+        binding.clNickname.setOnClickListener {
+            navigateToUserEdit()
+        }
 
         return binding.root
     }
-
+    private fun navigateToUserEdit(){
+        findNavController().navigate(R.id.action_navigation_mypage_to_fragment_user_edit)
+    }
     override fun onDestroyView() {
         super.onDestroyView()
 
