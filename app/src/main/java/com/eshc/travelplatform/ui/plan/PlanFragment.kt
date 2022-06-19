@@ -24,9 +24,6 @@ class PlanFragment : Fragment() {
 
     private val planViewModel: PlanViewModel by viewModels()
     private lateinit var binding : FragmentPlanBinding
-    private lateinit var bottomSheet : ConstraintLayout
-    private lateinit var bottomSheetBehavior : BottomSheetBehavior<ConstraintLayout>
-    private lateinit var dailyScheduleViews : MutableList<View>
 
 
     override fun onCreateView(
@@ -41,9 +38,6 @@ class PlanFragment : Fragment() {
         val textView: AppCompatTextView = binding.tvPlanNum
         val recommendationAdapter = SpotAdapter()
         val courseAdapter = CourseAdapter(this)
-        bottomSheet = binding.clBottomContainer
-        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet)
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN
 
         binding.rvRecommendation.adapter = recommendationAdapter
         binding.rvCourse.adapter = courseAdapter
@@ -57,14 +51,7 @@ class PlanFragment : Fragment() {
         planViewModel.courses.observe(viewLifecycleOwner, Observer {
             courseAdapter.replaceAll(it)
         })
-        planViewModel.itineraries.observe(viewLifecycleOwner, Observer {
-            if(it.isNotEmpty()){
-                dailyScheduleViews = mutableListOf()
-                initScheduleBottomSheet(it)
-                binding.tvDay.text = it.first().startDate.plus(" ~ ").plus(it.first().endDate)
-                binding.tvSubtitle.text = it.first().description
-            }
-        })
+
         return binding.root
     }
 
@@ -92,51 +79,4 @@ class PlanFragment : Fragment() {
         activity?.startActivity(Intent(activity, RecommendActivity::class.java))
     }
 
-    fun initScheduleBottomSheet(itineraries: MutableList<Itinerary>){
-        initBottomSheet()
-        binding.clTop.visibility = View.GONE
-        binding.clPlan.visibility = View.VISIBLE
-        binding.clTop.setPadding(0,0,0,200.dpToPx())
-
-        binding.ivSearchPlan.setOnClickListener {
-            navigateToSearch()
-        }
-        addDailyScheduleViews(itineraries)
-
-
-        //val dailyScheduleView = layoutInflater.inflate(R.layout.layout_itinerary,binding.llContainer,false)
-       // binding.llContainer.addView(dailyScheduleView)
-//        view.findViewById<RecyclerView>(R.id.rv_spot).adapter = SpotAdapter()
-//        (view.findViewById<RecyclerView>(R.id.rv_spot).adapter as SpotAdapter).replaceAll(listOf(
-//            Spot("해동 용궁사",0.0,0.0),Spot("두번째",0.0,0.0)
-//        ))
-//        val view1 = layoutInflater.inflate(R.layout.layout_schedule,binding.llContainer,false)
-//
-//        binding.llContainer.addView(view1)
-//        view1.findViewById<RecyclerView>(R.id.rv_spot).adapter = SpotAdapter()
-//        (view1.findViewById<RecyclerView>(R.id.rv_spot).adapter as SpotAdapter).replaceAll(listOf(
-//            Spot("영화의 전당",0.0,0.0)
-//        ))
-    }
-    private fun initBottomSheet() {
-        bottomSheetBehavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
-        bottomSheetBehavior.peekHeight = 200.dpToPx()
-        bottomSheetBehavior.isHideable = false
-    }
-    private fun addDailyScheduleViews(itineraries: MutableList<Itinerary>){
-        itineraries.first().schedules?.let{
-            it.forEach { _ ->
-                dailyScheduleViews.add(layoutInflater.inflate(R.layout.layout_itinerary,binding.llContainer,false))
-            }.apply {
-                var idx = 1
-                dailyScheduleViews.forEach {
-                    it.findViewById<AppCompatTextView>(R.id.tv_day).text = "${idx++}일차"
-                    it.findViewById<ConstraintLayout>(R.id.cl_calendar).setOnClickListener {
-                        navigateToSearch()
-                    }
-                    binding.llContainer.addView(it)
-                }
-            }
-        }
-    }
 }

@@ -17,13 +17,8 @@ class MyscheduleFragment : Fragment() {
 
     private val myscheduleViewModel: MyscheduleViewModel by viewModels()
     private lateinit var binding: FragmentMyscheduleBinding
-    val adapter = MyscheduleAdapter()
+    val adapter = MyscheduleAdapter(this)
 
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

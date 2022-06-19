@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_navigation_plan_to_fragment_myschedule"
             app:destination="@id/fragment_myschedule" />
+        <action
+            android:id="@+id/action_navigation_plan_to_fragment_plan_detail"
+            app:destination="@id/fragment_plan_detail" />
 
     </fragment>
     <fragment
@@ -32,6 +35,16 @@
         android:name="com.eshc.travelplatform.ui.plan.MyscheduleFragment"
         android:label="myschedule"
         tools:layout="@layout/fragment_myschedule">
+
+        <action
+            android:id="@+id/action_fragment_myschedule_to_fragment_plan_detail"
+            app:destination="@id/fragment_plan_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_plan_detail"
+        android:name="com.eshc.travelplatform.ui.plan.PlanDetailFragment"
+        tools:layout="@layout/fragment_plan_detail"
+        android:label="detail">
 
     </fragment>
 </navigation>
