@@ -70,10 +70,10 @@ class LoginActivity : AppCompatActivity() {
 
             setResult(Activity.RESULT_OK)
 
-            CoroutineScope(Dispatchers.Main).launch {
-                MainApplication.getInstance().getDataStore().setUserId(username.text.toString())
-                MainApplication.getInstance().getDataStore().setPassword(password.text.toString())
-            }
+//            CoroutineScope(Dispatchers.Main).launch {
+//                MainApplication.getInstance().getDataStore().setUserId(username.text.toString())
+//                MainApplication.getInstance().getDataStore().setPassword(password.text.toString())
+//            }
             if (loginResult.success != null) {
                 updateUiWithUser(loginResult.success)
                 startMainActivity()
