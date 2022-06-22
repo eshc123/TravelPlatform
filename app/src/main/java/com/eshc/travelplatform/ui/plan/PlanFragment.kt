@@ -9,14 +9,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentPlanBinding
 import com.eshc.domain.model.Itinerary
-import com.eshc.travelplatform.shared.util.adapter.CourseAdapter
-import com.eshc.travelplatform.shared.util.adapter.SpotAdapter
-import com.eshc.travelplatform.shared.util.dpToPx
+import com.eshc.travelplatform.util.adapter.CourseAdapter
+import com.eshc.travelplatform.util.adapter.SpotAdapter
+import com.eshc.travelplatform.util.dpToPx
 import com.eshc.travelplatform.ui.recommend.RecommendActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 

@@ -1,7 +1,6 @@
 package com.eshc.travelplatform.ui.plan
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentMyscheduleBinding
-import com.eshc.travelplatform.shared.util.adapter.MyscheduleAdapter
+import com.eshc.travelplatform.util.adapter.MyscheduleAdapter
 
 class MyscheduleFragment : Fragment() {
 

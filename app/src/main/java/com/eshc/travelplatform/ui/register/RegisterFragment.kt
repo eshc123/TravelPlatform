@@ -1,6 +1,5 @@
 package com.eshc.travelplatform.ui.register
 
-import android.content.DialogInterface
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -17,10 +16,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentRegisterBinding
-import com.eshc.travelplatform.shared.util.ext.afterTextChanged
+import com.eshc.travelplatform.util.ext.afterTextChanged
 import com.eshc.travelplatform.ui.MainActivity
 import com.eshc.travelplatform.ui.recommend.RecommendActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog

@@ -10,14 +10,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentSearchBinding
 import com.eshc.domain.model.Spot
-import com.eshc.travelplatform.shared.util.adapter.LocationCategoryAdapter
-import com.eshc.travelplatform.shared.util.adapter.SpotSuggestionAdapter
+import com.eshc.travelplatform.util.adapter.LocationCategoryAdapter
+import com.eshc.travelplatform.util.adapter.SpotSuggestionAdapter
 import com.eshc.travelplatform.ui.MainActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.launch

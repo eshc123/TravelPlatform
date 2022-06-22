@@ -3,7 +3,6 @@ package com.eshc.travelplatform.ui.login
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.Toast
@@ -11,19 +10,13 @@ import androidx.activity.viewModels
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.eshc.travelplatform.MainApplication
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.ActivityLoginBinding
-import com.eshc.travelplatform.shared.util.KeyboardVisibilityUtils
-import com.eshc.travelplatform.shared.util.ext.afterTextChanged
+import com.eshc.travelplatform.util.KeyboardVisibilityUtils
+import com.eshc.travelplatform.util.ext.afterTextChanged
 import com.eshc.travelplatform.ui.MainActivity
 import com.eshc.travelplatform.ui.register.RegisterFragment
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {

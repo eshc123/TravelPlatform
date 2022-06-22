@@ -1,17 +1,24 @@
 package com.eshc.data.repository
 
-import com.eshc.data.local.datasource.UserLocalDataSource
-import com.eshc.domain.model.Result
+import com.eshc.data.local.datasourceImpl.UserLocalDataSourceImpl
+import com.eshc.domain.model.Token
+import com.eshc.data.remote.datasourceImpl.UserRemoteDataSourceImpl
 import com.eshc.domain.model.User
 import com.eshc.domain.repository.UserRepository
-import java.io.IOException
-import java.util.*
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.single
 import javax.inject.Inject
 
-class UserRepositoryImpl @Inject constructor() : UserRepository {
+class UserRepositoryImpl @Inject constructor(val userRemoteDataSourceImpl: UserRemoteDataSourceImpl,
+                                             val userLocalDataSourceImpl: UserLocalDataSourceImpl
+) : UserRepository {
 
     var user: User? = null
         private set
+
+    private var cachedToken : Token? = null
+
     override fun logout() {
         user = null
 
@@ -51,6 +58,33 @@ class UserRepositoryImpl @Inject constructor() : UserRepository {
 //        else {
 //           // return Result.Error(IOException("Error logging in"))
 //        }
+    }
+
+    override suspend fun getToken(): Token {
+        val cachedToken = this.cachedToken
+        if(cachedToken != null){
+            return getRemoteToken().also {  }
+        }
+        val localToken = userLocalDataSourceImpl.getToken().firstOrNull()
+        if(localToken != null)
+            return localToken.also { this.cachedToken = it }
+        return refreshToken()
+    }
+
+    override suspend fun getRemoteToken(): Token {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun getLocalToken(): Token {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun refreshToken(): Token {
+        TODO("Not yet implemented")
+    }
+
+    override suspend fun saveToken(token: Token) {
+        TODO("Not yet implemented")
     }
 
     override fun setLoggedInUser(user: User) {

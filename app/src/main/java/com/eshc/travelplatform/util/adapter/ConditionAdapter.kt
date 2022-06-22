@@ -1,4 +1,4 @@
-package com.eshc.travelplatform.shared.util.adapter
+package com.eshc.travelplatform.util.adapter
 
 import android.content.Context
 import android.graphics.Color
