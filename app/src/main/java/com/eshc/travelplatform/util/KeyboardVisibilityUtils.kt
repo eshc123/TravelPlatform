@@ -1,4 +1,4 @@
-package com.eshc.travelplatform.shared.util
+package com.eshc.travelplatform.util
 
 import android.graphics.Rect
 import android.view.ViewTreeObserver

@@ -10,7 +10,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentKeepBinding
-import com.eshc.travelplatform.shared.util.adapter.KeepSpotAdapter
+import com.eshc.travelplatform.util.adapter.KeepSpotAdapter
 
 class KeepFragment : Fragment() {
 

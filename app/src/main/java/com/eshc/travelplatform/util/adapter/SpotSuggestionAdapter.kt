@@ -1,4 +1,4 @@
-package com.eshc.travelplatform.shared.util.adapter
+package com.eshc.travelplatform.util.adapter
 
 import androidx.fragment.app.Fragment
 import com.eshc.travelplatform.BR

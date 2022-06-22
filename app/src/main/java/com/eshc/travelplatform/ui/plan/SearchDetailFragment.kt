@@ -9,12 +9,11 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentSearchDetailBinding
 import com.eshc.domain.model.Spot
-import com.eshc.travelplatform.shared.util.dpToPx
+import com.eshc.travelplatform.util.dpToPx
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.coroutines.launch

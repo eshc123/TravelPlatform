@@ -1,6 +1,7 @@
 package com.eshc.travelplatform.di
 
 import com.eshc.data.local.datasourceImpl.CourseLocalDataSourceImpl
+import com.eshc.data.local.datasourceImpl.UserLocalDataSourceImpl
 import com.eshc.data.remote.datasourceImpl.SpotRemoteDataSourceImpl
 import com.eshc.data.remote.datasourceImpl.UserRemoteDataSourceImpl
 import com.eshc.data.repository.CourseRepositoryImpl
@@ -32,9 +33,10 @@ object RepositoryModule {
     @Provides
     @Singleton
     fun provideUserRepository(
-        userRemoteDataSourceImpl: UserRemoteDataSourceImpl
+        userRemoteDataSourceImpl: UserRemoteDataSourceImpl,
+        userLocalDataSourceImpl: UserLocalDataSourceImpl
     ) : UserRepository{
-        return UserRepositoryImpl()
+        return UserRepositoryImpl(userRemoteDataSourceImpl,userLocalDataSourceImpl)
     }
 
     @Provides

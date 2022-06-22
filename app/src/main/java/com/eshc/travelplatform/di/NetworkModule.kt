@@ -1,7 +1,7 @@
 package com.eshc.travelplatform.di
 
-import com.eshc.travelplatform.shared.util.Constants.BASE_URL
-import com.eshc.travelplatform.shared.util.Constants.TIME_OUT
+import com.eshc.travelplatform.util.Constants.BASE_URL
+import com.eshc.travelplatform.util.Constants.TIME_OUT
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

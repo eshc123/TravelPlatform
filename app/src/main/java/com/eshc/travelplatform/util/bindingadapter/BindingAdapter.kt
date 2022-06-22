@@ -1,16 +1,12 @@
-package com.eshc.travelplatform.shared.util.bindingadapter
+package com.eshc.travelplatform.util.bindingadapter
 
-import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
-import android.view.View
 import androidx.appcompat.widget.AppCompatImageView
-import androidx.appcompat.widget.AppCompatTextView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.eshc.travelplatform.R
-import com.eshc.travelplatform.shared.util.dpToPx
 
 object BindingAdapter {
     fun getGradientDrawable(
