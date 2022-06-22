@@ -37,6 +37,7 @@ dependencies {
     implementation (KTX.CORE)
     implementation (AndroidX.APP_COMPAT)
     implementation (Google.MATERIAL)
+    implementation (AndroidX.DATASTORE)
     testImplementation 'junit:junit:4.+'
     androidTestImplementation (AndroidTest.EXT_JUNIT)
     androidTestImplementation (AndroidTest.ESPRESSO_CORE)

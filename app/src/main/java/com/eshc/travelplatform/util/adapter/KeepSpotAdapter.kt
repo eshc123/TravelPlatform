@@ -1,4 +1,4 @@
-package com.eshc.travelplatform.shared.util.adapter
+package com.eshc.travelplatform.util.adapter
 
 import com.eshc.travelplatform.BR
 import com.eshc.travelplatform.R

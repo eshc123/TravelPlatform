@@ -1,4 +1,4 @@
-package com.eshc.travelplatform.shared.util
+package com.eshc.travelplatform.util
 
 object Constants {
     const val BASE_URL = ""

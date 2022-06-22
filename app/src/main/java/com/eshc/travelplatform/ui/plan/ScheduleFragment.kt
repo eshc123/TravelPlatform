@@ -8,7 +8,7 @@ import android.view.WindowManager
 import androidx.databinding.DataBindingUtil
 import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentScheduleBinding
-import com.eshc.travelplatform.shared.util.dpToPx
+import com.eshc.travelplatform.util.dpToPx
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
