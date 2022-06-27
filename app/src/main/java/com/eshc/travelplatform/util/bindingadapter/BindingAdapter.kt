@@ -4,6 +4,7 @@ import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.widget.AppCompatImageView
+import androidx.cardview.widget.CardView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.eshc.travelplatform.R
@@ -36,6 +37,12 @@ object BindingAdapter {
                 .into(view)
         }
 
+        view.requestLayout()
+    }
+
+    @BindingAdapter("cardBackgroundTint")
+    @JvmStatic fun setCardBackgroundTint(view: CardView, color : String) {
+        view.setCardBackgroundColor(0x123123)
         view.requestLayout()
     }
 

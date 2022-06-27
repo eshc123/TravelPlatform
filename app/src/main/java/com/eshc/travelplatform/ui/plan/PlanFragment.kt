@@ -23,7 +23,7 @@ class PlanFragment : Fragment() {
 
     private val planViewModel: PlanViewModel by viewModels()
     private lateinit var binding : FragmentPlanBinding
-
+    val test = "test"
 
     override fun onCreateView(
         inflater: LayoutInflater,
