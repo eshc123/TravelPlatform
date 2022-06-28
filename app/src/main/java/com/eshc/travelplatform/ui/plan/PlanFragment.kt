@@ -24,7 +24,6 @@ class PlanFragment : Fragment() {
     private val planViewModel: PlanViewModel by viewModels()
     private lateinit var binding : FragmentPlanBinding
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,6 +32,7 @@ class PlanFragment : Fragment() {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_plan, container, false)
         binding.fragment = this
+        binding.viewmodel = planViewModel
 
         val textView: AppCompatTextView = binding.tvPlanNum
         val recommendationAdapter = SpotAdapter()
@@ -42,7 +42,7 @@ class PlanFragment : Fragment() {
         binding.rvCourse.adapter = courseAdapter
 
         planViewModel.planNum.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            textView.text = it.toString()
         })
         planViewModel.recommendSpots.observe(viewLifecycleOwner, Observer {
             recommendationAdapter.replaceAll(it)

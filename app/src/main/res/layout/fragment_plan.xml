@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="viewmodel"
+            type="com.eshc.travelplatform.ui.plan.PlanViewModel" />
         <variable
             name="fragment"
             type="com.eshc.travelplatform.ui.plan.PlanFragment" />
@@ -83,89 +85,107 @@
                                 android:text="@string/intro_home"
                                 android:textColor="@color/white"
                                 android:textSize="18sp"
-                                app:layout_constraintBottom_toTopOf="@id/cl_add"
+                                app:layout_constraintBottom_toTopOf="@id/cv_add"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/cl_add"
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cv_add"
                                 android:layout_width="0dp"
                                 android:layout_height="62dp"
                                 android:layout_marginEnd="8dp"
                                 android:layout_marginBottom="28dp"
-                                android:background="@drawable/background_corner_round_main"
+                                app:cardBackgroundColor="@color/main_color"
+                                app:cardCornerRadius="10dp"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@id/cl_my"
+                                app:layout_constraintEnd_toStartOf="@id/cv_my"
                                 app:layout_constraintStart_toStartOf="parent">
 
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/tv_add_plan"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/pretendard_regular"
-                                    android:gravity="center"
-                                    android:text="일정 만들기"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/cl_add"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent">
 
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:id="@+id/cl_my"
+                                    <androidx.appcompat.widget.AppCompatTextView
+                                        android:id="@+id/tv_add_plan"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/pretendard_regular"
+                                        android:gravity="center"
+                                        android:text="일정 만들기"
+                                        android:textColor="@color/white"
+                                        android:textSize="14sp"
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent" />
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/cv_my"
                                 android:layout_width="0dp"
                                 android:layout_height="62dp"
                                 android:layout_marginStart="8dp"
                                 android:layout_marginBottom="28dp"
-                                android:background="@drawable/background_corner_round_main"
+                                app:cardBackgroundColor="@{viewmodel.planNum  == 0 ? @color/hint_color : @color/main_color }"
+                                app:cardCornerRadius="10dp"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toEndOf="@id/cl_add">
+                                app:layout_constraintStart_toEndOf="@id/cv_add">
 
-                                <androidx.appcompat.widget.LinearLayoutCompat
-                                    android:id="@+id/ll_plan_num"
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                    android:id="@+id/cl_my"
                                     android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:orientation="horizontal"
-                                    android:gravity="center"
-                                    app:layout_constraintVertical_chainStyle="packed"
-                                    app:layout_constraintBottom_toTopOf="@id/tv_plan_num_title"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent">
-                                    <androidx.appcompat.widget.AppCompatImageView
-                                        android:layout_width="14dp"
-                                        android:layout_height="14dp"
-                                        android:src="@drawable/ic_travel_case_white"
-                                        android:layout_marginEnd="4dp"/>
+                                    android:layout_height="match_parent">
+
+                                    <androidx.appcompat.widget.LinearLayoutCompat
+                                        android:id="@+id/ll_plan_num"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:gravity="center"
+                                        android:orientation="horizontal"
+                                        app:layout_constraintBottom_toTopOf="@id/tv_plan_num_title"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toTopOf="parent"
+                                        app:layout_constraintVertical_chainStyle="packed">
+
+                                        <androidx.appcompat.widget.AppCompatImageView
+                                            android:layout_width="14dp"
+                                            android:layout_height="14dp"
+                                            android:layout_marginEnd="4dp"
+                                            android:src="@drawable/ic_travel_case_white" />
+
+                                        <androidx.appcompat.widget.AppCompatTextView
+                                            android:id="@+id/tv_plan_num"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginStart="4dp"
+                                            android:fontFamily="@font/pretendard_regular"
+                                            android:gravity="center"
+                                            android:textColor="@color/white"
+                                            android:textSize="14sp"
+                                            tools:text="0" />
+                                    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
                                     <androidx.appcompat.widget.AppCompatTextView
-                                        android:id="@+id/tv_plan_num"
+                                        android:id="@+id/tv_plan_num_title"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginStart="4dp"
                                         android:fontFamily="@font/pretendard_regular"
                                         android:gravity="center"
+                                        android:text="나의 여행"
                                         android:textColor="@color/white"
                                         android:textSize="14sp"
-                                        tools:text="0" />
-                                </androidx.appcompat.widget.LinearLayoutCompat>
-
-
-                                <androidx.appcompat.widget.AppCompatTextView
-                                    android:id="@+id/tv_plan_num_title"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/pretendard_regular"
-                                    android:gravity="center"
-                                    android:textColor="@color/white"
-                                    android:textSize="14sp"
-                                    android:text="나의 여행"
-                                    app:layout_constraintBottom_toBottomOf="parent"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/ll_plan_num" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
+                                        app:layout_constraintBottom_toBottomOf="parent"
+                                        app:layout_constraintEnd_toEndOf="parent"
+                                        app:layout_constraintStart_toStartOf="parent"
+                                        app:layout_constraintTop_toBottomOf="@id/ll_plan_num" />
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </androidx.cardview.widget.CardView>
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,10 +16,10 @@ import kotlinx.coroutines.launch
 
 class PlanViewModel: ViewModel() {
 
-    private val _planNum = MutableLiveData<String>().apply {
-        value = "0"
+    private val _planNum = MutableLiveData<Int>().apply {
+        value = 0
     }
-    val planNum: LiveData<String> = _planNum
+    val planNum: LiveData<Int> = _planNum
 
     val spotRepositoryLocalImpl = SpotRepositoryLocalImpl(
         spotDataSource = MainApplication.getInstance().spotLocalDataSource,
