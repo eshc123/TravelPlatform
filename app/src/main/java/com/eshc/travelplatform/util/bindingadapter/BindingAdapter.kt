@@ -40,10 +40,5 @@ object BindingAdapter {
         view.requestLayout()
     }
 
-    @BindingAdapter("cardBackgroundTint")
-    @JvmStatic fun setCardBackgroundTint(view: CardView, color : String) {
-        view.setCardBackgroundColor(0x123123)
-        view.requestLayout()
-    }
 
 }
