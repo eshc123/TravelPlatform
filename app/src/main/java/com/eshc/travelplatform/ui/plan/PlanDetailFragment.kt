@@ -15,8 +15,6 @@ import com.eshc.travelplatform.R
 import com.eshc.travelplatform.databinding.FragmentPlanBinding
 import com.eshc.domain.model.Itinerary
 import com.eshc.travelplatform.databinding.FragmentPlanDetailBinding
-import com.eshc.travelplatform.util.adapter.CourseAdapter
-import com.eshc.travelplatform.util.adapter.SpotAdapter
 import com.eshc.travelplatform.util.dpToPx
 import com.eshc.travelplatform.ui.recommend.RecommendActivity
 import com.google.android.material.bottomsheet.BottomSheetBehavior
