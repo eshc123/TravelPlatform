@@ -1,5 +1,6 @@
 package com.eshc.travelplatform.di
 
+import com.eshc.data.remote.api.TravelService
 import com.eshc.travelplatform.util.Constants.BASE_URL
 import com.eshc.travelplatform.util.Constants.TIME_OUT
 import dagger.Module
@@ -34,6 +35,12 @@ object NetworkModule {
             .client(okHttpClient)
             .baseUrl(BASE_URL)
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideTravelService(retrofit: Retrofit) : TravelService {
+        return retrofit.create(TravelService::class.java)
     }
 
     private fun getLoggingInterceptor(): HttpLoggingInterceptor =

@@ -3,6 +3,7 @@ package com.eshc.travelplatform.di
 import android.content.Context
 import com.eshc.data.local.datasource.UserLocalDataSource
 import com.eshc.data.local.datasourceImpl.UserLocalDataSourceImpl
+import com.eshc.data.remote.api.TravelService
 import com.eshc.data.remote.datasource.SpotRemoteDataSource
 import com.eshc.data.remote.datasource.UserRemoteDataSource
 import com.eshc.data.remote.datasourceImpl.SpotRemoteDataSourceImpl
@@ -19,8 +20,8 @@ import javax.inject.Singleton
 object DataSourceModule {
     @Provides
     @Singleton
-    fun provideUserRemoteDataSource() : UserRemoteDataSource {
-        return UserRemoteDataSourceImpl()
+    fun provideUserRemoteDataSource(travelService: TravelService) : UserRemoteDataSource {
+        return UserRemoteDataSourceImpl(travelService)
     }
 
     @Provides
