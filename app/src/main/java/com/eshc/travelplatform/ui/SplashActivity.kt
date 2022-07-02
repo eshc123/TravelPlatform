@@ -23,7 +23,7 @@ class SplashActivity : AppCompatActivity() {
         }
     }
     private suspend fun isLogin() : Boolean {
-        return true
+        return false
       // return MainApplication.getInstance().isLogin()
     }
     private fun startLoginActivity() {
